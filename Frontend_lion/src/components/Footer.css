@@ -1,0 +1,65 @@
+footer {
+    padding-bottom: 20px;
+    background-image: linear-gradient(120deg, rgb(161, 196, 253) 0%, rgba(194, 233, 251, 0.937) 100%);
+}
+
+.contenedor_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 60px;
+    padding-bottom: 40px;
+}
+
+.contacto_us {
+    width: 40%;
+    color: black;
+}
+
+.marca {
+    font-weight: 500;
+    font-size: 40px;
+}
+
+.marca+p {
+    font-weight: 500;
+}
+
+.redes_sociales {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.red_csocial {
+    display: inline-block;
+    margin-left: 20px;
+    width: 40px;
+    height: 40px;
+    border: rgb(26, 24, 24) solid 1px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.red_csocial:hover {
+    background: #fff;
+    border: #fff solid 1px;
+}
+
+.red_csocial img {
+    width: 80%;
+    height: 80%;
+
+    padding: 2px;
+    cursor: pointer;
+}
+
+.linea {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 2px;
+    background: black;
+    margin-bottom: 40px;
+}

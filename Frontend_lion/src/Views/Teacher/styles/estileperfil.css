@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap%27');
+.color:hover{
+    border-bottom: 1px solid black;
+    font-size: 105%;
+}
+*{
+    font-family:  'Poppins', sans-serif;
+}
+
+body{
+    background: rgb(193,223,196);
+    background: linear-gradient(90deg, rgba(193,223,196,1) 0%, rgba(222,236,221,1) 100%);
+}
+nav{
+    display: flex;
+    padding: 10%;
+    align-items: center;
+    
+}
+
+#table{
+    display: flex;
+    align-items:flex-start ;
+    background-color: rgba(255, 255, 255, 0.637);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -1px 3px;
+}
+#pre{
+    display: flex;
+    width: 20%;
+    align-items: center;
+}
+img{
+    border: 2px solid white;
+    width: 60%;
+}
+#informacion1{
+    display:flex ;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 5%;
+    margin:  5% ;
+    background-color: rgba(255, 255, 255, 0.637);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
+}
+#caja{
+    
+    margin: auto;   
+    padding: 1%;
+}
