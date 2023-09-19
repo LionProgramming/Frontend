@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 import '../Admin/styles/AdminView.css';
 import '../Admin/styles/UserRegistration.css';
@@ -10,6 +10,7 @@ import Navbar from './prueba';
 
 
 function UserRegistration() {
+  const [inputValue, setInputValue]= useState('');
   return (
     <body className='body'>
       <header>
