@@ -80,11 +80,18 @@ main {
 #contenedor-tabla {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 4% 2%;
- 
-  width: 80%;
-}
 
+ 
+  width: auto;
+}
+#contenedor-tabla{
+  right: 8%;
+  width: 60%;
+  margin-top: 5%;
+  align-items: center;
+  margin-left: 10%;
+  
+}
 .card {
   display: flex;
   flex-direction: column;
@@ -139,7 +146,7 @@ main {
     }
     #contenedor-tabla {
       grid-template-columns: 1fr;
-      
+      width: 100%;
     }
   
     .card {

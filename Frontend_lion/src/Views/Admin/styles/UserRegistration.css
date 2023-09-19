@@ -1,12 +1,4 @@
 
-#contenedor-tabla {
-	margin-left: 5%;
-	width: 70%;
-	align-items: center;
-	
-  
-
-}
 
 ::placeholder,
 select {
@@ -19,6 +11,7 @@ select {
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 	font-size: 200%;
 	text-align: center;
+	margin-top: -5%;
 }
 
 .shadow-text {
@@ -42,7 +35,9 @@ select,
 	font-weight: 500;
 	outline: none;
 	text-shadow: 1px 1px 2px rgba(20, 51, 81, 0.716) !important;
-}
+	border-radius: 5px;
+	
+} 
 
 option {
 	background-color: rgba(34, 34, 34, 0.306);
@@ -51,13 +46,14 @@ option {
 }
 
 #button-register {
-	margin-left: 30%;
+	
+	margin-top: 10%;
 	align-self: center !important;
-	background: #ffffff36;
+	background: #2166b0;
 	border: 1px solid #fff;
 	cursor: pointer;
 	
-	color: #2166b0;
+	color: #ffffff;
 	font-size: 16px;
 	font-weight: 400;
 }
@@ -81,4 +77,15 @@ option {
 
 .min-text {
 	width: 105%;
+}
+#texttittle{
+	margin-top: 2%;
+}
+#exampleFormControlFile1{
+	height: 90% !important;
+}
+
+#contenedor-tabla{
+	margin-left: 5%;
+	width: 100%;
 }
