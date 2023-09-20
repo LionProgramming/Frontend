@@ -1,20 +1,15 @@
 import React from 'react';
 import './styles/HomePage.css';
 import Footer from '../../components/Footer'
-
-
 import img1 from '../../imagenes/icono.svg';
-
 import img2 from '../../imagenes/uno.jpg';
 import img3 from '../../imagenes/dos.jpg';
 import img4 from '../../imagenes/tres.jpg';
 import img5 from '../../imagenes/cuatro.jpg'
 import img6 from '../../imagenes/cinco.jpg'
 import img7 from '../../imagenes/seis.jpg'
-
 import img8 from '../../imagenes/cerrar.svg'
 import img9 from '../../imagenes/Instalaciones.jpg';
-
 import img10 from '../../imagenes/icono1.svg'
 import img11 from '../../imagenes/icono3.svg';
 import img12 from '../../imagenes/icono2.svg'

@@ -47,3 +47,7 @@ table td,table th{
     box-shadow:  rgba(182,241,246,1) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     color: black;
 }
+
+#tablaRegistros{
+    overflow-y: auto;
+}

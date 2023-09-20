@@ -27,7 +27,7 @@ function Navbar(){
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/salir" className="nav-link text-dark color" id="option">
+          <Link to="/Home" className="nav-link text-dark color" id="option">
             <i className="bi bi-box-arrow-right" id="icono"></i> Salir
           </Link>
         </li>

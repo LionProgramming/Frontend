@@ -11,6 +11,7 @@ import Navbar from './prueba';
 
 function UserRegistration() {
   const [inputValue, setInputValue]= useState('');
+  
   return (
     <body className='body'>
       <header>

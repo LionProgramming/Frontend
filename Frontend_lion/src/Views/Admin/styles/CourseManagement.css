@@ -57,3 +57,12 @@ table td,table th{
     margin-left: 20%;
     
 }
+
+#tablaRegistros{
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+#tablaRegistros::-webkit-scrollbar{
+    background-color: transparent;
+}

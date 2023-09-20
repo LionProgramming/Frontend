@@ -1,18 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../Admin/styles/UserManagement.css';
 import '../Admin/styles/AdminView.css';
 import Navbar from './prueba';
 
-function UserAdminPanel() {
+const UserAdminPanel = () => {
+
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, [])
+
+
+
+  const fetchData = async () => {
+    try {
+      const resultado = await axios("http://127.0.0.1:8000/api/usuarios");
+      console.log(resultado.data);
+      setUserData(resultado.data)
+    } catch (err) {
+      console.log("Algo esta mal");
+    }
+  }
   return (
     <body className='body'>
       <header>
-      <Navbar/>
+        <Navbar />
       </header>
       <section>
         <div className="container-fluid">
           <div className="row flex-nowrap">
-          <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
               <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <p className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                   <span className="fs-4 d-none d-sm-inline">Panel de administración</span>
@@ -77,7 +96,7 @@ function UserAdminPanel() {
                 <input type="text" className="form-control" id="area" placeholder="..." aria-label="Buscar" />
                 <button className="btn  btn-sm" type="button" id="search-button">Buscar</button>
               </div>
-              <div className="table-responsive col-8 col-md-0 col-xl-10 px-sm-1 px-0 mt-4">
+              <div className="table-responsive col-8 col-md-0 col-xl-10 px-sm-1 px-0 mt-4" id="tablaRegistros">
                 <table className="table table-striped  table-bordered" id="table-1">
                   <thead id="color-table">
                     <tr>
@@ -89,62 +108,29 @@ function UserAdminPanel() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Usuario 1</td>
-                      <td>usuario1@example.com</td>
-                      <td>Administrador</td>
-                      <td>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-pencil-fill"></i></button>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-eye-fill"></i></button>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-trash-fill"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Usuario 1</td>
-                      <td>usuario1@example.com</td>
-                      <td>Administrador</td>
-                      <td>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-pencil-fill"></i></button>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-eye-fill"></i></button>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-trash-fill"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Usuario 1</td>
-                      <td>usuario1@example.com</td>
-                      <td>Administrador</td>
-                      <td>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-pencil-fill"></i></button>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-eye-fill"></i></button>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-trash-fill"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Usuario 1</td>
-                      <td>usuario1@example.com</td>
-                      <td>Administrador</td>
-                      <td>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-pencil-fill"></i></button>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-eye-fill"></i></button>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-trash-fill"></i></button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Usuario 1</td>
-                      <td>usuario1@example.com</td>
-                      <td>Administrador</td>
-                      <td>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-pencil-fill"></i></button>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-eye-fill"></i></button>
-                        <button className="btn  btn-sm " id="icon"><i className="bi bi-trash-fill"></i></button>
-                      </td>
-                    </tr>
-
+                    {
+                      userData && userData.map((user, i) => {
+                        return (
+                          <tr key={i}>
+                            <td>{i+1}</td>
+                            <td>{user.nombre1 + user.nombre2}</td>
+                            <td>{user.email}</td>
+                            <td>{user.Rol}</td>
+                            <td>
+                              <button className="btn  btn-sm " id="icon">
+                                <i className="bi bi-pencil-fill"></i>
+                              </button>
+                              <button className="btn  btn-sm " id="icon">
+                                <i className="bi bi-eye-fill"></i>
+                              </button>
+                              <button className="btn  btn-sm " id="icon">
+                                <i className="bi bi-trash-fill"></i>
+                              </button>
+                            </td>
+                          </tr>
+                        )
+                      })
+                    }
                   </tbody>
                 </table>
               </div>
@@ -156,6 +142,7 @@ function UserAdminPanel() {
       </section>
     </body>
   );
-}
+
+};
 
 export default UserAdminPanel;
