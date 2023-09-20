@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../Admin/styles/UserManagement.css';
 import '../Admin/styles/AdminView.css';
+import {NavLink} from 'react-router-dom';
 import Navbar from './prueba';
 
 const UserAdminPanel = () => {
@@ -17,14 +18,24 @@ const UserAdminPanel = () => {
   const fetchData = async () => {
     try {
       const resultado = await axios("http://127.0.0.1:8000/api/usuarios");
-      console.log(resultado.data);
+     
       setUserData(resultado.data)
     } catch (err) {
       console.log("Algo esta mal");
     }
   }
+  const handleDelete=async(documento)=>{
+    console.log(documento);
+    await axios.delete("http://127.0.0.1:8000/api/usuarios/deleteusuario/"+documento);
+    const newUserData=userData.filter((item)=>{
+      return(
+        item.documento !== documento
+      )
+    })
+    setUserData(newUserData);
+  }
   return (
-    <body className='body'>
+    <div className='body'>
       <header>
         <Navbar />
       </header>
@@ -117,15 +128,15 @@ const UserAdminPanel = () => {
                             <td>{user.email}</td>
                             <td>{user.Rol}</td>
                             <td>
-                              <button className="btn  btn-sm " id="icon">
+                                <NavLink to={`/usuarios/${user.documento}`} className="btn  btn-sm" id="icon">
                                 <i className="bi bi-pencil-fill"></i>
-                              </button>
-                              <button className="btn  btn-sm " id="icon">
+                                </NavLink>
+                                <NavLink to={`/usuarioshow/${user.documento}`} className="btn  btn-sm" id="icon">
                                 <i className="bi bi-eye-fill"></i>
-                              </button>
-                              <button className="btn  btn-sm " id="icon">
+                                </NavLink>
+                                <button className="btn  btn-sm" id="icon" onClick={()=>handleDelete(user.documento)}> 
                                 <i className="bi bi-trash-fill"></i>
-                              </button>
+                                </button>
                             </td>
                           </tr>
                         )
@@ -140,7 +151,7 @@ const UserAdminPanel = () => {
         </div>
 
       </section>
-    </body>
+    </div>
   );
 
 };

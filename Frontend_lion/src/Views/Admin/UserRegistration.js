@@ -13,7 +13,7 @@ function UserRegistration() {
   const [inputValue, setInputValue]= useState('');
   
   return (
-    <body className='body'>
+    <div className='body'>
       <header>
 
       <Navbar/>
@@ -165,7 +165,7 @@ function UserRegistration() {
 
       </section>
 
-    </body>
+    </div>
 
   );
 }

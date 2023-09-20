@@ -6,7 +6,7 @@ import Navbar from './prueba';
 
 function AdminDashboard() {
   return (
-    <body className='body'>
+    <div className='body'>
       <header>
         <Navbar/>
      
@@ -84,7 +84,7 @@ function AdminDashboard() {
                     <hr />
                   </div>
                   <hr />
-                  <h1 >12</h1>
+                  <h1 className='text-center'>12</h1>
                 </div>
                 <div className="card">
                   <div className="card-inner">
@@ -92,7 +92,7 @@ function AdminDashboard() {
                     <i className="bi bi-pencil-fill icon-card"></i>
                   </div>
                   <hr />
-                  <h1>12</h1>
+                  <h1 className='text-center'>12</h1>
                 </div>
                 <div className="card">
                   <div className="card-inner">
@@ -100,15 +100,15 @@ function AdminDashboard() {
                     <i className="bi bi-spellcheck icon-card"></i>
                   </div>
                   <hr />
-                  <h1 >15</h1>
+                  <h1 className='text-center' >15</h1>
                 </div>
                 <div className="card">
                   <div className="card-inner">
-                    <h3>Coordinador</h3>
+                    <h3 >Coordinador</h3>
                     <i className="bi bi-clipboard-data icon-card"></i>
                   </div>
                   <hr />
-                  <h1 >12</h1>
+                  <h1 className='text-center' >12</h1>
                 </div>
                 <div className="card">
                   <div className="card-inner">
@@ -116,7 +116,7 @@ function AdminDashboard() {
                     <i className="bi bi-person-bounding-box icon-card"></i>
                   </div>
                   <hr />
-                  <h1 >12</h1>
+                  <h1 className='text-center'>12</h1>
                 </div>
                 <div className="card">
                   <div className="card-inner">
@@ -124,14 +124,14 @@ function AdminDashboard() {
                     <i className="bi bi-hexagon-fill icon-card"></i>
                   </div>
                   <hr />
-                  <h1 >12</h1>
+                  <h1 className='text-center'>12</h1>
                 </div>
               </div>
             </div>
           </div>
         </section>
       </div>
-    </body>
+    </div>
   );
 }
 
