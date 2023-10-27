@@ -7,6 +7,7 @@ import UserManagement from './Views/Admin/UserManagement';
 import ScheduleManagement from './Views/Admin/ScheduleManagement'; 
 import CourseManagement from './Views/Admin/CourseManagement';
 import AdminView from './Views/Admin/AdminView';
+import ViewUser from './Views/Admin/ViewUser';
 
 //vista estudiante
 /* import Observations from './Views/Student/Observations';
@@ -24,6 +25,7 @@ function App() {
       <Route path="/UserAdministration" component={UserManagement}/>
       <Route path="/UserRegistration" component={UserRegistration}/>
       <Route path="/Calendar" component={ScheduleManagement}/>
+      <Route path="/view/:id" component={ViewUser}/>
       {/* <Route path="/Hom" component={HomePage}/> */}
       </Switch>
     </Router>

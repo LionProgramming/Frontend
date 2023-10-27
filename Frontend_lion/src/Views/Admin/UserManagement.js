@@ -131,7 +131,7 @@ const UserAdminPanel = () => {
                                 <NavLink to={`/usuarios/${user.documento}`} className="btn  btn-sm" id="icon">
                                 <i className="bi bi-pencil-fill"></i>
                                 </NavLink>
-                                <NavLink to={`/usuarioshow/${user.documento}`} className="btn  btn-sm" id="icon">
+                                <NavLink to={`/view/${user.documento}`} className="btn  btn-sm" id="icon">
                                 <i className="bi bi-eye-fill"></i>
                                 </NavLink>
                                 <button className="btn  btn-sm" id="icon" onClick={()=>handleDelete(user.documento)}> 
