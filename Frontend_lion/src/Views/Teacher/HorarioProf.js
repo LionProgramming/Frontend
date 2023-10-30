@@ -1,10 +1,9 @@
-import '../Teacher/styles//HorarioProf.css';
-import img from './img/imgtrabajo.png'
-import img from './img/imgtrabajo.png'
+import './styles/HorarioProf.css'
+import './img/imgtrabajo.png'
 
 function HorarioProfesor() {
   return (
-    <body >
+    <body>
 
       <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-transparent" id="nav">

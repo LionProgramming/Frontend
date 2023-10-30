@@ -46,7 +46,7 @@ function IndexProfesor() {
           </div>
           <div>
             <br />
-            <P>NOMBRE DEL DOCENTE</P>
+            <p>NOMBRE DEL DOCENTE</p>
             <p>Curso asignado: 501</p>
             <p>Materias dictadas: Español</p>
           </div>
