@@ -10,11 +10,13 @@ import AdminView from './Views/Admin/AdminView';
 import ViewUser from './Views/Admin/ViewUser';
 
 
+
 //vista estudiante
-/*
-import Observations from './Views/Student/Observations';
-import IndexStudent from './Views/Student/Observations';
-import Schedule from './Views/Student/schedule'; */
+
+import Observations from './Views/Student/ObservationEst';
+import IndexEstudante from './Views/Student/IndexStudent';
+import Schedule from './Views/Student/schedule';
+import ObservationsEst from './Views/Student/ObservationsEst';
 
 //vista profesor 
 import BusquedaObservador from './Views/Teacher/BusquedaObservador';
@@ -43,6 +45,14 @@ function App() {
       <Route path="/observador-prof" component={BusquedaObservador}/>
       <Route path="/observador-prof" component={HorarioProfesor}/>
       <Route path="/observador-prof" component={IndexProfesor}/>
+
+      {/* Router estudiante */}
+
+      <Route path="/index-est" component={IndexEstudante}/>
+      <Route path="/observador-est" component={Observations}/>
+      <Route path="/horario-est" component={Schedule}/>
+      <Route path="/observaciones-est" component={ObservationsEst}/>
+      
 
       </Switch>
     </Router>
