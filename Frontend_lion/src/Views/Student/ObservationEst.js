@@ -1,10 +1,10 @@
 import React from 'react';
-import './styles/schedule.css';
-import SidebarHome from './components-estudiante/SideBarHorario.js';
-import horario from '../Student/img/C_Prof.png'
+import './styles/Observation.css';
+import SideBarNone from './components-estudiante/SidebarNone.js';
+import firma from '../Student/img/imgfirma.png'
 
 
-function Schedule() {
+function ObservationEst() {
   return (
     <>
       <header>
@@ -39,22 +39,45 @@ function Schedule() {
       </header>
 
       <div className='content'>
-        
-      <SidebarHome/>
+      <SideBarNone/>
 
+      <section id="seccion">
         <div className='tabla'>
           <div id='tl-tabla'>
-            <h3>Mi horario</h3>
+            <h3>Observacion</h3>
           </div>
-            <h3 id='titulo-curso'>502</h3>
-            <img src={horario} id='horario-foto'>
-                </img>
-        </div>
+          <div id='cont-ob'>
 
+            <article id='info-user'>
+              <div id='info-student'>
+                <table id='tabla-info'>
+                  <tr>
+                    <td id='celda'>Motivo:</td>
+                    <td id='celda'>Mal comportamiento</td>
+                  </tr>
+                  <tr>
+                    <td id='celda'>Fecha:</td>
+                    <td id='celda'>15/08/2022</td>
+                  </tr>
+                  <tr>
+                    <td id='celda'>Realizada por:</td>
+                    <td id='celda'>Augusto Gomez</td>
+                  </tr>
+                  <tr>
+                    <td id='celda'>Firma</td>
+                    <td id='celda'><img src={firma}/></td>
+                  </tr>
+                </table>
+              </div>
+            </article>
+          </div>
+        </div>
+        
+      </section>
       
       </div>
     </>
   );
 }
 
-export default Schedule;
+export default ObservationEst;

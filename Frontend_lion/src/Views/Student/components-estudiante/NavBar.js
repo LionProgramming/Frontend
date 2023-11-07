@@ -1,14 +1,9 @@
-import React from 'react';
-import './styles/schedule.css';
-import SidebarHome from './components-estudiante/SideBarHorario.js';
-import horario from '../Student/img/C_Prof.png'
+import React from "react";
+import '../../Admin/styles/AdminView.css'
 
+function NavBar (){
 
-function Schedule() {
-  return (
-    <>
-      <header>
-        <nav className="navbar navbar-expand-md navbar-dark bg-transparent" id="nav">
+  <nav className="navbar navbar-expand-md navbar-dark bg-transparent" id="nav">
           <div className="container-fluid">
             <button className="navbar-toggler" id="hamburguesa" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
               <i className="bi bi-list" width="32" height="32"></i>
@@ -36,25 +31,6 @@ function Schedule() {
             </div>
           </div>
         </nav>
-      </header>
-
-      <div className='content'>
-        
-      <SidebarHome/>
-
-        <div className='tabla'>
-          <div id='tl-tabla'>
-            <h3>Mi horario</h3>
-          </div>
-            <h3 id='titulo-curso'>502</h3>
-            <img src={horario} id='horario-foto'>
-                </img>
-        </div>
-
-      
-      </div>
-    </>
-  );
 }
 
-export default Schedule;
+export default NavBar;
