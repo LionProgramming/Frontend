@@ -1,5 +1,5 @@
 import React from "react";
-import '../../Admin/styles/AdminView.css'
+import './EstilosComponentes.css'
 
 function SidebarCourse () {
     return(
