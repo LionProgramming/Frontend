@@ -17,9 +17,10 @@ const UserAdminPanel = () => {
 
   const fetchData = async () => {
     try {
-      const resultado = await axios("http://127.0.0.1:8000/api/usuarios");
+      const resultado = await axios("http://127.0.0.1:8000/api/v1/users/");
      
       setUserData(resultado.data)
+      console.log(resultado.data)
     } catch (err) {
       console.log("Algo esta mal");
     }
@@ -41,7 +42,7 @@ const UserAdminPanel = () => {
       </header>
       <section>
         <div className="container-fluid">
-          <div className="row flex-nowrap">
+          <div className="row flex-nowrap" id='contenedor-wrap'>
             <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
               <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <p className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -108,10 +109,10 @@ const UserAdminPanel = () => {
                 <button className="btn  btn-sm" type="button" id="search-button">Buscar</button>
               </div>
               <div className="table-responsive col-8 col-md-0 col-xl-10 px-sm-1 px-0 mt-4" id="tablaRegistros">
-                <table className="table table-striped  table-bordered" id="table-1">
+                <table className="table-striped  table-bordered" id="table-show-users">
                   <thead id="color-table">
                     <tr>
-                      <th className="col-1"> ID</th>
+                      <th className='col-1'> ID</th>
                       <th>Nombre</th>
                       <th>Correo Electrónico</th>
                       <th>Rol</th>
@@ -126,7 +127,7 @@ const UserAdminPanel = () => {
                             <td>{i+1}</td>
                             <td>{user.nombre1 + user.nombre2}</td>
                             <td>{user.email}</td>
-                            <td>{user.Rol}</td>
+                            <td>{user.rol_idrol}</td>
                             <td>
                                 <NavLink to={`/usuarios/${user.documento}`} className="btn  btn-sm" id="icon">
                                 <i className="bi bi-pencil-fill"></i>

@@ -1,6 +1,3 @@
-body{
-    
-}
 
 h2{
     color: white;
@@ -21,14 +18,7 @@ h2{
     border: 1px solid rgba(3, 3, 3, 0.072);
     
 }
-#contenedor-tabla{
-    right: 8%;
-    width: 60%;
-    margin-top: 5%;
-    align-items: center;
-    margin-left: 12%;
-    
-}
+
 
 #table-1{
     box-shadow: rgba(50, 50, 93, 0.196) 0px 8px 3px -5px, rgba(0, 0, 0, 0.202) 0px 8px 1px -8px;
@@ -51,22 +41,4 @@ table td,table th{
 #icon:hover{
     box-shadow:  rgba(182,241,246,1) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     color: black;
-}
-/* Modulo registro  */
-#contenedor-tabla2{
-    right: 8%;
-    width: 60%;
-    margin-top: 5%;
-    align-items: center;
-    margin-left: 20%;
-    
-}
-
-#tablaRegistros{
-    overflow-y: auto;
-    max-height: 500px;
-}
-
-#tablaRegistros::-webkit-scrollbar{
-    background-color: transparent;
 }

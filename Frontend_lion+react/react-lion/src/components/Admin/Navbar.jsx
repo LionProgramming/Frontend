@@ -1,7 +1,4 @@
-import React from "react";
 import { Link } from 'react-router-dom';
-import imagen from './imagenes/foto.png'
-
 function Navbar(){
   return(
         
