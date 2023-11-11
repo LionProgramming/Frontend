@@ -1,7 +1,6 @@
-import '../css/Login.css'
-import Fotter from "../components/General/Footer.jsx";
-import img from "../images/bx-user.svg";
-
+import '../../css/Login.css'
+import Fotter from "../../components/General/Footer.jsx";
+import img from "../../images/bx-user.svg";
 
 const validarcampos = () => {
   const regex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
