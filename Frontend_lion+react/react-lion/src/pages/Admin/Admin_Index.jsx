@@ -5,9 +5,6 @@ import Navbar from "../../components/Admin/Navbar.jsx";
 function AdminDashboard() {
   return (
     <div className="body">
-      <div className="header">
-       
-      </div>
       <div>
       <Navbar/>
         <section>
