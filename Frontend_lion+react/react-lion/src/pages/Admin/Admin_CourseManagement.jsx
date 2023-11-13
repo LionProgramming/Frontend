@@ -61,7 +61,7 @@ function CourseManagement() {
                     <li>
                       <hr className="dropdown-divider" />
                     </li>
-                    <li><a className="dropdown-item" href="../Index.html">Salir</a></li>
+                    <li><a className="dropdown-item" href="/">Salir</a></li>
                   </ul>
                 </div>
               </div>

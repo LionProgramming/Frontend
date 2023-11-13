@@ -433,6 +433,13 @@ footer {
     .menu_navegacion {
         width: 100%;
     }
+    #option{
+        margin-left: 60%;
+    }
+    .color:hover{
+        border: none;
+        font-size: 100%;
+    }
 
     .titulo {
         font-size: 30px;

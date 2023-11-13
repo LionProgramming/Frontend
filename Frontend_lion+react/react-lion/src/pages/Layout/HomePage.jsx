@@ -20,7 +20,7 @@ function Home() {
         <nav className="navbar navbar-dark bg-transparent" id="nav1">
           <div className="container-fluid">
             <i className="bi bi-list hamburguesa" id="button-burger"></i>
-            <a href="/login" className="nav-link color" id="option">
+            <a href="/login" className="nav-link color d-sm-inline" id="option" >
             Ingresar <i className="bi bi-box-arrow-in-right"></i>
             </a>
           </div>
