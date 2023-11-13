@@ -13,6 +13,7 @@ h2{
     background-color: rgba(173, 231, 238, 0.559) ;
     font-weight: bold;
     border: 1px solid rgb(161, 214, 218);
+    
 }
 #search-button:hover{
     background-color: rgb(100, 200, 209);

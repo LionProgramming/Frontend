@@ -2,7 +2,6 @@
     margin-top: 3%;
     width: 80%;
     padding-left: 5%;
-    border: 1px solid red;
     text-align: center;
 }
 #icon-register {
@@ -63,10 +62,7 @@ option {
 	opacity: 0.6;
 }
 
-#button-register:focus {
-	outline: none;
-	border: 1px solid rgba(159, 34, 34, 0.9);
-}
+
 
 .form-control {
 	text-align: center !important;
@@ -83,8 +79,31 @@ option {
 #link-image input{
 	width: 107.5%;
 }
-
-
+#last-option{
+	border: 1px solid black;
+	margin-top: 5% !important;
+	padding-top: 5%;
+}
+@media only screen and (max-width: 768px ) {
+	#container-register{
+        margin-left: 0;
+        margin-top: 0;
+        width: 70%;
+        
+		height: 70%;
+    }
+	
+	input[type=password]{
+        width: 100%;
+    }
+	#check-image{
+        margin-top: 10%;
+        font-size: 70%;
+       
+		width: auto;
+		height: auto;
+    }
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -92,7 +111,8 @@ option {
         margin-left: 0;
         margin-top: 0;
         width: 70%;
-        padding-top: 5%;
+        
+		height: 70%;
     }
     input[type=password]{
         width: 100%;

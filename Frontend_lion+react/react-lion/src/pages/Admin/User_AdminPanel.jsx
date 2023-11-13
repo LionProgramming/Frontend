@@ -60,7 +60,7 @@ const UserAdminPanel = () => {
                     </a>
                     <ul className="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                       <li className="w-100">
-                        <a href="/UserRegistration" className="nav-link px-0 text-white" id="contenedor1"> <span
+                        <a href="/Register" className="nav-link px-0 text-white" id="contenedor1"> <span
                           className="d-none d-sm-inline" id="text-hover">Registrar usuario</span><i className="fs-4 bi bi-plus"
                             id="text-hover"></i></a>
                       </li>

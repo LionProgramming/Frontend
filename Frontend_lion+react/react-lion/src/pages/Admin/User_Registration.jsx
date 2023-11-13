@@ -13,7 +13,7 @@ function UserRegistration() {
             <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
               <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <p className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                  <span className="fs-4 d-none d-sm-inline">
+                  <span className="fs-5 d-none d-sm-inline">
                     Panel de administración
                   </span>
                 </p>
@@ -117,7 +117,7 @@ function UserRegistration() {
                     </a>
                   </li>
                 </ul>
-                <div className="dropdown pb-4">
+                <div className="dropdown pb-7" id="last-option">
                   <a
                     href="#"
                     className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
@@ -148,7 +148,7 @@ function UserRegistration() {
                       />
                     </li>
                     <li>
-                      <a className="dropdown-item" href="../Index.html">
+                      <a className="dropdown-item" href="/">
                         Salir
                       </a>
                     </li>
@@ -161,7 +161,7 @@ function UserRegistration() {
                     <i className="bi bi-person-plus-fill  bi-grid" id="icon-register"></i>
                     <form className="validation">
                         <div className="row g-3">
-                            <div className="col-sm-6">
+                            <div className="col-sm-6 col-md-6">
                                 <label htmlFor="nombre" className="form-label shadow-text ">Primer nombre</label>
                                 <input type="text" className="form-control col-2" id="nombre1" placeholder=" " name="Nombre" required />
                             
@@ -197,7 +197,7 @@ function UserRegistration() {
                             
 
                             </div>
-                            <div className="col-sm-6">
+                            <div className="col-sm-6 col-md-6">
                                 
                                 <label htmlFor="nombre" className="form-label shadow-text col">Segundo nombre </label>
                                 <input type="text" className="form-control" id="nombre2" placeholder="*Opcional" name="Nombre" />
