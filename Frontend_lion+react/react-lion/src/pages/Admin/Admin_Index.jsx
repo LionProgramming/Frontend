@@ -22,7 +22,7 @@ function AdminDashboard() {
                     id="menu"
                   >
                     <li className="nav-item">
-                      <a href="/index" className="nav-link align-middle px-0">
+                      <a href="/Adashboard" className="nav-link align-middle px-0">
                         <i className="fs-4 bi bi-house" id="active"></i>{" "}
                         <span
                           className="ms-1 d-none d-sm-inline text-white"
@@ -53,7 +53,7 @@ function AdminDashboard() {
                       >
                         <li className="w-100">
                           <a
-                            href="/UserRegistration"
+                            href="/Register"
                             className="nav-link px-0 text-white"
                             id="contenedor1"
                           >
@@ -148,7 +148,7 @@ function AdminDashboard() {
                         />
                       </li>
                       <li>
-                        <a className="dropdown-item" href="../Index.html">
+                        <a className="dropdown-item" href="/">
                           Salir
                         </a>
                       </li>
