@@ -1,5 +1,5 @@
 import Navbar from "../../components/Admin/Navbar";
-import "../../css/User_Calendar.css";
+import "../../css/Admin_Calendar.css";
 function UserCalendar() {
   return (
     <body className='body_Calendar'>
@@ -17,7 +17,7 @@ function UserCalendar() {
                 </p>
                 <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                   <li className="nav-item">
-                    <a href="/index" className="nav-link align-middle px-0">
+                    <a href="/Adashboard" className="nav-link align-middle px-0">
                       <i className="fs-4 bi bi-house" id="icono2"></i> <span className="ms-1 d-none d-sm-inline text-white"
                         id="text-hover">Inicio</span>
                     </a>
@@ -29,7 +29,7 @@ function UserCalendar() {
                     </a>
                     <ul className="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                       <li className="w-100">
-                        <a href="/UserRegistration" className="nav-link px-0 text-white" id="contenedor1"> <span
+                        <a href="/Register" className="nav-link px-0 text-white" id="contenedor1"> <span
                           className="d-none d-sm-inline" id="text-hover">Registrar usuario</span><i className="fs-4 bi bi-plus"
                             id="text-hover"></i></a>
                       </li>
@@ -47,7 +47,7 @@ function UserCalendar() {
                     </a>
                   </li>
                   <li>
-                    <a href="./Courses" className="nav-link px-0 align-middle ">
+                    <a href="/CourseManagement" className="nav-link px-0 align-middle ">
                       <i className="fs-4 bi-grid" id="icono2"></i> <span className="ms-1 d-none d-sm-inline text-white"
                         id="text-hover">Gestión de cursos</span>
                     </a>

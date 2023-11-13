@@ -1,5 +1,5 @@
 import Navbar from "../../components/Admin/Navbar";
-import '../../css/User_Registration.css'
+import '../../css/Admin_Registration.css'
 function UserRegistration() {
   
   
@@ -104,7 +104,7 @@ function UserRegistration() {
                   </li>
                   <li>
                     <a
-                      href="./Courses"
+                      href="/CourseManagement"
                       className="nav-link px-0 align-middle "
                     >
                       <i className="fs-4 bi-grid" id="icono2"></i>{" "}

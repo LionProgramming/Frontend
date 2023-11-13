@@ -104,7 +104,7 @@ function AdminDashboard() {
                     </li>
                     <li>
                       <a
-                        href="./Courses"
+                        href="./CourseManagement"
                         className="nav-link px-0 align-middle "
                       >
                         <i className="fs-4 bi-grid" id="icono2"></i>{" "}

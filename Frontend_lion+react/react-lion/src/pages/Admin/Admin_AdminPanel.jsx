@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../../css/User_AdminPanel.css'
+import '../../css/Admin_AdminPanel.css'
 import {NavLink} from 'react-router-dom';
 import Navbar from '../../components/Admin/Navbar';
 import img from '../../images/foto.PNG'
@@ -78,7 +78,7 @@ const UserAdminPanel = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="./Courses" className="nav-link px-0 align-middle ">
+                    <a href="/CourseManagement" className="nav-link px-0 align-middle ">
                       <i className="fs-4 bi-grid" id="icono2"></i> <span className="ms-1 d-none d-sm-inline text-white"
                         id="text-hover">Gestión de cursos</span>
                     </a>

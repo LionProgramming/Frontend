@@ -117,7 +117,7 @@ option{
     width: 80%;
     margin-top: 5%;
     align-items: center;
-    border: 1px solid red;
+
 }
 
 .seleccionador{
@@ -151,7 +151,7 @@ option{
     
     #busqueda select{
         width: 100%;
-        border: 1px solid blue;
+        
         margin-top: 5%;
     }
     #busqueda button{
@@ -166,7 +166,7 @@ option{
 }
 #busqueda select{
     width: 100%;
-    border: 1px solid blue;
+  
     margin-top: 5%;
 }
 #busqueda button{
