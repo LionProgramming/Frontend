@@ -126,26 +126,26 @@ function UserRegistration() {
                   </div>
                   
                   <div className='col-6' id="col2">
-                  <label htmlFor="nombre" className="form-label shadow-text col">Segundo nombre </label>
-                        <input type="text" className="form-control" id="nombre" placeholder="*Opcional" name="Nombre" />
-                        <label htmlFor="nombre" className="form-label shadow-text">Segundo apellido </label>
-                        <input type="text" className="form-control" id="nombre" placeholder="" name="Nombre" required />
-                        <label for="fechaNacimiento" className="form-label shadow-text">Fecha de Nacimiento</label>
-                      <input type="date" id="fechaNacimiento " className="form-control" name="fechaNacimiento" required></input>
-                      
-                        <label htmlFor="correo" className="form-label shadow-text">Correo Electrónico</label>
-                        <input type="text" className="form-control" id="correo" required />
-                        <label for="telefono" className="form-label shadow-text min-text">Teléfono</label>
-                      <input type="tel" id="telefono" className="form-control" name="telefono" placeholder="Ejemplo: (601) 456-7890"></input>
+                    <label htmlFor="nombre" className="form-label shadow-text col">Segundo nombre </label>
+                          <input type="text" className="form-control" id="nombre" placeholder="*Opcional" name="Nombre" />
+                          <label htmlFor="nombre" className="form-label shadow-text">Segundo apellido </label>
+                          <input type="text" className="form-control" id="nombre" placeholder="" name="Nombre" required />
+                          <label for="fechaNacimiento" className="form-label shadow-text">Fecha de Nacimiento</label>
+                        <input type="date" id="fechaNacimiento " className="form-control" name="fechaNacimiento" required></input>
+                        
+                          <label htmlFor="correo" className="form-label shadow-text">Correo Electrónico</label>
+                          <input type="text" className="form-control" id="correo" required />
+                          <label for="telefono" className="form-label shadow-text min-text">Teléfono</label>
+                        <input type="tel" id="telefono" className="form-control" name="telefono" placeholder="Ejemplo: (601) 456-7890"></input>
 
-                      <label for="celular" className="form-label shadow-text min-text">Celular</label>
-                      <input type="tel" id="celular" className="form-control" name="celular" placeholder="Ejemplo: (+57) 313333333"></input>
-                      
-                      <div className="form-group">
-                        <label for="exampleFormControlFile1" className='form-label shadow-text'>Insertar foto :</label>
-                        <input type="file" className="form-control-file" id="exampleFormControlFile1"></input>
-                        <button type="submit" className="btn btn-primary" id="button-register">Registrar</button>
-                      </div> 
+                        <label for="celular" className="form-label shadow-text min-text">Celular</label>
+                        <input type="tel" id="celular" className="form-control" name="celular" placeholder="Ejemplo: (+57) 313333333"></input>
+                        
+                        <div className="form-group">
+                          <label for="exampleFormControlFile1" className='form-label shadow-text'>Insertar foto :</label>
+                          <input type="file" className="form-control-file" id="exampleFormControlFile1"></input>
+                          <button type="submit" className="btn btn-primary" id="button-register">Registrar</button>
+                        </div> 
                   </div>
                 </div>
               </div>

@@ -1,0 +1,11 @@
+.container-navbar_Student{
+    width: 100%;
+   }
+.container-navbar_Student a{
+   margin-left: 5%;
+}
+   @media only screen and (max-width: 600px) {
+       .container-navbar{
+         display: none;
+       }
+       }
