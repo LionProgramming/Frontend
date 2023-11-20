@@ -8,23 +8,22 @@ import img from '../../images/foto.PNG'
 const UserAdminPanel = () => {
 
   const [userData, setUserData] = useState([]);
+  const [modalData, setModalData] = useState(null);
 
   useEffect(() => {
     fetchData();
   }, [])
-
-
-
   const fetchData = async () => {
     try {
       const resultado = await axios("http://127.0.0.1:8000/api/v1/users/");
      
       setUserData(resultado.data)
-      console.log(resultado.data)
+    
     } catch (err) {
       console.log("Algo esta mal");
     }
   }
+  
   const handleDelete=async(documento)=>{
     console.log(documento);
     await axios.delete("http://127.0.0.1:8000/api/usuarios/deleteusuario/"+documento);
@@ -34,7 +33,13 @@ const UserAdminPanel = () => {
       )
     })
     setUserData(newUserData);
+  
   }
+const modalView=async(documento)=>{
+  const usuario =await axios.get(`http://127.0.0.1:8000/api/v1/users/${documento}`);
+  setModalData(usuario.data);
+}
+
   return (
     <div className='bodyAdminPanel'>
         <Navbar/>
@@ -123,16 +128,17 @@ const UserAdminPanel = () => {
                         return (
                           <tr key={i}>
                             <td>{i+1}</td>
-                            <td>{user.nombre1 +" "+ user.nombre2}</td>
+                            <td>{user.nombre1 + (user.nombre2 ? ` ${user.nombre2}` : '')}
+                            </td>
                             <td>{user.email}</td>
                             <td>{user.rol}</td>
                             <td>
                                 <NavLink to={`/usuarios/${user.documento}`} className="btn  btn-sm" id="icon">
                                 <i className="bi bi-pencil-fill"></i>
                                 </NavLink>
-                                <NavLink to={`/view/${user.documento}`} className="btn  btn-sm" id="icon">
+                                <button className="btn  btn-sm" id="icon" onClick={()=>modalView(user.documento)}>
                                 <i className="bi bi-eye-fill"></i>
-                                </NavLink>
+                                </button>
                                 <button className="btn  btn-sm" id="icon" onClick={()=>handleDelete(user.documento)}> 
                                 <i className="bi bi-trash-fill"></i>
                                 </button>
@@ -144,15 +150,20 @@ const UserAdminPanel = () => {
                   </tbody>
                 </table>
               </div>
-
             </div>
           </div>
-        </div>
 
+
+  
+
+        </div>
       </section>
     </div>
   );
 
+
+
+  
 };
 
 export default UserAdminPanel;
