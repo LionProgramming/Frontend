@@ -25,9 +25,9 @@ const Login = () => {
     <div>
       <div className="login">
       <a href="/">
-          <i className="bi bi-arrow-left" id="arrow-icon"></i>
+          <i className="bi bi-arrow-left" id="arrow-icon" width="10%"></i>
         </a>
-        <img src={img} alt="" width="10%" className="icon" />
+        <img src={img} alt="" style={{ width: '20%' }} className="icon" />
         <br />
         <input type="number" placeholder="identificacion" id="identificacion" />
         <br />
