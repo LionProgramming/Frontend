@@ -67,3 +67,18 @@ table{
 #tablaRegistros::-webkit-scrollbar{
     background-color: transparent;
 }
+#modal-icon-cancel{
+    
+    color: red;
+}
+#modal-icon-cancel:hover{
+    background-color: rgb(223, 79, 79);
+    color: white;
+}
+#modal-icon-edit{
+    color: rgb(8, 103, 8);
+}
+#modal-icon-edit:hover{
+    background-color: rgb(8, 103, 8);
+    color: white;
+}

@@ -20,16 +20,16 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login/>} /> 
+        {/* Admin */}
         <Route path="/Adashboard" element={<AdminDashboard/>}/>
         <Route path="/Register" element={<UserRegistration/>}/>
         <Route path="/UserAdministration" element={<UserAdminPanel/>}/>
         <Route path="/Calendar" element={<UserCalendar/>}/>
         <Route path="/CourseManagement" element={<CourseManagement/>}/>
+        {/* Student */}
         <Route path="/Sindex" element={<Student_Index/>}/>
         {/* Teacher */}
         <Route path="/ObserverSearch" element={<ObserverSearch/>}/>
-       
-
       </Routes>
     </Router>
   );}

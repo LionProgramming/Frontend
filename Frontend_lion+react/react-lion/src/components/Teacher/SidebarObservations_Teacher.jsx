@@ -93,6 +93,7 @@ function SidebarObservation() {
                 height="30"
                 className="rounded-circle"
                 alt="Profile"
+                id='teacher-image'
               />
               <span className="d-none d-sm-inline mx-1">Profesor</span>
             </a>

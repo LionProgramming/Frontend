@@ -158,38 +158,42 @@ const closeModal=()=>{
         </div>
       </section>
       <Modal isOpen={modalConsultar}>
-        <ModalHeader>
-          <div><h3>Consultar usuario</h3></div>
-        </ModalHeader>
-        <ModalBody>
-          <div>
-          {
-  modalData && (
+  <ModalHeader>
     <div>
-      <label>Nombres: {modalData.nombre1 + (modalData.nombre2 ? ` ${modalData.nombre2}` : '')}</label>
-      <label>Documento {modalData.documento}</label>
-      <label>Email :{modalData.email}</label>
-      <label>Rol: {modalData.rol}</label>
-      <div>
-        <button className="btn btn-sm" id="icon" onClick={() => modalView(modalData.documento)}>
-          <i className="bi bi-eye-fill"></i>
-        </button>
-        
-      </div>
+      {modalData && (
+        <label>
+          {modalData.nombre1 + (modalData.nombre2 ? ` ${modalData.nombre2}` : '') +
+            ' ' +
+            modalData.apellido1 + (modalData.apellido2 ? ` ${modalData.apellido2}` : '')}
+        </label>
+      )}
     </div>
-  )
-}
+  </ModalHeader>
+  <ModalBody>
+    <div>
+      {modalData && (
+        <div>
+          <label>Nombres: {modalData.nombre1 + (modalData.nombre2 ? ` ${modalData.nombre2}` : '')}</label>
+          <br />
+          <label>Apellidos: {modalData.apellido1 + (modalData.apellido2 ? ` ${modalData.apellido2}` : '')}</label>
+          <br />
+          <label>Documento: {modalData.documento}</label>
+          <br />
+          <label>Email: {modalData.email}</label>
+          <br />
+          <label>Rol:{modalData.rol}</label>
+        </div>
+      )}
+    </div>
+  </ModalBody>
+  <ModalFooter>
+    <button className='btn btn-sm' id="modal-icon-edit"> <i className="bi bi-pencil-fill"></i></button>
+    <button className="btn btn-sm" id="modal-icon-cancel" onClick={() =>closeModal()}>
+      <i className="bi bi-x-lg"></i>
+    </button>
+  </ModalFooter>
+</Modal>
 
-          </div>
-        </ModalBody>
-
-        <ModalFooter>
-        <button className='btn btn-sm'>Editar</button>
-        <button className="btn btn-sm" id="icon" onClick={() =>closeModal()}>
-          <i className="bi bi-eye-fill"></i>
-        </button>
-        </ModalFooter>
-      </Modal>
       
     </div>
   );
