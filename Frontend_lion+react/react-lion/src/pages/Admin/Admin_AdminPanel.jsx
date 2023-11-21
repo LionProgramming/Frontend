@@ -4,11 +4,12 @@ import '../../css/Admin_AdminPanel.css'
 import {NavLink} from 'react-router-dom';
 import Navbar from '../../components/Admin/Navbar';
 import img from '../../images/foto.PNG'
+import {Modal,ModalBody,ModalHeader,ModalFooter} from 'reactstrap'
 
 const UserAdminPanel = () => {
-
   const [userData, setUserData] = useState([]);
   const [modalData, setModalData] = useState(null);
+  const[modalConsultar,setModalConsultar]=useState(false);
 
   useEffect(() => {
     fetchData();
@@ -16,9 +17,7 @@ const UserAdminPanel = () => {
   const fetchData = async () => {
     try {
       const resultado = await axios("http://127.0.0.1:8000/api/v1/users/");
-     
       setUserData(resultado.data)
-    
     } catch (err) {
       console.log("Algo esta mal");
     }
@@ -36,10 +35,14 @@ const UserAdminPanel = () => {
   
   }
 const modalView=async(documento)=>{
+  setModalConsultar(true);
   const usuario =await axios.get(`http://127.0.0.1:8000/api/v1/users/${documento}`);
-  setModalData(usuario.data);
+  setModalData(usuario.data)
+  console.log(usuario.data);
 }
-
+const closeModal=()=>{
+ setModalConsultar(false);
+}
   return (
     <div className='bodyAdminPanel'>
         <Navbar/>
@@ -152,18 +155,44 @@ const modalView=async(documento)=>{
               </div>
             </div>
           </div>
-
-
-  
-
         </div>
       </section>
+      <Modal isOpen={modalConsultar}>
+        <ModalHeader>
+          <div><h3>Consultar usuario</h3></div>
+        </ModalHeader>
+        <ModalBody>
+          <div>
+          {
+  modalData && (
+    <div>
+      <label>Nombres: {modalData.nombre1 + (modalData.nombre2 ? ` ${modalData.nombre2}` : '')}</label>
+      <label>Documento {modalData.documento}</label>
+      <label>Email :{modalData.email}</label>
+      <label>Rol: {modalData.rol}</label>
+      <div>
+        <button className="btn btn-sm" id="icon" onClick={() => modalView(modalData.documento)}>
+          <i className="bi bi-eye-fill"></i>
+        </button>
+        
+      </div>
+    </div>
+  )
+}
+
+          </div>
+        </ModalBody>
+
+        <ModalFooter>
+        <button className='btn btn-sm'>Editar</button>
+        <button className="btn btn-sm" id="icon" onClick={() =>closeModal()}>
+          <i className="bi bi-eye-fill"></i>
+        </button>
+        </ModalFooter>
+      </Modal>
+      
     </div>
   );
-
-
-
-  
 };
 
 export default UserAdminPanel;
