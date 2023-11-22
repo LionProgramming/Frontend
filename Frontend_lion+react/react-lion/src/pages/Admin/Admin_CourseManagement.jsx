@@ -2,7 +2,7 @@ import Navbar from '../../components/Admin/Navbar.jsx';
 import '../../css/Admin_CourseManagement.css';
 function CourseManagement() {
   return (
-    <div className='body_Management'>
+    <div className='bodyCourseManagement'>
       <section>
       <Navbar/>
         <div className="container-fluid">
@@ -68,41 +68,21 @@ function CourseManagement() {
             </div>
             <div className="container-fluid d-flex flex-column" id="contenedor-tabla">
               <h2 className="text-center shadow-text">Panel de administración de cursos</h2>
-
-              <table className="table table-striped table-bordered" id="table-1">
-                <thead id="color-table">
-                  <tr>
-                    <th className="col-1"> ID</th>
-                    <th>Numero de curso</th>
+              <div className="input-group mb-2" id="search-input_courses">
+                <input type="text" className="form-control" id="area" placeholder="..." aria-label="Buscar" />
+                <button className="btn btn-primary" type="button">Buscar</button>
+              </div>
+              <div className='table-responsive col-8 cold-md-0 col-xl-10 px-sm-1 px-0 mt-4'id="tablaRegistros">
+                <table className='table-striped table-bordered'>
+                  <thead>
+                    <tr></tr>
+                    <th>Id</th>
+                    <th>Curso</th>
                     <th>Profesor asignado</th>
                     <th>Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>101</td>
-                    <td>Manuel Ortega</td>
-
-                    <td>
-                      <button className="btn  btn-sm " id="icon"><i className="bi bi-pencil-fill"></i></button>
-                      <button className="btn  btn-sm " id="icon"><i className="bi bi-eye-fill"></i></button>
-                      <button className="btn  btn-sm " id="icon"><i className="bi bi-trash-fill"></i></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>1003</td>
-                    <td>Camila Sofia Rodríguez Gómez</td>
-                    <td>
-                      <button className="btn  btn-sm " id="icon"><i className="bi bi-pencil-fill"></i></button>
-                      <button className="btn  btn-sm " id="icon"><i className="bi bi-eye-fill"></i></button>
-                      <button className="btn  btn-sm " id="icon"><i className="bi bi-trash-fill"></i></button>
-                    </td>
-                  </tr>
-
-                </tbody>
-              </table>
+                  </thead>
+                </table>
+              </div>
 
 
             </div>
