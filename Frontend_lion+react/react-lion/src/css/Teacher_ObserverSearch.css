@@ -1,0 +1,129 @@
+.observaciones-container {
+  max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.table{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  background-color: rgba(255, 255, 255, 0.836);
+  border-radius: 8px;
+  overflow: hidden;
+
+}
+
+.buttonOb {
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.buttonOb:hover {
+  background-color: #8eac90;
+}
+
+#contenedor-wrap {
+  display: flex;
+}
+
+#informacion1 {
+  width: 80%;
+  padding: 20px;
+}
+
+.observaciones-container {
+  margin-left: 5%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+img {
+  width: 80%;
+  padding: 10px;
+}
+
+.inf_ob {
+  flex: 1;
+  padding: 20px;
+}
+
+.buttonOb {
+  width: 80px;
+  height: 50px;
+  background-color: rgb(58, 58, 58);
+  color: white;
+  border: 0px;
+  border-radius: 5px;
+}
+
+.buttonObservador {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.buttonOb {
+  width: 80px;
+  height: 50px;
+  background-color: rgb(58, 58, 58);
+  color: white;
+  border: 0px;
+  border-radius: 5px;
+}
+
+.search-input::placeholder {
+  font-size: 16px;
+}
+span {
+  text-align: center;
+}
+/* estilos responsivos  */
+
+@media only screen and (max-width: 400px) {
+  #contenedor-wrap {
+    display: inline-flex;
+  }
+
+  #informacion1 {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .search-container {
+    margin-bottom: 20px;
+  }
+
+  .col-md-5,
+  .col-md-7 {
+    width: 100%;
+  }
+
+  .buttonObservador {
+    justify-content: center;
+  }
+
+  .table {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .inf_ob {
+    padding: 10px;
+  }
+
+  .img {
+    text-align: center;
+  }
+
+  .buttonOb {
+    width: 100%;
+  }
+}

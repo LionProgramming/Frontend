@@ -1,5 +1,6 @@
-import SidebarHome from "../../components/Teacher/SidebarObservations_Teacher";
-import "../../css/Teacher_SidebarObservations.css";
+import SidebarHome from "../../components/Teacher/SidebarObservations_Teacher.jsx";
+import ComponentSearch from "../../components/Teacher/ComponentSearch_Teacher.jsx";
+import "../../css/Teacher_ObserverSearch.css";
 import images from "../../images/perfil.png";
 
 function ObserverSearch() {
@@ -12,12 +13,7 @@ function ObserverSearch() {
   {/* Barra buscadora */}
   <div id="informacion1" className="col-md-7 p-3">
     <div className="search-container">
-      <input
-        type="text"
-        placeholder="Buscar observación..."
-        className="search-input form-control"
-      />
-      <button className="search-button btn btn-dark btn-block">Buscar</button>
+      <ComponentSearch/>
     </div>
     {/* Contenedor de observaciones */}
     <h2>Observaciones del estudiante</h2>
