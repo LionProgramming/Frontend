@@ -30,6 +30,7 @@ function SidebarObservation() {
               data-bs-target="#submenu1"
               aria-expanded="false"
             >
+<<<<<<< HEAD
               <i className="fs-4 bi bi-clock text-white" id="icono-horario"></i>{" "}
               <span
                 className="ms-1 d-none d-sm-inline text-white"
@@ -37,6 +38,17 @@ function SidebarObservation() {
               >
                 Horario
               </span>
+=======
+              <img
+                src="../../imagenes/Profile-photo.PNG"
+                width="30"
+                height="30"
+                className="rounded-circle"
+                alt="Profile"
+                id='teacher-image'
+              />
+              <span className="d-none d-sm-inline mx-1">Profesor</span>
+>>>>>>> 144c3c79b5c31fd35c9859a035ebcc9daf5eb084
             </a>
             <ul
               className="collapse show nav flex-column ms-1"
