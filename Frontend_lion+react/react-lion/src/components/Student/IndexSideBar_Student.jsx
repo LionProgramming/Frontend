@@ -1,5 +1,6 @@
 
 function SidebarHome () {
+  
     return(
       
       <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
@@ -9,20 +10,20 @@ function SidebarHome () {
           </p>
           <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li className="nav-item">
-              <a href="/Adashboard" className="nav-link align-middle px-0">
+              <a href="/student-index" className="nav-link align-middle px-0">
                 <i className="fs-4 bi bi-house" id="active"></i> <span className="ms-1 d-none d-sm-inline text-white"
                   id="active">Inicio</span>
               </a>
             </li>
             <li>
-            <a href="/observaciones-est" className="nav-link px-0 align-middle">
+            <a href="/student-observations" className="nav-link px-0 align-middle">
             <i className="fs-4 bi-table" id="icono2"></i> <span className="ms-1 d-none d-sm-inline text-white"
               id="text-hover">Mis observaciones</span>
           </a>      
 
             </li>
             <li>
-            <a href="/horario-est" className="nav-link px-0 align-middle">
+            <a href="/student-schedule" className="nav-link px-0 align-middle">
             <i className="fs-4 bi bi-clock" id="icono2"></i> <span className="ms-1 d-none d-sm-inline text-white"
               id="text-hover">Mi horario</span>
           </a>

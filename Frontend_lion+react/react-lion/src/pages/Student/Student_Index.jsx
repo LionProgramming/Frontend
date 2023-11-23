@@ -1,4 +1,4 @@
-import SidebarHome from '../../components/Student/IndexSideBar_Student.jsx'
+import EstudentSidebarHome from '../../components/Student/IndexSideBar_Student.jsx'
 import NavBarStudent_Index from '../../components/Student/NavBar_Student.jsx';
 import '../../css/Student_Index.css'
 import img from '../../images/foto.png'
@@ -9,7 +9,7 @@ function Student_Index() {
       <NavBarStudent_Index></NavBarStudent_Index>
       <div className="container-fluid">
         <div className="row flex-nowrap" id='contenedor-wrap'>
-          <SidebarHome />
+          <EstudentSidebarHome/>
           <div className="container-fluid d-flex flex-column" id='container_index'>
             <div className='container'>
               <div className='row justify-content-center'>
@@ -18,37 +18,32 @@ function Student_Index() {
                     <div id='tl-tabla'>
                       <h3 className='text-center'>Informacion personal</h3>
                     </div>
-                    <div>
-                      <article id='info-user' className='d-flex'>
-                        <div id='img-user' className='flex-shrink-0'></div>
-                        <div id='info-student' className='col-12'>
-                          <div className='row'>
-                            <div className='col-12 text-center d-flex align-items-start text-wrap'>
-                               <img src={img} alt="Imagen perfil" className='image_index'/>
-                               <h2 className='text-white'>Nombre:<h6> antonio</h6></h2>
-                               
-                            </div>
-                            <div className='col-6'>
+                      <article id='info-user'>
+                          <img src={img} id='img-perfil' alt="Imagen perfil" className='image_index'/><img/>
+                        <div id='cont-info-user'>
+                          <div id='info-student'>
+                              <h3>Nombre:Juan  Martin Elias Martinez</h3>
+                          </div>
+                          <div id='info-student'>
+                              <h3>Curso: 502</h3>
+                          </div>
+                          <div id='info-student'>
+                              <h3>Correo: MELIAS39@gmail.com</h3>
+                          </div>
+                          <div id='info-student'>
+                              <h3>Nombre:Juan  Martin Elias Martinez</h3>
                               
-                            </div>
                           </div>
                         </div>
                       </article>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
-
-
     </div>
-
-
-
   );
 }
 
