@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap%27');
 
-.bodyStudentIndex{
+.bodyStudentSchedule{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -8,23 +8,19 @@
     font-family: 'Poppins', sans-serif;
   }
 
-#container_index {
+#container_Schedule{
     width: 80%;
     align-items: center;
     justify-content: center;
 }
-.image_index{
-    width: 20%;
-    margin: 5% 5%;
-    border-radius: 5px;
-}
 
-.tabla {    
+
+.tabla-curso{    
     background-color: rgba(33, 37, 41, 0.884);
     border-radius: 5px;
 }
 
-#tl-tabla {
+#tl-tabla-curso{
     background-color: rgb(107, 208, 226, 0.884);
     padding: 2%;
     color: white;
@@ -33,14 +29,7 @@
   
 }
 
-#cont-info-user{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-#info-user{
+#info-curso{
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -50,20 +39,6 @@
 
 }
 
-#img-perfil{
-    background-size: cover;
-    width: 200px;
-}
-
-@media only screen and (max-width: 1200px) {
-    #info-user {
-
-        flex-direction: column;
-        
-    }
-
-    #cont-info-user{
-        align-items: center;
-    }
-    
+#img-curso{
+    width: 80%;
 }
