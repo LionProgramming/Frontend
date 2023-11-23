@@ -1,4 +1,3 @@
-import React from 'react';
 import SidebarHome from '../../components/Teacher/SidebarObservations_Teacher';
 import ComponentSearch from '../../components/Teacher/ComponentSearch_Teacher';
 import "../../css/Teacher_MakeObservation.css";

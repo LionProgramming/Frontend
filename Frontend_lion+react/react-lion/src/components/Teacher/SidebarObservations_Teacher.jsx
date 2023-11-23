@@ -30,7 +30,7 @@ function SidebarObservation() {
               data-bs-target="#submenu1"
               aria-expanded="false"
             >
-<<<<<<< HEAD
+
               <i className="fs-4 bi bi-clock text-white" id="icono-horario"></i>{" "}
               <span
                 className="ms-1 d-none d-sm-inline text-white"
@@ -38,17 +38,6 @@ function SidebarObservation() {
               >
                 Horario
               </span>
-=======
-              <img
-                src="../../imagenes/Profile-photo.PNG"
-                width="30"
-                height="30"
-                className="rounded-circle"
-                alt="Profile"
-                id='teacher-image'
-              />
-              <span className="d-none d-sm-inline mx-1">Profesor</span>
->>>>>>> 144c3c79b5c31fd35c9859a035ebcc9daf5eb084
             </a>
             <ul
               className="collapse show nav flex-column ms-1"
@@ -59,19 +48,26 @@ function SidebarObservation() {
               <li className="w-100">
                 <a
                   href="/MyScheduleT"
-                  className="nav-link px-0 text-white"
+                  className="nav-link px-0 text-white ms-1 d-none d-sm-inline text-white"
                   id="contenedor-horario-1"
                 >
-                  Mi horario
+                  <i className="bi bi-clock-history"></i>
+                  <span
+                className="d-none d-sm-inline" id="text-hover">Mi horario
+                </span>
+                  
                 </a>
               </li>
               <li className="w-100">
                 <a
                   href="/ScheduleCurseT"
-                  className="nav-link px-0 text-white"
+                  className="nav-link px-0 text-white ms-1 d-none d-sm-inline text-white"
                   id="contenedor-horario-2"
                 >
-                  Horario Curso asignado
+                  <i className="bi bi-puzzle"></i>
+                   <span
+                className="d-none d-sm-inline" id="text-hover">Horario curso asignado
+                </span>
                 </a>
               </li>
             </ul>
@@ -109,16 +105,25 @@ function SidebarObservation() {
                   className="nav-link px-0 text-white"
                   id="contenedor-observaciones-1"
                 >
-                  Realizar Observacion
+                 <i className="bi bi-pencil-square"></i>
+              <span
+                className="d-none d-sm-inline" id="text-hover">Realizar Observacion
+                </span>
+                  
+                  
                 </a>
               </li>
               <li className="w-100">
                 <a
                   href="/ObserverSearch"
-                  className="nav-link px-0 text-white"
+                  className="nav-link px-0 ms-1 d-none d-sm-inline text-white "
                   id="contenedor-observaciones-2"
                 >
-                  Buscar observaciones
+                  <i className="bi bi-search"></i>
+                  <span
+                className="d-none d-sm-inline" id="text-hover">Buscar Observaciones
+                </span>
+                  
                 </a>
               </li>
             </ul>
