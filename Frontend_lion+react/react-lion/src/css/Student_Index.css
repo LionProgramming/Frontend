@@ -50,6 +50,10 @@
 
 }
 
+#info-student{
+    text-align: left;
+}
+
 #img-perfil{
     background-size: cover;
     width: 200px;
@@ -66,4 +70,7 @@
         align-items: center;
     }
     
+    #info-student{
+        text-align: center;
+    }
 }

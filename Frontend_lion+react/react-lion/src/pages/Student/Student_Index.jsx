@@ -19,7 +19,7 @@ function Student_Index() {
                       <h3 className='text-center'>Informacion personal</h3>
                     </div>
                       <article id='info-user'>
-                          <img src={img} id='img-perfil' alt="Imagen perfil" className='image_index'/><img/>
+                          <img src={img} id='img-perfil' alt="Imagen perfil" className='image_index'/>
                         <div id='cont-info-user'>
                           <div id='info-student'>
                               <h3>Nombre:Juan  Martin Elias Martinez</h3>
