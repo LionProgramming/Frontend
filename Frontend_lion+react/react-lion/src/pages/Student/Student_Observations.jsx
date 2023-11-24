@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import EstudentSidebarHome from '../../components/Student/IndexSideBar_Student.jsx'
+import EstudentSidebarObservations from '../../components/Student/ObservationsSideBar_Student.jsx'
 import NavBarStudent_Index from '../../components/Student/NavBar_Student.jsx';
 import '../../css/Student_Observations.css'
 import icono from '../../images/img-user-light.png'
