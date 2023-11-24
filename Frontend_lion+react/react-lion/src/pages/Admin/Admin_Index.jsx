@@ -1,8 +1,18 @@
 import "../../css/Admin_Index.css";
-
+import  {useState, useEffect } from 'react';
+import axios from 'axios';
 import Navbar from "../../components/Admin/Navbar.jsx";
 
 function AdminDashboard() {
+    const[usersData,setUsersData]=useState([]);
+    useEffect(() => {
+      fetchData();
+    }, [])
+    const fetchData=async()=>{
+      const usuario =await axios.get(`http://127.0.0.1:8000/contar_usuarios_por_rol/`);
+      setUsersData(usuario.data)
+      console.log(usuario.data);
+    }
   return (
     <div className="body">
       <div>
@@ -160,13 +170,16 @@ function AdminDashboard() {
               <div className="container" id="container-cards">
            
                 <div className="row ">
+               
                 <div className=" col-10 col-md-5 col-lg-4">
                   <div className="card">
                     <h3 className="text-center mt-2">Usuarios</h3>
                     <i className="bi bi-people-fill icon-card fs-3 fs-md-4 fs-lg-5 text-center"></i>
                     <hr />
                     <div className="card-body">
-                     <h1 className="text-center">12</h1>
+                    {usersData && (
+                     <h1 className="text-center">{usersData['1']+usersData['2']+usersData['3']}</h1>
+                     )}
                     </div>
                   </div>
                 </div>
@@ -176,7 +189,9 @@ function AdminDashboard() {
                     <i className="bi bi-pencil-fill icon-card fs-3 fs-md-4 fs-lg-5 text-center"></i>
                     <hr />
                     <div className="card-body">
-                    <h1 className="text-center">12</h1>
+                    {usersData && (
+                     <h1 className="text-center">{usersData['2']}</h1>
+                     )}
                     </div>
                   </div>
                 
@@ -187,21 +202,15 @@ function AdminDashboard() {
                     <i className="bi bi-spellcheck icon-card fs-3 fs-md-4 fs-lg-5 text-center"></i>
                     <hr />
                     <div className="card-body">
-                    <h1 className="text-center">12</h1>
+                    <h1 className="text-center">{usersData['3']}</h1>
                     </div>
                   </div>
                 </div>
+              
                 </div>
                 <div className="row ">
                 <div className="col-10 col-md-5 col-lg-4">
-                  <div className="card">
-                    <h3  className="text-center mt-2">Coordinador</h3>
-                    <i className="bi bi-clipboard-data icon-card fs-3 fs-md-4 fs-lg-5 text-center"></i>
-                    <hr />
-                    <div className="card-body">
-                    <h1 className="text-center">12</h1>
-                    </div>
-                  </div>
+                  
                 </div>
                 <div className="col-10 col-md-5 col-lg-4">
                   <div className="card h-70">
@@ -209,22 +218,12 @@ function AdminDashboard() {
                     <i className="bi bi-person-bounding-box icon-card fs-3 fs-md-4 fs-lg-5 text-center"></i>
                     <hr />
                     <div className="card-body">
-                    <h1 className="text-center">12</h1>
+                    <h1 className="text-center">{usersData['1']}</h1>
                     </div>
                   </div>
                  
                 </div>
                 <div className="col-10 col-md-5 col-lg-4">
-                  <div className="card h-70">
-                    <h3  className="text-center mt-2">Activos</h3>
-                    <i className="bi bi-hexagon-fill icon-card fs-3 fs-md-4 fs-lg-5 text-center"></i>
-                    <hr />
-                    <div className="card-body">
-                      
-                    <h1 className="card-title text-center">12</h1>
-                    </div>
-                  </div>
-               
                 </div>
                 </div>
                 

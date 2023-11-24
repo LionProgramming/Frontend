@@ -1,0 +1,33 @@
+.formMakeobserver {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    background-color: #f8f9fac2;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    margin-top: 20px;
+    color: black;
+  }
+  .formMakeobserver h2 {
+    color: #343a40;
+  }
+  .formMakeobserver input[type="date"],
+.formMakeobserver textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  
+}
+.formMakeobserver .btn-primary {
+    background-color: #d400ff;
+    color: #fff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .formMakeobserver .btn-primary:hover {
+    background-color: #0056b3;
+  }

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import EstudentSidebarObservations from '../../components/Student/ObservationsSideBar_Student.jsx';
+import EstudentSidebarHome from '../../components/Student/IndexSideBar_Student.jsx'
 import NavBarStudent_Index from '../../components/Student/NavBar_Student.jsx';
 import '../../css/Student_Observations.css'
 import icono from '../../images/img-user-light.png'
 import firma from '../../images/imgfirma.png'
 import ModalObservation from '../../components/Student/ModalObservation.jsx';
 
-//Instalar el paquete styled (npm install styled --save styled-components)
+//Instalar el paquete styled (npm install styled --save styled    )
 function Student_Observations() {
     const [modalVisible, setModalVisible] = useState(false);
 

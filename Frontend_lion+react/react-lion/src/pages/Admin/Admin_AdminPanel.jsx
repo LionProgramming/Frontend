@@ -17,10 +17,12 @@ const UserAdminPanel = () => {
   const fetchData = async () => {
     try {
       const resultado = await axios("http://127.0.0.1:8000/api/v1/users/");
-      setUserData(resultado.data)
+      setUserData(resultado.data);
+      
     } catch (err) {
       console.log("Algo esta mal");
     }
+   
   }
   
   const handleDelete=async(documento)=>{
