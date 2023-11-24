@@ -1,0 +1,12 @@
+
+.sb-active{
+    color: rgb(107, 208, 226, 0.884);
+}
+
+.sb-inactive{
+    color: white;
+}
+
+#text-sb{
+    margin-left: 10px;
+}

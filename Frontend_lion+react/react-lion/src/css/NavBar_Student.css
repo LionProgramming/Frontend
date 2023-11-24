@@ -4,7 +4,7 @@
 .container-navbar_Student a{
    margin-left: 5%;
 }
-   @media only screen and (max-width: 600px) {
+   @media only screen and (max-width: 800px) {
        .container-navbar{
          display: none;
        }

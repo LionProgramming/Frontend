@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import EstudentSidebarHome from '../../components/Student/IndexSideBar_Student.jsx'
+import EstudentSidebarObservations from '../../components/Student/ObservationsSideBar_Student.jsx';
 import NavBarStudent_Index from '../../components/Student/NavBar_Student.jsx';
 import '../../css/Student_Observations.css'
 import icono from '../../images/img-user-light.png'
 import firma from '../../images/imgfirma.png'
 import ModalObservation from '../../components/Student/ModalObservation.jsx';
 
-//Instalar el paquete styled (npm install styled --save styled    )
+//Instalar el paquete styled (npm install styled --save styled-components)
 function Student_Observations() {
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -15,8 +15,8 @@ function Student_Observations() {
         <NavBarStudent_Index></NavBarStudent_Index>
         <div className="container-fluid">
             <div className="row flex-nowrap " id='contenedor-wrap'>
-            <EstudentSidebarHome/>
-                <div className="container-fluid d-flex flex-column" id='container_index'>
+            <EstudentSidebarObservations/>
+                <div className="container-fluid d-flex flex-column" id='container_obs'>
                     <div className='container'>
                         <div className='row justify-content-center'>
                             <div className='col-12 col-md-8 col-xl-10'>
@@ -39,7 +39,7 @@ function Student_Observations() {
                                                             <p id='celda-ob'>Fecha: 15/08/2022</p>
                                                         </div>
                                                         
-                                                        <button id='info-obs' onClick={() => setModalVisible(true)}>Abrir Modal</button>
+                                                        <button id='info-obs' onClick={() => setModalVisible(true)}>Mostrar</button>
                                                     </div>
                                                     <ModalObservation
                                                         state = {modalVisible}
@@ -64,7 +64,7 @@ function Student_Observations() {
                                                         <p id='celda-ob'>Fecha: 15/08/2022</p>
                                                     </div>
                                                     
-                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Abrir Modal</button>
+                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Mostrar</button>
                                                 </div>
                                             </article>
 
@@ -78,7 +78,7 @@ function Student_Observations() {
                                                         <p id='celda-ob'>Motivo: Mal comportamiento</p>
                                                         <p id='celda-ob'>Fecha: 15/08/2022</p>
                                                     </div>
-                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Abrir Modal</button>
+                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Mostrar</button>
                                                 </div>
                                             </article>
                                             <article id='info-user-ob'>
@@ -91,7 +91,7 @@ function Student_Observations() {
                                                         <p id='celda-ob'>Motivo: Mal comportamiento</p>
                                                         <p id='celda-ob'>Fecha: 15/08/2022</p>
                                                     </div>
-                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Abrir Modal</button>
+                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Mostrar</button>
                                                 </div>
                                             </article>
                                             <article id='info-user-ob'>
@@ -104,7 +104,7 @@ function Student_Observations() {
                                                         <p id='celda-ob'>Motivo: Mal comportamiento</p>
                                                         <p id='celda-ob'>Fecha: 15/08/2022</p>
                                                     </div>
-                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Abrir Modal</button>
+                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Mostrar</button>
                                                 </div>
                                             </article>
 
@@ -118,7 +118,7 @@ function Student_Observations() {
                                                         <p id='celda-ob'>Motivo: Mal comportamiento</p>
                                                         <p id='celda-ob'>Fecha: 15/08/2022</p>
                                                     </div>
-                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Abrir Modal</button>
+                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Mostrar</button>
                                                 </div>
                                             </article>
                                         </div>

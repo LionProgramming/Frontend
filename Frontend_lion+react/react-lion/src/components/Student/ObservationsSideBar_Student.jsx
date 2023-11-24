@@ -1,13 +1,6 @@
-import { useState } from 'react';
 import '../../css/Student_SideBar.css'
 
-function EstudentSidebarHome () {
-  const [currentPage, setCurrentPage] = useState('/student-index');
-
-  const cambiarPagina = (pagina) => {
-    setCurrentPage(pagina);
-    console.log('currentPage:', currentPage); // Añade esta línea
-  };
+function EstudentSidebarObservations () {
 
     return(
       
@@ -19,21 +12,21 @@ function EstudentSidebarHome () {
           <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
             <li className="nav-item">
               <a href="/student-index" className="nav-link align-middle px-0">
-                <i className={`fs-4 bi bi-house ${currentPage === '/student-index' ? 'sb-active' : 'sb-inactive'}`} onClick={() => cambiarPagina('/student-index')}></i>
-                <span id='text-sb' className={`ms-1 d-none d-sm-inline ${currentPage === '/student-index' ? 'sb-active' : 'sb-inactive'}`}> Inicio</span>
+                <i className="fs-4 bi bi-house sb-inactive"></i>
+                <span id='text-sb' className="ms-1 d-none d-sm-inline sb-inactive"> Inicio</span>
               </a>
             </li>
             <li>
             <a href="/student-observations" className="nav-link px-0 align-middle">
-            <i className= {`fs-4 bi-table ${currentPage === '/student-observations' ? 'sb-active' : 'sb-inactive'}`} onClick={() => cambiarPagina('/student-observations')}></i> 
-            <span id='text-sb' className={`ms-1 d-none d-sm-inline ${currentPage === '/student-observations' ? 'sb-active' : 'sb-inactive'}`}> Mis observaciones</span>
+            <i className= "fs-4 bi-table sb-active"></i> 
+            <span id='text-sb' className="ms-1 d-none d-sm-inline sb-active"> Mis observaciones</span>
           </a>      
 
             </li>
             <li>
             <a href="/student-schedule" className="nav-link px-0 align-middle">
-            <i className={`fs-4 bi bi-clock ${currentPage === '/student-schedule' ? 'sb-active' : 'sb-inactive'}`} onClick={() => cambiarPagina('/student-schedule')}></i> 
-            <span id='text-sb' className={`ms-1 d-none d-sm-inline ${currentPage === '/student-schedule' ? 'sb-active' : 'sb-inactive'}`}> Mi horario</span>
+            <i className="fs-4 bi bi-clock sb-inactive"></i> 
+            <span id='text-sb' className="ms-1 d-none d-sm-inline sb-inactive"> Mi horario</span>
           </a>
             </li>
           </ul>
@@ -56,4 +49,4 @@ function EstudentSidebarHome () {
   );
 }
 
-export default EstudentSidebarHome
+export default EstudentSidebarObservations
