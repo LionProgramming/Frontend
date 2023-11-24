@@ -25,17 +25,16 @@ const UserAdminPanel = () => {
    
   }
   
-  const handleDelete=async(documento)=>{
-    console.log(documento);
-    await axios.delete("http://127.0.0.1:8000/api/usuarios/deleteusuario/"+documento);
-    const newUserData=userData.filter((item)=>{
-      return(
-        item.documento !== documento
-      )
-    })
-    setUserData(newUserData);
+  const handleDelete = async (documento) => {
+    try {
+      await axios.delete(`http://127.0.0.1:8000/api/v1/users/${documento}`);
+      const newUserData = userData.filter((item) => item.documento !== documento);
+      setUserData(newUserData);
+    } catch (error) {
+      console.error('Error al eliminar usuario:', error);
+    }
+  };
   
-  }
 const modalView=async(documento)=>{
   setModalConsultar(true);
   const usuario =await axios.get(`http://127.0.0.1:8000/api/v1/users/${documento}`);
@@ -160,40 +159,40 @@ const closeModal=()=>{
         </div>
       </section>
       <Modal isOpen={modalConsultar}>
-  <ModalHeader>
-    <div>
-      {modalData && (
-        <label>
-          {modalData.nombre1 + (modalData.nombre2 ? ` ${modalData.nombre2}` : '') +
-            ' ' +
-            modalData.apellido1 + (modalData.apellido2 ? ` ${modalData.apellido2}` : '')}
-        </label>
-      )}
-    </div>
-  </ModalHeader>
-  <ModalBody>
-    <div>
-      {modalData && (
-        <div>
-          <label>Nombres: {modalData.nombre1 + (modalData.nombre2 ? ` ${modalData.nombre2}` : '')}</label>
-          <br />
-          <label>Apellidos: {modalData.apellido1 + (modalData.apellido2 ? ` ${modalData.apellido2}` : '')}</label>
-          <br />
-          <label>Documento: {modalData.documento}</label>
-          <br />
-          <label>Email: {modalData.email}</label>
-          <br />
-          <label>Rol:{modalData.rol}</label>
-        </div>
-      )}
-    </div>
-  </ModalBody>
-  <ModalFooter>
-    <button className="btn btn-sm" id="modal-icon-cancel" onClick={() =>closeModal()}>
-      <i className="bi bi-x-lg"></i>
-    </button>
-  </ModalFooter>
-</Modal>
+        <ModalHeader>
+          <div>
+            {modalData && (
+              <label>
+                {modalData.nombre1 + (modalData.nombre2 ? ` ${modalData.nombre2}` : '') +
+                  ' ' +
+                  modalData.apellido1 + (modalData.apellido2 ? ` ${modalData.apellido2}` : '')}
+              </label>
+            )}
+          </div>
+        </ModalHeader>
+        <ModalBody>
+          <div>
+            {modalData && (
+              <div>
+                <label>Nombres: {modalData.nombre1 + (modalData.nombre2 ? ` ${modalData.nombre2}` : '')}</label>
+                <br />
+                <label>Apellidos: {modalData.apellido1 + (modalData.apellido2 ? ` ${modalData.apellido2}` : '')}</label>
+                <br />
+                <label>Documento: {modalData.documento}</label>
+                <br />
+                <label>Email: {modalData.email}</label>
+                <br />
+                <label>Rol:{modalData.rol}</label>
+              </div>
+            )}
+          </div>
+        </ModalBody>
+        <ModalFooter>
+          <button className="btn btn-sm" id="modal-icon-cancel" onClick={() =>closeModal()}>
+            <i className="bi bi-x-lg"></i>
+          </button>
+        </ModalFooter>
+      </Modal>
 
       
     </div>

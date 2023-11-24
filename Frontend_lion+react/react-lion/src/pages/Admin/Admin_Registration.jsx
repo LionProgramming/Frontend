@@ -1,8 +1,10 @@
 import Navbar from "../../components/Admin/Navbar";
 import '../../css/Admin_Registration.css'
 import axios from 'axios'
+import ModalSucces from "../../components/Admin/Modal";
 /* import {useNavigate,Navigate } from "react-router-dom"; */
 import { useState, useEffect } from "react";
+
 function UserRegistration() {
   /* const navigate = useNavigate();
   const {isAuth}=useAuth */
@@ -77,7 +79,11 @@ function UserRegistration() {
     const postData= async()=>{
       try{
         const response = await axios.post('http://127.0.0.1:8000/api/v1/users/',dataTosend);
-        console.log(response.data)
+        if (response){
+          <ModalSucces/>
+          document.getElementById('form-register').reset();
+        }
+        
       }catch(error){
         console.error('Error al enviar los datos:',error)
       }
@@ -241,7 +247,7 @@ function UserRegistration() {
               <div className="container" id="container-register">
                 <h2 className="text-center text-white shadow-text mb-3" >Registro de usuario</h2>
                 <i className="bi bi-person-plus-fill  bi-grid" id="icon-register"></i>
-                <form className="validation" onSubmit={handleSubmit}>
+                <form className="validation" id="form-register" onSubmit={handleSubmit}>
                   <div className="row g-3">
                     <div className="col-sm-6 col-md-6">
                       <label htmlFor="nombre" className="form-label shadow-text ">Primer nombre</label>

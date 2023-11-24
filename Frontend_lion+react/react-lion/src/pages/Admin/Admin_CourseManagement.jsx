@@ -1,6 +1,24 @@
 import Navbar from '../../components/Admin/Navbar.jsx';
 import '../../css/Admin_CourseManagement.css';
+import {useEffect,useState} from 'react';
+import axios from 'axios'
+
 function CourseManagement() {
+  const [cursosData, setCursosData] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, [])
+  const fetchData = async () => {
+    try {
+      const resultado = await axios("http://127.0.0.1:8000/api/v1/grados/");
+      setCursosData(resultado.data);
+      console.log(resultado.data)
+      
+    } catch (err) {
+      console.log("Algo esta mal");
+    }
+   
+  }
   return (
     <div className='bodyCourseManagement'>
       <section>
@@ -66,21 +84,48 @@ function CourseManagement() {
                 </div>
               </div>
             </div>
-            <div className="container-fluid d-flex flex-column" id="contenedor-tabla">
+            <div className="container-fluid d-flex flex-column" id="contenedor-tabla-cursos">
               <h2 className="text-center shadow-text">Panel de administración de cursos</h2>
-              <div className="input-group mb-2" id="search-input_courses">
-                <input type="text" className="form-control" id="area" placeholder="..." aria-label="Buscar" />
-                <button className="btn btn-primary" type="button">Buscar</button>
+              <div className="col-8 cold-md-0 col-xl-10" id='addCourse'>
+                <button type='button' className='btn btn-primary' id='button'><i className="bi bi-plus"></i></button>
               </div>
               <div className='table-responsive col-8 cold-md-0 col-xl-10 px-sm-1 px-0 mt-4'id="tablaRegistros">
                 <table className='table-striped table-bordered'>
                   <thead>
-                    <tr></tr>
-                    <th>Id</th>
-                    <th>Curso</th>
-                    <th>Profesor asignado</th>
-                    <th>Acciones</th>
+                    <tr>
+                      <th>Id</th>
+                      <th>Curso</th>
+                      <th>C.Estudiantes</th>
+                      <th>Profesor asignado</th>
+                      <th>Acciones</th>
+                    </tr>
                   </thead>
+                  <tbody>
+                  {
+                      cursosData && cursosData.map((curso) => {
+                        return (
+                          <tr key={curso.numero}>
+                            <td>{curso.numero}</td>
+                            <td>{curso.nombre}</td>
+                            <td>{curso.cantidadestudiantes}</td>
+                            <td>{curso.director_nombre}</td>
+                            
+                            <td>
+                               <button className="btn  btn-sm" id="icon">
+                                 <i className="bi bi-pencil-fill"></i>
+                                </button>
+                                <button className="btn  btn-sm" id="icon">
+                                  <i className="bi bi-eye-fill"></i>
+                                </button>
+                                <button className="btn  btn-sm" id="icon" >  
+                                  <i className="bi bi-trash-fill"></i>
+                                </button>
+                            </td>
+                          </tr>
+                        )
+                      })
+                    }
+                  </tbody>
                 </table>
               </div>
 
