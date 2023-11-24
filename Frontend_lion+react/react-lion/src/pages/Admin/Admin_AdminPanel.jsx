@@ -50,7 +50,7 @@ const closeModal=()=>{
         <Navbar/>
           <section>
         <div className="container-fluid">
-          <div className="row flex-nowrap" id='contenedor-wrap'>
+          <div className="row flex-nowrap">
             <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
               <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <p className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -189,7 +189,6 @@ const closeModal=()=>{
     </div>
   </ModalBody>
   <ModalFooter>
-    <button className='btn btn-sm' id="modal-icon-edit"> <i className="bi bi-pencil-fill"></i></button>
     <button className="btn btn-sm" id="modal-icon-cancel" onClick={() =>closeModal()}>
       <i className="bi bi-x-lg"></i>
     </button>

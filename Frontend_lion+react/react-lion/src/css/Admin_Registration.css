@@ -79,6 +79,27 @@ option {
 #last-option{
 	padding-top: 5%;
 }
+#image{
+	margin-top: 2%;
+}
+img{
+	box-sizing: border-box;
+	border-radius: 5%;
+	background-size: cover;
+	
+	
+	
+}
+#imageimg{
+	padding: 0;
+}
+#danger{
+	font-size: 100%;
+	color: rgb(193, 11, 11);
+	font-weight: bold;
+	margin-bottom: 0;
+	
+}
 @media only screen and (max-width: 768px ) {
 	#container-register{
         margin-left: 0;
