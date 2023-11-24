@@ -1,0 +1,47 @@
+.user-info-section {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa91;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 15px; /* Ajustado para ser más responsivo */
+}
+
+.btn-link {
+  color: #080505; 
+  text-decoration: none; 
+}
+
+.btn-link:hover {
+  color: #080505;
+  text-decoration: underline; 
+  cursor: pointer;
+}
+
+.user-photo img {
+  max-width: 100%;
+  height: auto;
+}
+
+.edit-photo-btn {
+  margin-top: 10px;
+}
+
+.user-details p {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 991.98px) {
+  .user-info-section h2{
+    text-align: center;
+  }
+  .user-info-section {
+   text-align: justify;
+  }
+  .col-md-9 {
+    flex: 1; 
+    max-width: 100%;
+  }
+}
+
+

@@ -30,7 +30,6 @@ function SidebarObservation() {
               data-bs-target="#submenu1"
               aria-expanded="false"
             >
-
               <i className="fs-4 bi bi-clock text-white" id="icono-horario"></i>{" "}
               <span
                 className="ms-1 d-none d-sm-inline text-white"
@@ -52,10 +51,9 @@ function SidebarObservation() {
                   id="contenedor-horario-1"
                 >
                   <i className="bi bi-clock-history"></i>
-                  <span
-                className="d-none d-sm-inline" id="text-hover">Mi horario
-                </span>
-                  
+                  <span className="d-none d-sm-inline" id="text-hover">
+                    Mi horario
+                  </span>
                 </a>
               </li>
               <li className="w-100">
@@ -65,9 +63,9 @@ function SidebarObservation() {
                   id="contenedor-horario-2"
                 >
                   <i className="bi bi-puzzle"></i>
-                   <span
-                className="d-none d-sm-inline" id="text-hover">Horario curso asignado
-                </span>
+                  <span className="d-none d-sm-inline" id="text-hover">
+                    Horario curso asignado
+                  </span>
                 </a>
               </li>
             </ul>
@@ -105,12 +103,10 @@ function SidebarObservation() {
                   className="nav-link px-0 text-white"
                   id="contenedor-observaciones-1"
                 >
-                 <i className="bi bi-pencil-square"></i>
-              <span
-                className="d-none d-sm-inline" id="text-hover">Realizar Observacion
-                </span>
-                  
-                  
+                  <i className="bi bi-pencil-square"></i>
+                  <span className="d-none d-sm-inline" id="text-hover">
+                    Realizar Observacion
+                  </span>
                 </a>
               </li>
               <li className="w-100">
@@ -120,16 +116,15 @@ function SidebarObservation() {
                   id="contenedor-observaciones-2"
                 >
                   <i className="bi bi-search"></i>
-                  <span
-                className="d-none d-sm-inline" id="text-hover">Buscar Observaciones
-                </span>
-                  
+                  <span className="d-none d-sm-inline" id="text-hover">
+                    Buscar Observaciones
+                  </span>
                 </a>
               </li>
             </ul>
           </li>
         </ul>
-        {/* /* boton inferior desplegrable */} 
+        {/* /* boton inferior desplegrable */}
         <div className="dropdown pb-4">
           <a
             href="#"
@@ -149,7 +144,7 @@ function SidebarObservation() {
           </a>
           <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
             <li>
-              <a className="dropdown-item" href="#">
+              <a className="dropdown-item" href="/UserProfileT  ">
                 Perfil
               </a>
             </li>

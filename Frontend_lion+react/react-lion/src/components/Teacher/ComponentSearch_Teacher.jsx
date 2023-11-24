@@ -1,4 +1,5 @@
-import '../../css/ComponentSearchT.css'
+import '../../css/Teacher_ComponentSearch.css'
+
 const ComponentSearchT = () => {
   return (
     <div className='row d-flex justify-content-center' id='div-r'>

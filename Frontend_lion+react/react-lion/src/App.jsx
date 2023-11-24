@@ -17,6 +17,7 @@ import ObserverSearch from "./pages/Teacher/ObserverSearch_Teacher.jsx";
 import MyScheduleT from "./pages/Teacher/MySchedule_Teacher.jsx";
 import ScheduleCurseT from "./pages/Teacher/ScheduleCurse_Teacher.jsx";
 import MakeObservationT from "./pages/Teacher/MakeObservation_Teacher.jsx";
+import UserProfile from "./pages/Teacher/UserProfile_Teacher.jsx";
 
 
 
@@ -43,6 +44,8 @@ export const App = () => {
         <Route path="/MyScheduleT" element={<MyScheduleT/>}/>
         <Route path="/ScheduleCurseT" element={<ScheduleCurseT/>}/>
         <Route path="/MakeObservationT" element={<MakeObservationT/>}/>
+        <Route path="/UserProfileT" element={<UserProfile/>}/>
+
       </Routes>
     </Router>
   );}

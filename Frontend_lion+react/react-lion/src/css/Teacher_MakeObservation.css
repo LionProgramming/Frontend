@@ -1,33 +1,66 @@
-.formMakeobserver {
-    max-width: 800px;
-    width: 100%;
-    padding: 20px;
-    background-color: #f8f9fac2;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    margin-top: 20px;
-    color: black;
-  }
-  .formMakeobserver h2 {
-    color: #343a40;
-  }
-  .formMakeobserver input[type="date"],
-.formMakeobserver textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
+.containeMax {
+  display: flex;
+;
+}
+
+#contenedor-wrap {
+  flex: 1;
+  display: flex;
+ 
+}
+
+.containerform {
+  display: flex;
+  flex: 1;
+   
   
 }
-.formMakeobserver .btn-primary {
-    background-color: #d400ff;
-    color: #fff;
-    border: 1px solid #007bff;
-    border-radius: 4px;
-    padding: 10px;
-    cursor: pointer;
-  }
-  .formMakeobserver .btn-primary:hover {
-    background-color: #0056b3;
-  }
+/* ObservationsForm.css */
+
+.containerform {
+  
+  flex-direction: column;
+  align-items: center; /* Centrar horizontalmente */
+  padding: 20px;
+}
+
+.formMakeobserver {
+
+  border-radius: 8px;
+  padding: 20px;
+ 
+  max-width: 700px; /* Ajusta según tus necesidades */
+  width: 80%; /* Para asegurar que el formulario no sea más ancho que el contenedor */
+  margin-top: 10px; /* Espaciado superior */
+  margin-right: 50px;
+}
+.title{
+  text-align: center;
+  align-items: center;
+}
+
+.observation-section{
+  
+  background-color: #ffffffa1;
+  border: 1px solid #ddd;
+  padding: 20PX;
+  flex-direction: column;
+  align-items: center; /* Centrar horizontalmente */
+  text-align: justify; /* Alinear el texto al centro */
+  margin-top: 20PX;
+}
+
+
+/* Estilos específicos para los elementos del formulario desde la fecha hacia abajo */
+.centered-elements .form-group {
+  width: 100%;
+  max-width: 400px; /* Ajusta según tus necesidades */
+  margin: 0 auto; /* Centrar horizontalmente */
+}
+
+
+
+
+
+
+
