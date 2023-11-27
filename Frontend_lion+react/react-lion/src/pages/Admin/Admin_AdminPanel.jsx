@@ -16,6 +16,7 @@ const UserAdminPanel = () => {
   }, [])
   const fetchData = async () => {
     try {
+      //Consulta para ver todos los usuarios
       const resultado = await axios("http://127.0.0.1:8000/api/v1/users/");
       setUserData(resultado.data);
       
@@ -24,7 +25,8 @@ const UserAdminPanel = () => {
     }
    
   }
-  
+    
+//Consulta para borrar un usuario en especifico por su documento:
   const handleDelete = async (documento) => {
     try {
       await axios.delete(`http://127.0.0.1:8000/api/v1/users/${documento}`);
@@ -35,6 +37,7 @@ const UserAdminPanel = () => {
     }
   };
   
+//Consulta para ver infor de un usuario especifico por su documento:
 const modalView=async(documento)=>{
   setModalConsultar(true);
   const usuario =await axios.get(`http://127.0.0.1:8000/api/v1/users/${documento}`);
