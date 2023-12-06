@@ -320,9 +320,6 @@ function UserRegistration() {
                           <img src="" alt="imagen perfil" id="imageimg" />
                         </div>
                       </div>
-
-
-
                       <button type="submit" className="btn btn-primary" id="button-register">Registrar</button>
                     </div>
                   </div>

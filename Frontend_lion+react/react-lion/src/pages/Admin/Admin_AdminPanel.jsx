@@ -1,25 +1,35 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../css/Admin_AdminPanel.css'
-import {NavLink} from 'react-router-dom';
+import EditPanel from '../../components/Admin/EditPanel.jsx'
 import Navbar from '../../components/Admin/Navbar';
 import img from '../../images/foto.PNG'
 import {Modal,ModalBody,ModalHeader,ModalFooter} from 'reactstrap'
+import { useGlobalState } from '../../context/GlobalStateProvider.jsx';
 
 const UserAdminPanel = () => {
+  const { state } = useGlobalState();
   const [userData, setUserData] = useState([]);
   const [modalData, setModalData] = useState(null);
   const[modalConsultar,setModalConsultar]=useState(false);
+  const [documentoAEditar, setDocumentoAEditar]=useState(null)
 
+
+  const abrirModalEdicion= (documento)=>{
+    setDocumentoAEditar(documento);
+  }
+  const cerrarModalEdicion =()=>{
+    setDocumentoAEditar(null);
+  }
   useEffect(() => {
     fetchData();
-  }, [])
+  }, [state.documento])
+  
   const fetchData = async () => {
     try {
       //Consulta para ver todos los usuarios
       const resultado = await axios("http://127.0.0.1:8000/api/v1/users/");
       setUserData(resultado.data);
-      
     } catch (err) {
       console.log("Algo esta mal");
     }
@@ -140,9 +150,9 @@ const closeModal=()=>{
                             <td>{user.email}</td>
                             <td>{user.rol}</td>
                             <td>
-                                <NavLink to={`/usuarios/${user.documento}`} className="btn  btn-sm" id="icon">
+                                <button onClick={()=>abrirModalEdicion(user.documento)} className="btn  btn-sm" id="icon">
                                 <i className="bi bi-pencil-fill"></i>
-                                </NavLink>
+                                </button>
                                 <button className="btn  btn-sm" id="icon" onClick={()=>modalView(user.documento)}>
                                 <i className="bi bi-eye-fill"></i>
                                 </button>
@@ -197,7 +207,7 @@ const closeModal=()=>{
         </ModalFooter>
       </Modal>
 
-      
+      {documentoAEditar && (<EditPanel documento={documentoAEditar} closeModal={cerrarModalEdicion}/>)}
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { GlobalStateProvider } from './context/GlobalStateProvider.jsx';
 import Login from "./pages/Layout/Login.jsx";
 import Home from "./pages/Layout/HomePage.jsx";
 import AdminDashboard from "./pages/Admin/Admin_Index.jsx";
@@ -24,28 +25,30 @@ import UserProfile from "./pages/Teacher/UserProfile_Teacher.jsx";
 
 export const App = () => {
   return (
-    <Router>
-      
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/login" element={<Login/>} /> 
-        {/* Admin */}
-        <Route path="/Adashboard" element={<AdminDashboard/>}/>
-        <Route path="/Register" element={<UserRegistration/>}/>
-        <Route path="/UserAdministration" element={<UserAdminPanel/>}/>
-        <Route path="/Calendar" element={<UserCalendar/>}/>
-        <Route path="/CourseManagement" element={<CourseManagement/>}/>
-        {/* Student */}
-        <Route path="/Student-index" element={<Student_Index/>}/>
-        <Route path="/Student-observations" element={<Student_Observations/>}></Route>
-        <Route path="/Student-schedule" element={<Student_Schedule/>}></Route>
-        {/* Teacher */}
-        <Route path="/ObserverSearch" element={<ObserverSearch/>}/>
-        <Route path="/MyScheduleT" element={<MyScheduleT/>}/>
-        <Route path="/ScheduleCurseT" element={<ScheduleCurseT/>}/>
-        <Route path="/MakeObservationT" element={<MakeObservationT/>}/>
-        <Route path="/UserProfileT" element={<UserProfile/>}/>
+    <GlobalStateProvider>
+      <Router>
+        
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/login" element={<Login/>} /> 
+          {/* Admin */}
+          <Route path="/Adashboard" element={<AdminDashboard/>}/>
+          <Route path="/Register" element={<UserRegistration/>}/>
+          <Route path="/UserAdministration" element={<UserAdminPanel/>}/>
+          <Route path="/Calendar" element={<UserCalendar/>}/>
+          <Route path="/CourseManagement" element={<CourseManagement/>}/>
+          {/* Student */}
+          <Route path="/Student-index" element={<Student_Index/>}/>
+          <Route path="/Student-observations" element={<Student_Observations/>}></Route>
+          <Route path="/Student-schedule" element={<Student_Schedule/>}></Route>
+          {/* Teacher */}
+          <Route path="/ObserverSearch" element={<ObserverSearch/>}/>
+          <Route path="/MyScheduleT" element={<MyScheduleT/>}/>
+          <Route path="/ScheduleCurseT" element={<ScheduleCurseT/>}/>
+          <Route path="/MakeObservationT" element={<MakeObservationT/>}/>
+          <Route path="/UserProfileT" element={<UserProfile/>}/>
 
-      </Routes>
-    </Router>
+        </Routes>
+      </Router>
+    </GlobalStateProvider>
   );}

@@ -1,40 +1,81 @@
+import { useState,useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 import '../../css/Login.css'
 import Fotter from "../../components/General/Footer.jsx";
 import img from "../../images/bx-user.svg";
-
-const validarcampos = () => {
-  const regex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
-  let valor1 = document.getElementById("identificacion").value.trim();
-  let valor2 = document.getElementById("contraseña").value.trim();
-  if (
-    (parseInt(valor1) === 1234 && valor2 === "hola") ||
-    valor1 === "" ||
-    valor2 === "" ||
-    regex.test(valor2)
-  ) {
-    console.log("error de entrada");
-    // Crear nuevo aviso tipo h5 rojo donde diga que los datos son erroneos
-  } else {
-    //Da paso a la validacion; aut + context
-    console.log("Ingresando");
-  }
-};
-
+import { useGlobalState } from '../../context/GlobalStateProvider.jsx';
 const Login = () => {
+  const nav = useNavigate();
+  const {dispatch}=useGlobalState();
+  const [credentials,SetCredentials]=useState({
+    documentoCredential:'',
+    contraseniaCredential:''
+  });
+  useEffect(()=>{
+    const validacion1=document.getElementById('validacion1')
+    validacion1.style.display="none"
+  })
+  const handleChange=(e)=>{
+    const{name,value}=e.target
+    SetCredentials({... credentials,[name]:value})
+    console.log(name," changed to ",value)
+  }
+   const handleSubmit=(e)=>{
+    e.preventDefault()
+    console.log(credentials)
+    if ((credentials.documentoCredential)===''|(credentials.contraseniaCredential)===''){
+      const validacion1appear=document.getElementById('validacion1')
+      validacion1appear.style.display='block'
+      return
+    }
+    const formcheck={
+      documento:parseInt(credentials.documentoCredential),
+      contrasenia:credentials.contraseniaCredential
+    }
+    console.log(formcheck)
+    const verify =async()=>{
+      try{
+        const response=await axios.post(`http://127.0.0.1:8000/login/`,formcheck)
+        if(response.data.response===1){
+          dispatch({type:'SET_DOCUMENT', payload: response.data.documento})
+
+          if(response.data.rol===1){
+            nav("/Adashboard")
+          }else if(response.data.rol===2){
+            nav("/Student-index")
+          } 
+          else{
+            nav("/UserProfileT")
+          }
+        }
+      }catch(error){
+        console.error(error)
+      }
+      
+    }
+    verify();
+  } 
   return (
     <div>
-      <div className="login">
+      <div className="login d-flex align-items-center">
       <a href="/">
           <i className="bi bi-arrow-left" id="arrow-icon" width="10%"></i>
         </a>
         <img src={img} alt="" style={{ width: '20%' }} className="icon" />
+      
+
+
+        <form onSubmit={handleSubmit}>
+        <input type="number" placeholder="identificacion" id="documento" name='documentoCredential' value={credentials.documentoCredential} onChange={handleChange} />
+        <br/>
+        <input type="password" placeholder="contraseña" id="contraseña"  name="contraseniaCredential" value={credentials.contraseniaCredential} onChange={handleChange} />
         <br />
-        <input type="number" placeholder="identificacion" id="identificacion" />
-        <br />
-        <input type="password" placeholder="contraseña" id="contraseña" />
-        <br />
-        <input type="button" value="Login" onClick={validarcampos} />
+        <label className='text-center' id="validacion1">Porfavor ingrese los campos requeridos</label>
+        <button className="btn btn-primary d-flex mt-2 " type='submit'>ingresar</button>
+        </form>
       </div>
+        
 
       <Fotter/>
       

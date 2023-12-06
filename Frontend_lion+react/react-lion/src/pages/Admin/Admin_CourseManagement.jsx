@@ -95,7 +95,6 @@ function CourseManagement() {
                     <tr>
                       <th>Id</th>
                       <th>Curso</th>
-                      <th>C.Estudiantes</th>
                       <th>Profesor asignado</th>
                       <th>Acciones</th>
                     </tr>
@@ -107,7 +106,6 @@ function CourseManagement() {
                           <tr key={curso.numero}>
                             <td>{curso.numero}</td>
                             <td>{curso.nombre}</td>
-                            <td>{curso.cantidadestudiantes}</td>
                             <td>{curso.director_nombre}</td>
                             
                             <td>
