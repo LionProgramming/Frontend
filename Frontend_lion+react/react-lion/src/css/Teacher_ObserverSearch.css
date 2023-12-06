@@ -19,15 +19,8 @@
   background-color: rgba(255, 255, 255, 0.836);
   border-radius: 8px;
   overflow: hidden;
+  padding: 20px;
 
-}
-
-.buttonOb {
-  padding: 5px 10px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  cursor: pointer;
 }
 
 .buttonOb:hover {
@@ -42,15 +35,6 @@ img {
 .inf_ob {
   flex: 1;
   padding: 20px;
-}
-
-.buttonOb {
-  width: 80px;
-  height: 50px;
-  background-color: rgb(58, 58, 58);
-  color: white;
-  border: 0px;
-  border-radius: 5px;
 }
 
 .buttonObservador {
@@ -75,7 +59,10 @@ img {
 
 /* estilos responsivos  */
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 430px) {
+  .table{
+    display: flex;
+  }
   #contenedor-wrap {
     display: inline-flex;
   }

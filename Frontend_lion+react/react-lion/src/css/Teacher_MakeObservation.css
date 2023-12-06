@@ -1,13 +1,13 @@
 .containeMax{
   display: flex;
-  border: red solid 5px;
+  
 }
 
 
 .containerform{
   display: flex;
  flex: 1;
- border: aqua 2px solid;
+ 
  justify-content: center;
 }
 .formMakeobserver{
@@ -17,7 +17,7 @@
   margin: 0%;
   padding: 40px;
   margin: 10px;
-  border: solid red 2px;
+
  
 }
 
