@@ -6,7 +6,7 @@ function EstudentSidebarHome () {
 
   const cambiarPagina = (pagina) => {
     setCurrentPage(pagina);
-    console.log('currentPage:', currentPage); // Añade esta línea
+    console.log('currentPage:', currentPage);
   };
 
     return(

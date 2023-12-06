@@ -1,15 +1,60 @@
-import React, { useState } from 'react';
 import EstudentSidebarObservations from '../../components/Student/ObservationsSideBar_Student.jsx'
 import NavBarStudent_Index from '../../components/Student/NavBar_Student.jsx';
 import '../../css/Student_Observations.css'
 import icono from '../../images/img-user-light.png'
 import firma from '../../images/imgfirma.png'
 import ModalObservation from '../../components/Student/ModalObservation.jsx';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-//Instalar el paquete styled (npm install styled --save styled    )
+const observationDocument = 10270880;
+
+//Instalar el paquete styled (npm install styled --save styled)
 function Student_Observations() {
     const [modalVisible, setModalVisible] = useState(false);
+    
+    const [observation, setObservation] = useState([]);
 
+    const [observationSearch, setObservationSearch] = useState([])
+
+
+
+    useEffect(() => {
+        const getObservation = async () => {
+          try {
+            const respuesta = await axios.get(`http://127.0.0.1:8000/api/v1/observaciones`);
+                  
+            const filtro = respuesta.data.filter(observation => observation.usuario_documento === observationDocument);
+        
+            setObservation(filtro);
+            
+            console.log(respuesta);
+            console.log(filtro);
+          } catch (error) {
+            console.error('Error al obtener los datos del estudiante:', error);
+          }
+        };
+    
+        getObservation();
+      }, []);
+
+    const ModalObservationSearch = (documento) => {
+        
+
+        const getObservationSearch = async () => {
+            try {
+              const respuesta = await axios.get(`http://127.0.0.1:8000/api/v1/observaciones/${documento}`);        
+              setObservationSearch(respuesta.data);           
+              console.log(respuesta.data);
+              setModalVisible(true);
+
+            } catch (error) {
+              console.error('Error al obtener los datos del estudiante:', error);
+            }
+          };
+      
+          getObservationSearch();
+    }
   return (
     <div className='bodyStudentObservation'>
         <NavBarStudent_Index></NavBarStudent_Index>
@@ -26,101 +71,33 @@ function Student_Observations() {
                                             <h3>Mis observaciones</h3>
                                         </div>
                                         <div id='cont-tabla-ob'>
-                                            <article id='info-user-ob'>
-                                            
-                                                <div id='info-student-ob'>
-                                                    <div id='img-user'>
-                                                        <img src={icono} id='img-user-obs'>
-                                                        </img>
-                                                    </div>
+
+                                            {observation.map(observation => (
+                                                <article key={observation.idobservacion} id='info-user-ob'>
                                                     <div id='info-student-ob'>
-                                                        <div id='tabla-info-ob'>
-                                                            <p id='celda-ob'>Motivo: Mal comportamiento</p>
-                                                            <p id='celda-ob'>Fecha: 15/08/2022</p>
+                                                        <div id='img-user'>
+                                                            <img src={icono} id='img-user-obs' alt='User Icon' />
                                                         </div>
-                                                        
-                                                        <button id='info-obs' onClick={() => setModalVisible(true)}>Mostrar</button>
-                                                    </div>
-                                                    <ModalObservation
-                                                        state = {modalVisible}
-                                                        setState = {setModalVisible}
-                                                    >
-                                                        <p>Motivo: Mal comportamiento</p>
-                                                        <p>Fecha: 15/08/2022</p>
-                                                        <p>Firma:</p>
-                                                        <img src={firma}></img>
-                                                    </ModalObservation>
-                                                </div>
-                                            </article>
+                                                        <div id='info-student-ob'>
+                                                            <div id='tabla-info-ob'>
+                                                                <p id='celda-ob'>Motivo: {observation.informe}</p>
+                                                                <p id='celda-ob'>Fecha: </p>
+                                                            </div>
+                                                            <button id='info-obs' onClick={() => ModalObservationSearch(observation.idobservacion)}>Mostrar</button>
+                                                        </div>
+                                                        <ModalObservation 
+                                                            state={modalVisible} 
+                                                            setState={setModalVisible}>
 
-                                            <article id='info-user-ob'>
-                                                <div id='img-user'>
-                                                    <img src={icono} id='img-user-obs'>
-                                                    </img>
-                                                </div>
-                                                <div id='info-student-ob'>
-                                                    <div id='tabla-info-ob'>
-                                                        <p id='celda-ob'>Motivo: Mal comportamiento</p>
-                                                        <p id='celda-ob'>Fecha: 15/08/2022</p>
+                                                            <p>Motivo: {observationSearch.informe}</p>
+                                                            <p>Fecha: </p>
+                                                            <p>Firma:</p>
+                                                            <img src={firma} alt='Firma' />
+                                                        </ModalObservation>
                                                     </div>
-                                                    
-                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Mostrar</button>
-                                                </div>
-                                            </article>
-
-                                            <article id='info-user-ob'>
-                                                <div id='img-user'>
-                                                    <img src={icono} id='img-user-obs'>
-                                                    </img>
-                                                </div>
-                                                <div id='info-student-ob'>
-                                                    <div id='tabla-info-ob'>
-                                                        <p id='celda-ob'>Motivo: Mal comportamiento</p>
-                                                        <p id='celda-ob'>Fecha: 15/08/2022</p>
-                                                    </div>
-                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Mostrar</button>
-                                                </div>
-                                            </article>
-                                            <article id='info-user-ob'>
-                                                <div id='img-user'>
-                                                    <img src={icono} id='img-user-obs'>
-                                                    </img>
-                                                </div>
-                                                <div id='info-student-ob'>
-                                                    <div id='tabla-info-ob'>
-                                                        <p id='celda-ob'>Motivo: Mal comportamiento</p>
-                                                        <p id='celda-ob'>Fecha: 15/08/2022</p>
-                                                    </div>
-                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Mostrar</button>
-                                                </div>
-                                            </article>
-                                            <article id='info-user-ob'>
-                                                <div id='img-user'>
-                                                    <img src={icono} id='img-user-obs'>
-                                                    </img>
-                                                </div>
-                                                <div id='info-student-ob'>
-                                                    <div id='tabla-info-ob'>
-                                                        <p id='celda-ob'>Motivo: Mal comportamiento</p>
-                                                        <p id='celda-ob'>Fecha: 15/08/2022</p>
-                                                    </div>
-                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Mostrar</button>
-                                                </div>
-                                            </article>
-
-                                            <article id='info-user-ob'>
-                                                <div id='img-user'>
-                                                    <img src={icono} id='img-user-obs'>
-                                                    </img>
-                                                </div>
-                                                <div id='info-student-ob'>
-                                                    <div id='tabla-info-ob'>
-                                                        <p id='celda-ob'>Motivo: Mal comportamiento</p>
-                                                        <p id='celda-ob'>Fecha: 15/08/2022</p>
-                                                    </div>
-                                                    <button id='info-obs' onClick={() => setModalVisible(true)}>Mostrar</button>
-                                                </div>
-                                            </article>
+                                                </article>
+                                            ))}
+                                           
                                         </div>
                                     </div>
                                 </section>

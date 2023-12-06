@@ -2,8 +2,31 @@ import EstudentSidebarHome from '../../components/Student/IndexSideBar_Student.j
 import NavBarStudent_Index from '../../components/Student/NavBar_Student.jsx';
 import '../../css/Student_Index.css'
 import img from '../../images/foto.png'
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const studentDocument = 1010123457;
 
 function Student_Index() {
+
+  const [student, setStudent] = useState([]);
+
+  useEffect(() => {
+    const getStudent = async () => {
+      try {
+        const respuesta = await axios.get(`http://127.0.0.1:8000/api/v1/users/${studentDocument}`);
+        setStudent([respuesta.data]);
+        console.log(respuesta)
+      } catch (error) {
+        console.error('Error al obtener los datos del estudiante:', error);
+      }
+    };
+
+    getStudent();
+  }, []);
+
+  
+
   return (
     <div className='bodyStudentIndex'>
       <NavBarStudent_Index></NavBarStudent_Index>
@@ -19,20 +42,19 @@ function Student_Index() {
                       <h3 className='text-center'>Informacion personal</h3>
                     </div>
                       <article id='info-user'>
-                          <img src={img} id='img-perfil' alt="Imagen perfil" className='image_index'/>
+                          <img src={student.length > 0 && student[0].urlfoto} id='img-perfil' alt="Imagen perfil" className='image_index'/>
                         <div id='cont-info-user'>
                           <div id='info-student'>
-                              <h3>Nombre:Juan  Martin Elias Martinez</h3>
+                              <h3>Nombre: {student.length > 0 && student[0].nombre1 +" "+(student[0].nombre2 ? `${student[0].nombre2}` : ' ')+" "+student[0].apellido1+" "+(student[0].apellido2 ? `${student[0].apellido2}` : ' ')}</h3>
                           </div>
                           <div id='info-student'>
-                              <h3>Curso: 502</h3>
+                              <h3>Curso: {student.length > 0 && student[0].curso_nombre}</h3>
                           </div>
                           <div id='info-student'>
-                              <h3>Correo: MELIAS39@gmail.com</h3>
+                              <h3>Correo: {student.length > 0 && student[0].email}</h3>
                           </div>
                           <div id='info-student'>
-                              <h3>Nombre:Juan  Martin Elias Martinez</h3>
-                              
+                              <h3>Telefono: {student.length > 0 && student[0].telefono_celular}</h3>
                           </div>
                         </div>
                       </article>

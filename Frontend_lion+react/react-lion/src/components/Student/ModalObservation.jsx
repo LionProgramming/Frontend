@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 const ModalObservation = ({children, state, setState}) => {
     return(
         <>

@@ -88,14 +88,14 @@ header{
     overflow-y: auto;
     max-height: 600px;
     margin-bottom: 50px;
-    padding-top: 300px;
+    padding-top: 30px;
 }
 
 #info-user-ob{
     margin: 5px;
     margin-top: 0;
     width: 85%;
-    height: 250px;
+    height: 150px;
     display: flex;
     flex-direction: row;
     background-color: rgb(37, 37, 37);
