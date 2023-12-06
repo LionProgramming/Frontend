@@ -41,7 +41,7 @@ const Login = () => {
           dispatch({type:'SET_DOCUMENT', payload: response.data.documento})
 
           if(response.data.rol===1){
-            nav("/Adashboard")
+            nav("/Admin/Profile")
           }else if(response.data.rol===2){
             nav("/Student-index")
           } 

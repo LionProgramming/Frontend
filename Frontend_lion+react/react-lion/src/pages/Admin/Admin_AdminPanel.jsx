@@ -5,15 +5,14 @@ import EditPanel from '../../components/Admin/EditPanel.jsx'
 import Navbar from '../../components/Admin/Navbar';
 import img from '../../images/foto.PNG'
 import {Modal,ModalBody,ModalHeader,ModalFooter} from 'reactstrap'
-import { useGlobalState } from '../../context/GlobalStateProvider.jsx';
 
 const UserAdminPanel = () => {
-  const { state } = useGlobalState();
   const [userData, setUserData] = useState([]);
   const [modalData, setModalData] = useState(null);
   const[modalConsultar,setModalConsultar]=useState(false);
   const [documentoAEditar, setDocumentoAEditar]=useState(null)
 
+  
 
   const abrirModalEdicion= (documento)=>{
     setDocumentoAEditar(documento);
@@ -23,7 +22,7 @@ const UserAdminPanel = () => {
   }
   useEffect(() => {
     fetchData();
-  }, [state.documento])
+  }, [])
   
   const fetchData = async () => {
     try {

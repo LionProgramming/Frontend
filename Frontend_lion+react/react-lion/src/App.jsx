@@ -7,6 +7,7 @@ import UserAdminPanel from "./pages/Admin/Admin_AdminPanel.jsx";
 import UserRegistration from "./pages/Admin/Admin_Registration.jsx";
 import UserCalendar from "./pages/Admin/Admin_Calendar.jsx";
 import CourseManagement from "./pages/Admin/Admin_CourseManagement.jsx";
+import Admin_profile from "./pages/Admin/Admin_profile.jsx";
 // Student
 import Student_Index from "./pages/Student/Student_Index.jsx";
 
@@ -33,6 +34,7 @@ export const App = () => {
           <Route path="/login" element={<Login/>} /> 
           {/* Admin */}
           <Route path="/Adashboard" element={<AdminDashboard/>}/>
+          <Route path="/Admin/Profile" element={<Admin_profile/>}/>
           <Route path="/Register" element={<UserRegistration/>}/>
           <Route path="/UserAdministration" element={<UserAdminPanel/>}/>
           <Route path="/Calendar" element={<UserCalendar/>}/>

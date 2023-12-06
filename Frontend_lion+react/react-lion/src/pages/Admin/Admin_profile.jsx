@@ -1,14 +1,15 @@
 import { useState,useEffect } from "react";
-import { useGlobalState } from '../context/GlobalStateProvider.jsx';
+import { useGlobalState } from '../../context/GlobalStateProvider.jsx'; //importar esto
 import Navbar from "../../components/Admin/Navbar.jsx";
 import axios from 'axios'
 function Admin_profile() {
+   
     const [loading, setLoading] = useState(true);
     const [infoAdmin,setInfoAdmin]=useState()
-    const { state } = useGlobalState();
+    const { state } = useGlobalState(); //importar esto 
     useEffect(() => {
         const adminData=async()=>{
-          const documento=state.documento
+          const documento=state.documento //definir documento con state.documento
           try{
             const dataAdmin=await axios.get(`http://127.0.0.1:8000/api/v1/users/${documento}/`)
             setInfoAdmin(dataAdmin.data)
@@ -89,7 +90,7 @@ function Admin_profile() {
           </div>
         </div>
         <div className="container-fluid d-flex flex-column" id="contenedor-tabla">
-                <div><h1>{infoAdmin.nombre1}</h1></div>
+                <div><h1>{infoAdmin.nombre1+ infoAdmin.apellido1}</h1></div>
           
         </div>
       </div>
