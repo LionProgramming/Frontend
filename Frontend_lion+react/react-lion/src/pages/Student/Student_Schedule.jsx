@@ -4,10 +4,14 @@ import '../../css/Student_Schedule.css'
 import curso from '../../images/C_Prof.png'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useGlobalState } from '../../context/GlobalStateProvider.jsx';
 
-const scheduleDocument = 1010123457;
+
 
 function Student_Index() {
+  const { state } = useGlobalState();
+
+  const scheduleDocument = state.documento;
   
   const [student, setStudent] = useState([]);
 
@@ -30,7 +34,7 @@ function Student_Index() {
   useEffect(() => {
     const getSchedule = async () => {
       try {
-        const respuesta1 = await axios.get(`http://127.0.0.1:8000/api/v1/horarios/2`);
+        const respuesta1 = await axios.get(`http://127.0.0.1:8000/api/v1/horarios/${student.curso}`);
         setSchedule([respuesta1.data]);
         console.log(respuesta1)
       } catch (error) {
@@ -56,7 +60,7 @@ function Student_Index() {
                       <h3>Mi Curso</h3>
                     </div>
                       <article id='info-curso'>
-                          <img src={curso} id='img-curso' alt="Imagen perfil" className='image_index'/>
+                          <img src={schedule.urlHorario} id='img-curso' alt="Imagen perfil" className='image_index'/>
                       </article>
                   </div>
                 </div>

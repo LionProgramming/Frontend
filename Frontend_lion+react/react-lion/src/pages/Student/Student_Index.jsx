@@ -4,12 +4,16 @@ import '../../css/Student_Index.css'
 import img from '../../images/foto.png'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useGlobalState } from '../../context/GlobalStateProvider.jsx';
 
-const studentDocument = 1010123457;
+
 
 function Student_Index() {
 
   const [student, setStudent] = useState([]);
+  const { state } = useGlobalState(); //importar esto 
+
+  const studentDocument = state.documento;
 
   useEffect(() => {
     const getStudent = async () => {

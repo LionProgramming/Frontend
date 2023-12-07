@@ -6,8 +6,9 @@ import firma from '../../images/imgfirma.png'
 import ModalObservation from '../../components/Student/ModalObservation.jsx';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useGlobalState } from '../../context/GlobalStateProvider.jsx';
 
-const observationDocument = 10270880;
+
 
 //Instalar el paquete styled (npm install styled --save styled)
 function Student_Observations() {
@@ -16,6 +17,10 @@ function Student_Observations() {
     const [observation, setObservation] = useState([]);
 
     const [observationSearch, setObservationSearch] = useState([])
+
+    const { state } = useGlobalState();
+
+    const observationDocument = state.documento;
 
 
 
