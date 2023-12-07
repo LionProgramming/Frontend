@@ -13,7 +13,7 @@ function Student_Index() {
   const [student, setStudent] = useState([]);
   const { state } = useGlobalState(); //importar esto 
 
-  const studentDocument = state.documento;
+  const studentDocument = localStorage.getItem('documento');
 
   useEffect(() => {
     const getStudent = async () => {

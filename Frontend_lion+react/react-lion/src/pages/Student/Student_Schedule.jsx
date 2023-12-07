@@ -11,7 +11,7 @@ import { useGlobalState } from '../../context/GlobalStateProvider.jsx';
 function Student_Index() {
   const { state } = useGlobalState();
 
-  const scheduleDocument = state.documento;
+  const scheduleDocument = localStorage.getItem('documento');
   
   const [student, setStudent] = useState([]);
 

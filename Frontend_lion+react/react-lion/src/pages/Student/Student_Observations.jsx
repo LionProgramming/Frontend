@@ -20,7 +20,7 @@ function Student_Observations() {
 
     const { state } = useGlobalState();
 
-    const observationDocument = state.documento;
+    const observationDocument = localStorage.getItem('documento');
 
 
 
