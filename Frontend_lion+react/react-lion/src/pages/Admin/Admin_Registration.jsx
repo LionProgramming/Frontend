@@ -9,7 +9,7 @@ function UserRegistration() {
   /* const navigate = useNavigate();
   const {isAuth}=useAuth */
   /* use document.getElementById('image').style.display='none'; */
-
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [userData, setUserData] = useState({
     documento: '',
     fechanacimiento: '',
@@ -79,9 +79,28 @@ function UserRegistration() {
     const postData= async()=>{
       try{
         const response = await axios.post('http://127.0.0.1:8000/api/v1/users/',dataTosend);
-        if (response){
-          <ModalSucces/>
-          document.getElementById('form-register').reset();
+        console.log(response)
+        if (response.statusText==='Created'){
+          console.log("siuu")
+          setUserData({
+            documento: '',
+            fechanacimiento: '',
+            nombre1: "",
+            nombre2: "",
+            apellido1: "",
+            apellido2: "",
+            email: "",
+            telefono_fijo: '',
+            telefono_celular: '',
+            contrasenia: "",
+            confirmarContrasenia: '',
+            urlfoto: "",
+            estado: 1,
+            tipo_idtipodocumento: "",
+            rol_idrol: ""
+  }
+          )
+          setShowSuccessModal(true);
         }
         
       }catch(error){
@@ -329,6 +348,7 @@ function UserRegistration() {
           </div>
         </section>
       </div>
+      {showSuccessModal && <ModalSucces onClose={() => setShowSuccessModal(false)} />}
     </div>
 
   );

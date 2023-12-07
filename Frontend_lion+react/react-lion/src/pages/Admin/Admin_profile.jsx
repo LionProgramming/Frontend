@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react";
 import { useGlobalState } from '../../context/GlobalStateProvider.jsx'; //importar esto
 import Navbar from "../../components/Admin/Navbar.jsx";
+import '../../css/Admin_AdminProfile.css'
 import axios from 'axios'
 function Admin_profile() {
    
@@ -9,7 +10,7 @@ function Admin_profile() {
     const { state } = useGlobalState(); //importar esto 
     useEffect(() => {
         const adminData=async()=>{
-          const documento = localStorage.getItem('documento') //definir documento con state.documento
+          const documento = localStorage.getItem('documento') //definir documento con localStorage !!!!!!!!!! !!!!!!!!!!
           try{
             const dataAdmin=await axios.get(`http://127.0.0.1:8000/api/v1/users/${documento}/`)
             setInfoAdmin(dataAdmin.data)
@@ -55,8 +56,8 @@ function Admin_profile() {
                   </li>
                   <li className="w-100">
                     <a href="/UserAdministration" className="nav-link px-0 text-white" id="tabla"> <span
-                      className="d-none d-sm-inline" id="active">Gestiones adicionales</span> <i
-                        className="fs-5 bi bi-plus-slash-minus" id="active"></i></a>
+                      className="d-none d-sm-inline" id="text-hover">Gestiones adicionales</span> <i
+                        className="fs-5 bi bi-plus-slash-minus" id="text-hover"></i></a>
                   </li>
                 </ul>
               </li>
@@ -89,8 +90,45 @@ function Admin_profile() {
             </div>
           </div>
         </div>
-        <div className="container-fluid d-flex flex-column" id="contenedor-tabla">
-                <div><h1>{infoAdmin.nombre1+ infoAdmin.apellido1}</h1></div>
+        <div className="container-fluid d-flex flex-column" id="contenedor-profile">
+            <div className="row mt-2">
+              <div className="col-12">
+                  <label className="text-start">Nombres: {infoAdmin.nombre1} {infoAdmin.nombre2? infoAdmin.nombre2:''}</label>
+
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                  <label className="text-start">Apellidos: {infoAdmin.apellido1} {infoAdmin.apellido2? infoAdmin.apellido2:''}</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                  <label className="text-start">Identificacion: {infoAdmin.documento}</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                  <label className="text-start">Email: {infoAdmin.email}</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                  <label className="text-start">Telefono fijo: {infoAdmin.telefono_fijo? infoAdmin.telefono_fijo:'No presenta'}</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                  <label className="text-start">Telefono celular: {infoAdmin.telefono_celular}</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                  <label className="text-start">Estado: {infoAdmin.estado===1? 'Activo':'Inactivo'}</label>
+              </div>
+            </div>
+               
+               
           
         </div>
       </div>
