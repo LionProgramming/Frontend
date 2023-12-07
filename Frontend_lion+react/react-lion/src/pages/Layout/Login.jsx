@@ -38,6 +38,7 @@ const Login = () => {
       try{
         const response=await axios.post(`http://127.0.0.1:8000/login/`,formcheck)
         if(response.data.response===1){
+          localStorage.setItem('documento', response.data.documento);
           dispatch({type:'SET_DOCUMENT', payload: response.data.documento})
 
           if(response.data.rol===1){

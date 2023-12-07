@@ -17,9 +17,7 @@ const UserAdminPanel = () => {
   const abrirModalEdicion= (documento)=>{
     setDocumentoAEditar(documento);
   }
-  const cerrarModalEdicion =()=>{
-    setDocumentoAEditar(null);
-  }
+  
   useEffect(() => {
     fetchData();
   }, [])
@@ -206,7 +204,7 @@ const closeModal=()=>{
         </ModalFooter>
       </Modal>
 
-      {documentoAEditar && (<EditPanel documento={documentoAEditar} closeModal={cerrarModalEdicion}/>)}
+      {documentoAEditar && (<EditPanel documento={documentoAEditar}/>)}
     </div>
   );
 };

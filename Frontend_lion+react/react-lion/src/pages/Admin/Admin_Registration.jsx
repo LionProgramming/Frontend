@@ -260,8 +260,8 @@ function UserRegistration() {
                       <select id="rol" className="form-select" required name="rol_idrol" value={userData.rol_idrol} onChange={handleInputChange}  >
                         <option value="" disabled >Seleccione un rol</option>
                         <option value="1">Administrador</option>
-                        <option value="2">Profesor</option>
-                        <option value="3">Estudiante</option>
+                        <option value="2">Estudiante</option>
+                        <option value="3">Profesor</option>
                       </select>
                       <label htmlFor="tipoDocumento" className="form-label shadow-text">Tipo de documento</label>
 
@@ -291,7 +291,7 @@ function UserRegistration() {
                       <input type="text" className="form-control" id="nombre2" placeholder="*Opcional" name="nombre2" value={userData.nombre2} onChange={handleInputChange} />
 
                       <label htmlFor="nombre" className="form-label shadow-text">Segundo apellido </label>
-                      <input type="text" className="form-control" id="apellido2" placeholder="" name="apellido2" value={userData.apellido2} onChange={handleInputChange} required />
+                      <input type="text" className="form-control" id="apellido2" placeholder="" name="apellido2" value={userData.apellido2} onChange={handleInputChange}  />
 
                       <label className="form-label shadow-text">Fecha de Nacimiento</label>
                       <input type="date" id="fechaNacimiento " className="form-control" name="fechanacimiento" onChange={handleInputChange} required></input>

@@ -9,7 +9,7 @@ function Admin_profile() {
     const { state } = useGlobalState(); //importar esto 
     useEffect(() => {
         const adminData=async()=>{
-          const documento=state.documento //definir documento con state.documento
+          const documento = localStorage.getItem('documento') //definir documento con state.documento
           try{
             const dataAdmin=await axios.get(`http://127.0.0.1:8000/api/v1/users/${documento}/`)
             setInfoAdmin(dataAdmin.data)

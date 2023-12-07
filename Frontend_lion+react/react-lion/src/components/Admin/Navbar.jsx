@@ -1,5 +1,12 @@
 import '../../css/Navbar.css'
+import { useGlobalState } from '../../context/GlobalStateProvider'
 function Navbar(){
+  const {dispatch}=useGlobalState();
+  const handleLogout=()=>{
+    localStorage.removeItem('documento');
+
+    dispatch({type: 'SET_DOCUMENT',playload:null})
+  }
   return(
    <nav className="navbar navbar-expand-md navbar-dark bg-transparent" id="nav">
   <div className="container-navbar">
@@ -15,7 +22,7 @@ function Navbar(){
           </a>
         </li>
         <li className="nav-item">
-          <a href="/" className="nav-link text-dark " >
+          <a href="/" className="nav-link text-dark " onClick={handleLogout} >
             <i className="bi bi-box-arrow-right" ></i> Salir
           </a>
         </li>

@@ -14,7 +14,7 @@ const EditPanel=({documento})=> {
         setModalConsultar(true)
         const fetchData = async ()=>{
             try{
-                const response = await axios.get(`http://127.0.0.1:5000/cliente/${documento}`)
+                const response = await axios.get(`http://127.0.0.1:8000/api/v1/users/${documento}`)
                 setDatosEditados(response.data)
                 console.log(response.data)
                 setCargados(false);
@@ -52,37 +52,59 @@ const EditPanel=({documento})=> {
                 <div className="row">
                     <div className="col-6 ">
                         <label>Primer Nombre:</label>
-                    <input type="text" name="nombre1" className="form-control" value={datosEditados.nombre1} onChange={handleChange} disabled/>
+                    <input type="text" name="nombre1" className="form-control text-black" value={datosEditados.nombre1} onChange={handleChange} disabled/>
                     </div>
                     <div className="col-6">
                     <label>Segundo Nombre:</label>
-                    <input type="text" name="nombre2" className="form-control"value={datosEditados.nombre2} onChange={handleChange} />
+                    <input type="text" name="nombre2" className="form-control text-black"value={datosEditados.nombre2} onChange={handleChange} />
                     </div>
                 </div>
                 <div className="row mt-2">
                     <div className="col-6">
                     <label>Primer apellido:</label>
-                        <input type="text"  className="form-control " name="apellido1" value={datosEditados.apellido1} onChange={handleChange} disabled />
+                        <input type="text"  className="form-control text-black " name="apellido1" value={datosEditados.apellido1} onChange={handleChange} disabled />
                     </div>
                     <div className="col-6">
                     <label>Segundo apellido:</label>
-                        <input type="text"  className="form-control " name="apellido2" value={datosEditados.apellido2? datosEditados.apellido2:''} onChange={handleChange}/>
+                        <input type="text"  className="form-control  text-black" name="apellido2" value={datosEditados.apellido2? datosEditados.apellido2:''} onChange={handleChange}/>
+                    </div>
+                </div>
+                <div className="row mt-2">
+                    <div className="col-4">
+                    <label>Documento:</label>
+                        <input type="text"  className="form-control text-black " name="documento" value={datosEditados.documento} onChange={handleChange} disabled />
+                    </div>
+                    <div className="col-2">
+                        <label>T.Doc:</label>
+                        <input type="text" className='form-control text-black' name="tipo_documento" value={datosEditados.tipoDoc===1? 'C.C':'T.I'} disabled />
+                    </div>
+                    <div className="col-4">
+                    <label>Telefono:</label>
+                        <input type="text"  className="form-control text-black " name="nombre2" value={datosEditados.telefono_celular} onChange={handleChange}/>
                     </div>
                 </div>
                 <div className="row mt-2">
                     <div className="col-5">
-                    <label>Documento:</label>
-                        <input type="text"  className="form-control " name="documento" value={datosEditados.documento} onChange={handleChange} disabled />
+                    <label>rol:</label>
+                        <input type="text"  className="form-control text-black " name="documento" value={datosEditados.rol} onChange={handleChange} disabled />
                     </div>
-                    <div className="col-2">
-                        <label></label>
-                        <input type="text" className='form-control' name="tipo_documento" value={datosEditados.tipoDoc===1? 'C.C':'T.I'} disabled />
+                    
+                    <div className="col-6">
+                    <label>Fecha de nacimiento:</label>
+                        <input type="date"  className="form-control text-black " name="nombre2" value={datosEditados.fechanacimiento} onChange={handleChange}/>
                     </div>
-                    <div className="col-4">
-                    <label>Telefono:</label>
-                        <input type="text"  className="form-control " name="nombre2" value={datosEditados.telefono} onChange={handleChange}/>
+                    
+                </div>
+                <div className="row mt-2">
+                <div className="col-12 text-center">
+                    <label className='text-center'>Estado</label>
+                       <select name="" id="" className='form-control' value={datosEditados.estado} onChange={handleChange}>
+                            <option value="1" className='text-black'>Activo</option>
+                            <option value="0">Inactivo</option>
+                       </select>
                     </div>
                 </div>
+
                 <div className="col-12 d-flex justify-content-end mt-2">
                      <button className="btn btn-sm bg-success" type="submit" >
                         <i className="bi bi-pen"></i>
