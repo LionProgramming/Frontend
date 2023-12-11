@@ -11,13 +11,25 @@ const UserAdminPanel = () => {
   const [modalData, setModalData] = useState(null);
   const[modalConsultar,setModalConsultar]=useState(false);
   const [documentoAEditar, setDocumentoAEditar]=useState(null)
-
+  const [searchTerm,setSearchTerm]=useState('')
+  const [filteredData,setFilteredData]=useState([...userData])
   
 
   const abrirModalEdicion= (documento)=>{
     setDocumentoAEditar(documento);
   }
-  
+  const handleSearch=(event)=>{
+    const term = event.target.value
+    setSearchTerm(term)
+
+    const filteredResults= userData.filter((user)=>{
+      const fullName=user.nombre1+(user.nombre2? `${user.nombre2}`:'')
+      return fullName.toLowerCase().includes(term.toLowerCase())
+    })
+
+    setFilteredData([...filteredResults])
+    
+  }
   useEffect(() => {
     fetchData();
   }, [])
@@ -122,7 +134,7 @@ const closeModal=()=>{
             <div className="container-fluid d-flex flex-column" id="contenedor-tabla">
               <h2 className="text-center">Panel de administración de usuarios</h2>
               <div className="input-group mb-2" id="search-input">
-                <input type="text" className="form-control" id="area" placeholder="..." aria-label="Buscar" />
+                <input type="text" className="form-control" id="area" placeholder="..." aria-label="Buscar" value={searchTerm} onChange={handleSearch}/>
                 <button className="btn  btn-sm" type="button" id="search-button">Buscar</button>
               </div>
               <div className="table-responsive col-8 col-md-0 col-xl-10 px-sm-1 px-0 mt-4" id="tablaRegistros">
@@ -138,7 +150,7 @@ const closeModal=()=>{
                   </thead>
                   <tbody>
                     {
-                      userData && userData.map((user, i) => {
+                      filteredData.map((user, i) => {
                         return (
                           <tr key={i}>
                             <td>{i+1}</td>

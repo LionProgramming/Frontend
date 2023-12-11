@@ -14,7 +14,7 @@ const EditPanel=({documento})=> {
         setModalConsultar(true)
         const fetchData = async ()=>{
             try{
-                const response = await axios.get(`http://127.0.0.1:8000/api/v1/users/${documento}`)
+                const response = await axios.get(`http://127.0.0.1:8000/api/v1/users/${documento}/`)
                 setDatosEditados(response.data)
                 console.log(response.data)
                 setCargados(false);
@@ -33,7 +33,7 @@ const EditPanel=({documento})=> {
     const submit= async (e)=>{
         e.preventDefault();
         try{
-            await axios.put(`http://127.0.0.1:5000/editar-usuario/${documento}`,datosEditados)
+            await axios.put(`http://127.0.0.1:8000/api/v1/users/${documento}/`,datosEditados)
             console.log('Datos editados con exito')
         }catch(error){
             console.error(error)

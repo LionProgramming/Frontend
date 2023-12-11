@@ -1,8 +1,51 @@
+import { useState,useEffect } from "react";
+import axios from 'axios'
 import Navbar from "../../components/Admin/Navbar";
 import "../../css/Admin_Calendar.css";
+import {Modal,ModalBody,ModalHeader,ModalFooter} from 'reactstrap'
 function UserCalendar() {
+  
+    const [cursosData, setCursosData] = useState([]);
+    const [horariosData,setHorariosData]=useState([])
+    const [selectedOption, setSelectedOption] = useState('');
+    const [modalHorario, setModalHorario]=useState(false)
+    useEffect(() => {
+      fetchData();
+      fetchCalendar()
+    }, [])
+    const fetchData = async () => {
+      try {
+        const resultado = await axios("http://127.0.0.1:8000/api/v1/grados/");
+        setCursosData(resultado.data);
+        
+      } catch (err) {
+        console.log("Algo esta mal");
+      }
+     
+    }
+    const fetchCalendar= async()=>{
+      try {
+        const calendars=await axios("http://127.0.0.1:8000/api/v1/horarios/")
+        setHorariosData(calendars.data)
+        console.log(calendars.data)
+
+      } catch (err){
+        console.error(err)
+      }
+    }
+    const handleSelectChange = event => {
+      // Maneja el cambio en el select y actualiza el estado local
+      setSelectedOption(event.target.value);
+    };
+
+    const modalOpen=()=>{
+      setModalHorario(true)
+    }
+    const modalClose=()=>{
+      setModalHorario(false)
+    }
   return (
-    <body className='body_Calendar'>
+    <div className='body_Calendar'>
      
        
      
@@ -83,31 +126,54 @@ function UserCalendar() {
                 <div>
                  
                   <form id="busqueda">
-                    <select name="select" defaultValue="">
-                      <option selected>Curso</option>
-                      <option value="value1">1</option>
-                      <option value="value2">2</option>
-                      <option value="value3">4</option>
-                      <option value="value3">5</option>
-                      <option value="value3">6</option>
-                      <option value="value3">7</option>
-                      <option value="value3">8</option>
-                      <option value="value3">9</option>
-                      <option value="value3">10</option>
-                      <option value="value3">11</option>
+                    <select name="select" value={selectedOption} onChange={handleSelectChange}>
+                     <option selected disabled>Seleccione una opcion</option>
+                     {horariosData.map(option =>(
+                      <option key={option.idhorario} value={option.idhorario}>{option.nombre}</option>
+                     ))}
                     </select>
-                    <select name="select" defaultValue="">
-                      <option selected>Seleccione un Horario</option>
-                      <option value="value1">1</option>
-                      <option value="value1">2</option>
-                      <option value="value1">3</option>
-                    </select>
-                    <button className="btn" id="search-button" >Buscar</button>
+                    
+                    <button className="btn" id="search-button" >Buscar Horario</button>
+                   
                   </form>
+                   
+                  <div className="img-calendar">
+                    
+                    <img src="" alt="" id="img_horario"/>
+                  </div>
                 </div>
               </nav>
+              <button className="btn btn-info" onClick={() =>modalOpen()} >+ Horario</button>
+              {/* */}
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="container-input seleccionador">
+      <div className="text-center">
+      <Modal isOpen={modalHorario}>
+        <div className="text-center">
+        <ModalHeader>Agregar horario</ModalHeader>
+        </div>
+        <ModalBody>
+          <form>
+          <div className="row">
+            <div className="col-6 text-center">
+              <label>Seleccione un curso:</label>
+              <select className='form-control' name="nombre" value={selectedOption} onChange={handleSelectChange} defaultValue="">
+                      <option selected disabled>Seleccione una opcion</option>
+                      {cursosData.map(option =>(
+                        <option key={option.numero} value={option.numero}>{option.nombre}</option>
+                      ))}
+              </select>
+            </div>
+            <div className="col-6 text-center" id="div-link-horario">
+              <label>Ingrese un link:</label>
+              <input type="text" className="form-control" id="input-link" />
+            </div>
+          </div>
+          <div className="row">
+          <div className="container-input seleccionador">
                 <input
                   type="file"
                   name="file-1"
@@ -128,12 +194,23 @@ function UserCalendar() {
                   </svg>
                   <span className="iborrainputfile">Seleccionar archivo</span>
                 </label>
-              </div>
+              </div> 
+          </div>
+          <div className="row d-flex align-items-center justify-content-center">
+            <div className="col-2 mt-2 ">
+            <button className="btn btn-primary">enviar</button>
             </div>
           </div>
-        </div>
-      </section>
-    </body>
+          </form>
+        </ModalBody>
+        <ModalFooter>
+          <button className="btn btn-sm" id="modal-icon-cancel" onClick={() =>modalClose()}>
+            <i className="bi bi-x-lg"></i>
+          </button>
+        </ModalFooter>
+      </Modal>
+      </div>
+    </div>
   );
 }
 
