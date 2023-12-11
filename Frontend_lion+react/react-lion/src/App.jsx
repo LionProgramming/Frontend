@@ -48,7 +48,7 @@ export const App = () => {
           <Route path="/MyScheduleT" element={<MyScheduleT/>}/>
           <Route path="/ScheduleCurseT" element={<ScheduleCurseT/>}/>
           <Route path="/MakeObservationT" element={<MakeObservationT/>}/>
-          <Route path="" element={<UserProfile/>}/>
+          <Route path="/UserProfileT" element={<UserProfile/>}/>
 
         </Routes>
       </Router>
