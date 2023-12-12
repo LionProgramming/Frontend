@@ -28,14 +28,13 @@ h2{
 #contenedor-tabla{
     width: 80%;
     align-items: center;
-    margin-top: 5%;
+    border: 1px solid red;
 }
 table td,table th{
     margin-left: 5%;
     text-align: center;
     background-color: rgba(165, 42, 42, 0.004) !important;
     color: rgb(0, 0, 0) !important;
-   
     padding-top: 1%;
     padding-bottom: 1%;
 }
@@ -82,3 +81,4 @@ table{
     background-color: rgb(8, 103, 8);
     color: white;
 }
+

@@ -52,7 +52,7 @@ const EditPanel=({documento})=> {
                 <div className="row">
                     <div className="col-6 ">
                         <label>Primer Nombre:</label>
-                    <input type="text" name="nombre1" className="form-control text-black" value={datosEditados.nombre1} onChange={handleChange} disabled/>
+                    <input type="text" name="nombre1" className="form-control text-black" value={datosEditados.nombre1} onChange={handleChange} />
                     </div>
                     <div className="col-6">
                     <label>Segundo Nombre:</label>
@@ -62,7 +62,7 @@ const EditPanel=({documento})=> {
                 <div className="row mt-2">
                     <div className="col-6">
                     <label>Primer apellido:</label>
-                        <input type="text"  className="form-control text-black " name="apellido1" value={datosEditados.apellido1} onChange={handleChange} disabled />
+                        <input type="text"  className="form-control text-black " name="apellido1" value={datosEditados.apellido1} onChange={handleChange}  />
                     </div>
                     <div className="col-6">
                     <label>Segundo apellido:</label>
@@ -72,11 +72,11 @@ const EditPanel=({documento})=> {
                 <div className="row mt-2">
                     <div className="col-4">
                     <label>Documento:</label>
-                        <input type="text"  className="form-control text-black " name="documento" value={datosEditados.documento} onChange={handleChange} disabled />
+                        <input type="text"  className="form-control text-black " name="documento" value={datosEditados.documento} onChange={handleChange}  />
                     </div>
                     <div className="col-2">
                         <label>T.Doc:</label>
-                        <input type="text" className='form-control text-black' name="tipo_documento" value={datosEditados.tipoDoc===1? 'C.C':'T.I'} disabled />
+                        <input type="text" className='form-control text-black' name="tipo_documento" value={datosEditados.tipoDoc===1? 'C.C':'T.I'}  />
                     </div>
                     <div className="col-4">
                     <label>Telefono:</label>
@@ -86,7 +86,7 @@ const EditPanel=({documento})=> {
                 <div className="row mt-2">
                     <div className="col-5">
                     <label>rol:</label>
-                        <input type="text"  className="form-control text-black " name="documento" value={datosEditados.rol} onChange={handleChange} disabled />
+                        <input type="text"  className="form-control text-black " name="documento" value={datosEditados.rol} onChange={handleChange}  />
                     </div>
                     
                     <div className="col-6">
@@ -96,13 +96,17 @@ const EditPanel=({documento})=> {
                     
                 </div>
                 <div className="row mt-2">
-                <div className="col-12 text-center">
+                <div className="col-7 text-center">
                     <label className='text-center'>Estado</label>
                        <select name="" id="" className='form-control' value={datosEditados.estado} onChange={handleChange}>
                             <option value="1" className='text-black'>Activo</option>
                             <option value="0">Inactivo</option>
                        </select>
                     </div>
+                <div className="col-5 text-center">
+                    <label className='text-center'>Curso</label>
+                    <input type="number" className='form-control' value={datosEditados.curso} onChange={handleChange}/>
+                </div>
                 </div>
 
                 <div className="col-12 d-flex justify-content-end mt-2">
