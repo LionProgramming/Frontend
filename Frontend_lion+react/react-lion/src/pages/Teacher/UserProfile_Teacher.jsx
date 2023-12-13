@@ -1,6 +1,6 @@
 import SidebarHome from "../../components/Teacher/SidebarObservations_Teacher";
 import "../../css/Teacher_UserProfile.css";
-import images from "../../images/perfil.png";
+
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -37,7 +37,7 @@ const UserProfile = () => {
                 <div className="col-md-4">
                   <div className="user-photo text-center">
                     <img
-                      src={images}
+                      src={teacher[0]?.urlfoto}
                       alt="Foto del usuario"
                       className="img-fluid rounded-circle"
                     />

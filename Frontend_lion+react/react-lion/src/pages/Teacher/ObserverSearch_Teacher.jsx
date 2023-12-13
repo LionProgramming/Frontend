@@ -40,7 +40,6 @@ const Teacher_ObserverSearch = () => {
             <SidebarHome></SidebarHome>
             <div className="container-fluid d-flex flex-column" id="contenedor-Observer">
               <h2 className="text-center">Observaciones del estudiante</h2>
-              <ComponentSearch></ComponentSearch>
               <div className=" col-8 col-md-0 col-xl-10   mt-4" id="tablaRegistros">
                 <div className="observaciones-container">
                   {observations.map((observacion, index) => (

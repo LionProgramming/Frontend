@@ -42,7 +42,6 @@ function MakeObservationT() {
         <form className="formMakeobserver">
           <div className="form-group">
             <h1 className="title text-center">Observaciones</h1><br /><br />
-            <ComponentSearch />
           </div><br /><br /><br />
 
           <label>Documento</label>
