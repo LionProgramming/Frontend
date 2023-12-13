@@ -9,6 +9,8 @@ function UserCalendar() {
     const [horariosData,setHorariosData]=useState([])
     const [selectedOption, setSelectedOption] = useState('');
     const [modalHorario, setModalHorario]=useState(false)
+    const [selectedHorarioImage, setSelectedHorarioImage] = useState('');
+
     useEffect(() => {
       fetchData();
       fetchCalendar()
@@ -33,10 +35,17 @@ function UserCalendar() {
         console.error(err)
       }
     }
-    const handleSelectChange = event => {
-      // Maneja el cambio en el select y actualiza el estado local
-      setSelectedOption(event.target.value);
-    };
+const handleSelectChange = event => {
+        const selectedHorario = horariosData.find(option => option.idhorario === event.target.value);
+        setSelectedOption(event.target.value);
+        setSelectedHorarioImage(selectedHorario ? selectedHorario.urlhorario : '');
+};
+const handleSearchHorario = (event) => {
+  event.preventDefault();
+  // Aquí puedes realizar alguna lógica adicional si es necesario
+  console.log('Buscar horario:', selectedOption);
+};
+ 
 
     const modalOpen=()=>{
       setModalHorario(true)
@@ -133,13 +142,14 @@ function UserCalendar() {
                      ))}
                     </select>
                     
-                    <button className="btn" id="search-button" >Buscar Horario</button>
+                    <button className="btn" id="search-button" onClick={handleSearchHorario} >Buscar Horario</button>
                    
                   </form>
                    
                   <div className="img-calendar">
                     
-                    <img src="" alt="" id="img_horario"/>
+                  <img src={selectedHorarioImage} alt="" id="img_horario"/>
+
                   </div>
                 </div>
               </nav>
