@@ -67,13 +67,13 @@ const Login = () => {
       
 
 
-        <form onSubmit={handleSubmit}>
-        <input type="number" placeholder="identificacion" id="documento" name='documentoCredential' value={credentials.documentoCredential} onChange={handleChange} />
+        <form onSubmit={handleSubmit} className=' text-center align-items-center justify-content-center'>
+        <input className='form-control' type="number" placeholder="identificacion" id="documento" name='documentoCredential' value={credentials.documentoCredential} onChange={handleChange} />
         <br/>
-        <input type="password" placeholder="contraseña" id="contraseña"  name="contraseniaCredential" value={credentials.contraseniaCredential} onChange={handleChange} />
+        <input className='form-control' type="password" placeholder="contraseña" id="contraseña"  name="contraseniaCredential" value={credentials.contraseniaCredential} onChange={handleChange} />
         <br />
         <label className='text-center' id="validacion1">Porfavor ingrese los campos requeridos</label>
-        <button className="btn btn-primary d-flex mt-2 " type='submit'>ingresar</button>
+        <button className="btn btn-primary mt-2 " type='submit'>ingresar</button>
         </form>
       </div>
         

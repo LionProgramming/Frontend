@@ -6,13 +6,8 @@ import "../../css/Teacher_ObserverSearch.css";
 import images from "../../images/perfil.png";
 import axios from "axios";
 
-let Observations = 4;
-let observersList = [];
-
 const Teacher_ObserverSearch = () => {
-
-  
-  // modal
+  const [observations, setObservations] = useState([]);
   const [selectedObservation, setSelectedObservation] = useState(null);
 
   // modal 
@@ -24,26 +19,17 @@ const Teacher_ObserverSearch = () => {
     setSelectedObservation(null);
   };
 
-  // mostrar observaciones 
-
-  const [Observation, setObservation] = useState([]);
-
   useEffect(() => {
-    const getObservation = async () => {
+    const getObservations = async () => {
       try {
-        for (let i = 1; i <= Observations; i++) {
-          const response = await axios.get(`http://127.0.0.1:8000/api/v1/observaciones/${i}`);
-          observersList.push(response.data);
-          
-        }console.log(observersList)
-        setObservation(observersList);
-        
+        const response = await axios.get("http://127.0.0.1:8000/api/v1/observaciones/");
+        setObservations(response.data);
       } catch (error) {
-        console.error('Error al obtener los datos del profesor:', error);
+        console.error("Error al obtener los datos de las observaciones:", error);
       }
     };
 
-    getObservation();
+    getObservations();
   }, []);
 
   return (
@@ -57,10 +43,10 @@ const Teacher_ObserverSearch = () => {
               <ComponentSearch></ComponentSearch>
               <div className=" col-8 col-md-0 col-xl-10   mt-4" id="tablaRegistros">
                 <div className="observaciones-container">
-                  {observersList.map((observacion, index) => (
+                  {observations.map((observacion, index) => (
                     <div className="table" key={observacion.idobservacion}>
                       <div className="img">
-                        <img src={images} />
+                        <img src={images} alt={`Imagen de observación ${observacion.idobservacion}`} />
                       </div>
                       <div className="inf_ob">
                         <br />
@@ -74,15 +60,13 @@ const Teacher_ObserverSearch = () => {
                       </div>
                     </div>
                   ))}
-
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <Modal isOpen={selectedObservation !== null}
-      onClose={closeModal} observation={selectedObservation} />
+      <Modal isOpen={selectedObservation !== null} onClose={closeModal} observation={selectedObservation} />
     </div>
   );
 };

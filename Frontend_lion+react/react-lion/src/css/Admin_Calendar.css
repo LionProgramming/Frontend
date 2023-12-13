@@ -20,7 +20,9 @@ h2{
 
 .btn btn-primary{
     margin-left: 3px;
+
 }
+
 
 select{
     padding: 5px;
@@ -106,7 +108,10 @@ option{
     background-color: #3fcbd3;
     
 }
-
+#div-link-horario input{
+    background-color: #3fcbd3;
+    color: black !important;
+}
 .inputfile-1:focus + label,
 .inputfile-1.has-focus + label,
 .inputfile-1 + label:hover {
