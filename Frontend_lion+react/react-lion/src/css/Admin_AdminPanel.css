@@ -25,10 +25,9 @@ h2{
     border: 1px solid rgba(3, 3, 3, 0.072);
     
 }
-#contenedor-tabla{
+#contenedor-tabla_adminpanel{
     width: 80%;
     align-items: center;
-    border: 1px solid red;
 }
 table td,table th{
     margin-left: 5%;
@@ -55,6 +54,7 @@ table td,table th{
 #tablaRegistros{
     overflow-y: auto;
     max-height: 500px;
+    width: 100%;
 }
 
 table{
@@ -82,3 +82,44 @@ table{
     color: white;
 }
 
+@media only screen and (width: 768px ) {
+	#contenedor-tabla_adminpanel{
+        width: 70%;
+        align-items: center;
+        margin-left: 2%;
+    }
+	#tablaRegistros{
+        width: 100%;
+        margin-left: 2%;
+        max-height: 600px;
+       
+    }
+}
+
+
+@media only screen and ((min-width:200px)and (max-width:600px)) {
+    
+    #contenedor-tabla_adminpanel{
+        width: 50%;
+        padding: 0;
+        margin-left: 0;
+        border: 1px solid red;
+    }
+   
+    #tablaRegistros{
+        border: 1px solid blue;
+        margin-left: 2%;
+        max-height: auto;
+   
+       width: 100%;
+    }
+    table td,table th{
+        
+        text-align: center;
+        background-color: rgba(165, 42, 42, 0.004) !important;
+        color: rgb(0, 0, 0) !important;
+        padding-top: 1%;
+        padding-bottom: 1%;
+    }
+  
+    }

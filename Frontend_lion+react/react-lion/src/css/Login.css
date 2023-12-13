@@ -94,6 +94,7 @@ footer {
     align-items: center;
     flex-wrap: wrap;
     padding-top: 2%;
+    
 }
 .contacto_us {
     width: 40%;
@@ -152,3 +153,22 @@ footer {
 #contraseña{
     width: 96%;
 }
+
+@media only screen and (min-width: 1025px) {
+    #button{
+      margin-left: 92%;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    #button{
+      margin-left: 40%;
+    }
+  }
+  
+  @media only screen and (width: 768px ){
+    .login{
+        height: 90%;
+        
+    }
+  }

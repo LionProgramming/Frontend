@@ -26,5 +26,9 @@
   #button{
     margin-left: 80%;
   }
-  
+  #contenedor-tabla-cursos{
+    width: 70%;
+    align-items: center;
+   margin-bottom: 2%;
+}
 }

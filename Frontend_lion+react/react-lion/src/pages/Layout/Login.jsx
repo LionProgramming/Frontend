@@ -19,7 +19,6 @@ const Login = () => {
   const handleChange=(e)=>{
     const{name,value}=e.target
     SetCredentials({... credentials,[name]:value})
-    console.log(name," changed to ",value)
   }
    const handleSubmit=(e)=>{
     e.preventDefault()

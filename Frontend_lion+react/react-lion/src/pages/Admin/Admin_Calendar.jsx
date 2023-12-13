@@ -182,7 +182,7 @@ function UserCalendar() {
                   data-multiple-caption="{count} archivos seleccionados"
                   multiple
                 />
-                <label htmlFor="file-1">
+                <label>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="iborrainputfile"

@@ -236,7 +236,8 @@ function Admin_profile() {
                   </div>
                   
                 </div>
-                <div className="col-6 text-center">img</div>
+                <div className="col-6 text-center" id="image-profile"><img id="image-profile-img" src={infoAdmin.urlfoto}
+                   alt="profile-foto"/></div>
               </div>
             </div>
           </div>

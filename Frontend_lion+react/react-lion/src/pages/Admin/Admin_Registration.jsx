@@ -10,6 +10,8 @@ function UserRegistration() {
   const {isAuth}=useAuth */
   /* use document.getElementById('image').style.display='none'; */
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [loading,setLoading]=useState(false)
+  const key=744737558366745
   const [userData, setUserData] = useState({
     documento: '',
     fechanacimiento: '',
@@ -28,6 +30,7 @@ function UserRegistration() {
     rol_idrol: ""
 
   });
+ 
   //Cambio del estado de todos los inputs
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -35,17 +38,32 @@ function UserRegistration() {
     const updatedValue = e.target.type === 'date' ? e.target.valueAsDate.toISOString().split('T')[0] : value;
     setUserData({ ...userData, [name]: updatedValue });
   };
-  const verification = (link) => {
-    const imageElement = document.getElementById('image');
-    const image=document.getElementById('imageimg');
-    if (imageElement) {
-      imageElement.style.display = 'block';
-      image.style.display='block';
-      document.getElementById('imageimg').src = link
-    }
-    return false;
 
+  //
+  const handleSelectfile= async(event)=>{
+    console.log(event.target.files[0])
+    const file=event.target.files[0]
+    console.log(file[0])
+    const data= new FormData();
+    data.append("file",file)
+    data.append("api_key",key)
+    data.append("upload_preset","he2nakb7")
+    setLoading(true);
+    try{
+    const res = await axios.post(
+        `https://api.cloudinary.com/v1_1/dgqrkoxks/image/upload`,data,{
+            headers: { "Content-Type": "multipart/form-data" }
+        }
+    )
+    const cloudinaryResponse=res.data;
+    console.log(cloudinaryResponse.secure_url)
+    userData.urlfoto=cloudinaryResponse.secure_url
+  }catch(error){
+    console.error(error)
+  }finally{
+    setLoading(false)
   }
+}
   useEffect(() => {
         document.getElementById('image').style.display = 'none';
         document.getElementById('imageimg').style.display = 'none';
@@ -269,20 +287,20 @@ function UserRegistration() {
                 <form className="validation" id="form-register" onSubmit={handleSubmit}>
                   <div className="row g-3">
                     <div className="col-sm-6 col-md-6">
-                      <label htmlFor="nombre" className="form-label shadow-text ">Primer nombre</label>
+                      <label  className="form-label shadow-text ">Primer nombre</label>
                       <input type="text" className="form-control col-2" id="nombre1" name="nombre1" value={userData.nombre1} onChange={handleInputChange} required />
 
-                      <label htmlFor="nombre" className="form-label shadow-text"> Pimer apellido </label>
+                      <label  className="form-label shadow-text"> Pimer apellido </label>
                       <input type="text" className="form-control" id="apellido1" value={userData.apellido1} onChange={handleInputChange} name="apellido1" required />
 
-                      <label htmlFor="rol" className="form-label shadow-text center">Rol asignado</label>
+                      <label className="form-label shadow-text center">Rol asignado</label>
                       <select id="rol" className="form-select" required name="rol_idrol" value={userData.rol_idrol} onChange={handleInputChange}  >
                         <option value="" disabled >Seleccione un rol</option>
                         <option value="1">Administrador</option>
                         <option value="2">Estudiante</option>
                         <option value="3">Profesor</option>
                       </select>
-                      <label htmlFor="tipoDocumento" className="form-label shadow-text">Tipo de documento</label>
+                      <label  className="form-label shadow-text">Tipo de documento</label>
 
                       <select id="tipoDocumento" className="form-select" required name="tipo_idtipodocumento" value={userData.tipo_idtipodocumento} onChange={handleInputChange} >
                         <option value="" disabled>Seleccione una opción</option>
@@ -293,29 +311,29 @@ function UserRegistration() {
                         <option value="5">Cédula de extranjería</option>
                       </select>
 
-                      <label htmlFor="documento" className="form-label shadow-text">Documento de identidad</label>
+                      <label className="form-label shadow-text">Documento de identidad</label>
                       <input type="text" className="form-control" id="documento" name="documento" value={userData.documento} onChange={handleInputChange} required />
 
-                      <label htmlFor="contrasenia" className="form-label shadow-text ">Contraseña</label>
+                      <label  className="form-label shadow-text ">Contraseña</label>
                       <input type="password" className="form-control" placeholder="contrasenia" name='contrasenia' value={userData.contrasenia} onChange={handleInputChange} required />
 
-                      <label htmlFor="confirmarContraseña" className="form-label shadow-text">Confirmar Contraseña</label>
+                      <label className="form-label shadow-text">Confirmar Contraseña</label>
                       <input type="password" className="form-control" id="confirmarContraseña" placeholder="Confirmar Contraseña" name='confirmarContrasenia' value={userData.confirmarContrasenia} onChange={handleInputChange} required />
                       <p id="danger" >las contraseñas no coinciden</p>
 
                     </div>
                     <div className="col-sm-6 col-md-6">
 
-                      <label htmlFor="nombre" className="form-label shadow-text col">Segundo nombre </label>
+                      <label  className="form-label shadow-text col">Segundo nombre </label>
                       <input type="text" className="form-control" id="nombre2" placeholder="*Opcional" name="nombre2" value={userData.nombre2} onChange={handleInputChange} />
 
-                      <label htmlFor="nombre" className="form-label shadow-text">Segundo apellido </label>
+                      <label  className="form-label shadow-text">Segundo apellido </label>
                       <input type="text" className="form-control" id="apellido2" placeholder="" name="apellido2" value={userData.apellido2} onChange={handleInputChange}  />
 
                       <label className="form-label shadow-text">Fecha de Nacimiento</label>
                       <input type="date" id="fechaNacimiento " className="form-control" name="fechanacimiento" onChange={handleInputChange} required></input>
 
-                      <label htmlFor="correo" className="form-label shadow-text">Correo Electrónico</label>
+                      <label  className="form-label shadow-text">Correo Electrónico</label>
                       <input type="text" className="form-control" id="correo" name="email" value={userData.email} onChange={handleInputChange} required />
 
                       <label className="form-label shadow-text ">Teléfono</label>
@@ -325,14 +343,12 @@ function UserRegistration() {
                       <input type="tel" id="celular" className="form-control" name="telefono_celular" placeholder="Ejemplo: (+57) 313333333" value={userData.telefono_celular} onChange={handleInputChange} ></input>
 
 
-                      <label className='form-label shadow-text'>Inserte el link de la imagen </label>
+                      <label className='form-label shadow-text'>Foto de perfil </label>
                       <div className="row">
-                        <div className="col-sm-8" id="link-image">
-                          <input type="text" className="form-control" id="link-image" name='urlfoto' value={userData.urlfoto} onChange={handleInputChange} ></input>
+                        <div className="col-sm-8 mt-2" >
+                        <input type="file" accept="image/*" onChange={handleSelectfile} id="fileinput" />
                         </div>
-                        <div className="col-sm-4">
-                          <button type='button'className="btn btn-primary" id="check-image" onClick={() => verification(userData.urlfoto)}>verificar</button>
-                        </div>
+                        
                       </div>
                       <div className="row">
                         <div className="col-sm-8 d-flex align-items-center justify-content-center" id="image">

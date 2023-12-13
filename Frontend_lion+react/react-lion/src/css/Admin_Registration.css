@@ -112,27 +112,29 @@ img{
 	input[type=password]{
         width: 100%;
     }
-	#check-image{
-        margin-top: 10%;
-        font-size: 70%;
+	#check-image input{
+		width: 90%;
+		margin-bottom: 3%;
        
-		width: auto;
-		height: auto;
+		
     }
 }
 
 
 @media only screen and (max-width: 600px) {
     #container-register{
-        margin-left: 0;
+        margin-left: 3%;
         margin-top: 0;
         width: 70%;
-        
-		height: 70%;
+		height: auto
+		;
     }
     input[type=password]{
         width: 100%;
     }
+	input[type=file]{
+		width: 80%;
+	}
     #check-image{
         margin-top: 2%;
         font-size: 70%;
@@ -141,6 +143,7 @@ img{
 		height: auto;
     }
 	#link-image input{
-		width: auto;
+		width: 90%;
+		margin-bottom: 3%;
 	}
     }

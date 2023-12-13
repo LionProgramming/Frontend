@@ -11,3 +11,37 @@
     padding-left: 2%;
     
 }
+
+#image-profile{
+  border-radius: 5px;
+  width: 30%;
+  height: 50%;
+  margin-left: 15%;
+}
+#image-profile-img{
+  background-size: cover;
+  margin: 0;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 12px;
+  padding: 0;
+}
+
+
+  @media only screen and (max-width: 600px) {
+    #contenedor-profile{
+        width: 60%;
+    }#image-profile-img{
+      background-size: cover;
+      margin: 0;
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 12px;
+      padding: 0;
+      width: 100%;
+      margin-top: 20%;
+    }
+  }
+  
+  @media only screen and (width: 768px ){
+    .login{
+        height: 90%;
+        
+    }
+  }

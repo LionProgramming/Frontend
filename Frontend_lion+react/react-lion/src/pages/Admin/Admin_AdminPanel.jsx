@@ -72,7 +72,7 @@ const closeModal=()=>{
         <Navbar/>
           <section>
         <div className="container-fluid">
-          <div className="row flex-nowrap">
+          <div className="row flex-nowrap" id='flex-nowrap'>
             <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
               <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <p className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -132,13 +132,13 @@ const closeModal=()=>{
                 </div>
               </div>
             </div>
-            <div className="container-fluid d-flex flex-column" id="contenedor-tabla">
-              <h2 className="text-center">Panel de administración de usuarios</h2>
-              <div className="input-group mb-2" id="search-input">
+            <div className="container-fluid d-flex flex-column" id="contenedor-tabla_adminpanel">
+              <h2 className="text-center fs-4 d-none d-sm-inline">Panel de administración de usuarios</h2>
+              {/* <div className="input-group mb-2" id="search-input">
                 <input type="text" className="form-control" id="area" placeholder="Ingrese el nombre de la persona a buscar" aria-label="Buscar"/>
                 <button className="btn  btn-sm" type="button" id="search-button">Buscar</button>
-              </div>
-              <div className="table-responsive col-8 col-md-0 col-xl-10 px-sm-1 px-0 mt-4" id="tablaRegistros">
+              </div> */}
+              <div className="table-responsive col-8 col-md-0 col-sm-5 px-sm-1 px-0 mt-4" id="tablaRegistros">
                 <table className="table-striped  table-bordered">
                   <thead>
                     <tr>

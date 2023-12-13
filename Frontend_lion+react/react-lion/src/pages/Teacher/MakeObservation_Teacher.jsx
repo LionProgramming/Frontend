@@ -45,7 +45,7 @@ function MakeObservationT() {
             <ComponentSearch />
           </div><br /><br /><br />
 
-          <label htmlFor="usuarioDocumento">Documento</label>
+          <label>Documento</label>
           <input
             type="number"
             id="usuarioDocumento"
@@ -55,7 +55,7 @@ function MakeObservationT() {
           />
 
           <div className="form-group">
-            <label htmlFor="informe">Informe:</label>
+            <label >Informe:</label>
             <textarea
               id="informe"
               value={informe}
