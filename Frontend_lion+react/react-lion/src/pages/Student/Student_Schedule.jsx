@@ -34,16 +34,17 @@ function Student_Index() {
   useEffect(() => {
     const getSchedule = async () => {
       try {
-        const respuesta1 = await axios.get(`http://127.0.0.1:8000/api/v1/horarios/${student.curso}`);
-        setSchedule([respuesta1.data]);
-        console.log(respuesta1)
+        const respuesta1 = await axios.get(`http://127.0.0.1:8000/api/v1/horarios`);
+        const filtro = respuesta1.data.filter(schedule => schedule.numero_curso === student[0].curso);
+        console.log(filtro);
+        setSchedule(filtro);
       } catch (error) {
         console.error('Error al obtener los datos del estudiante:', error);
       }
     };
-
+  
     getSchedule();
-  }, []);
+  }, [student]);
 
   return (
     <div className='bodyStudentSchedule'>
@@ -60,7 +61,7 @@ function Student_Index() {
                       <h3>Mi Curso</h3>
                     </div>
                       <article id='info-curso'>
-                          <img src={schedule.urlHorario} id='img-curso' alt="Imagen perfil" className='image_index'/>
+                          <img src={schedule[0]?.urlhorario} id='img-curso' alt="Imagen perfil" className='image_index'/>
                       </article>
                   </div>
                 </div>

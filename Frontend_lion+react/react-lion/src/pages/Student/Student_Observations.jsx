@@ -21,6 +21,7 @@ function Student_Observations() {
     const { state } = useGlobalState();
 
     const observationDocument = localStorage.getItem('documento');
+    console.log(observationDocument)
 
 
 
@@ -28,13 +29,11 @@ function Student_Observations() {
         const getObservation = async () => {
           try {
             const respuesta = await axios.get(`http://127.0.0.1:8000/api/v1/observaciones`);
-                  
-            const filtro = respuesta.data.filter(observation => observation.usuario_documento === observationDocument);
-        
+            console.log(respuesta);
+            const filtro = respuesta.data.filter(observation => observation.usuario_documento.toString().trim() === observationDocument.toString().trim());
+            console.log(filtro);
             setObservation(filtro);
             
-            console.log(respuesta);
-            console.log(filtro);
           } catch (error) {
             console.error('Error al obtener los datos del estudiante:', error);
           }
@@ -76,8 +75,8 @@ function Student_Observations() {
                                             <h3>Mis observaciones</h3>
                                         </div>
                                         <div id='cont-tabla-ob'>
-
-                                            {observation.map(observation => (
+                                            {observation.length > 0 ? (
+                                                observation.map(observation => (
                                                 <article key={observation.idobservacion} id='info-user-ob'>
                                                     <div id='info-student-ob'>
                                                         <div id='img-user'>
@@ -101,7 +100,8 @@ function Student_Observations() {
                                                         </ModalObservation>
                                                     </div>
                                                 </article>
-                                            ))}
+                                            ))
+                                            ):(<h3 id='observation-0'>No hay observaciones</h3>)}
                                            
                                         </div>
                                     </div>

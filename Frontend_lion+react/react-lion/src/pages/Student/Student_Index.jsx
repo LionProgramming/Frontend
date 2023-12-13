@@ -7,7 +7,6 @@ import axios from 'axios';
 import { useGlobalState } from '../../context/GlobalStateProvider.jsx';
 
 
-
 function Student_Index() {
 
   const [student, setStudent] = useState([]);
@@ -19,6 +18,7 @@ function Student_Index() {
     const getStudent = async () => {
       try {
         const respuesta = await axios.get(`http://127.0.0.1:8000/api/v1/users/${studentDocument}`);
+        
         setStudent([respuesta.data]);
         console.log(respuesta)
       } catch (error) {
@@ -28,8 +28,6 @@ function Student_Index() {
 
     getStudent();
   }, []);
-
-  
 
   return (
     <div className='bodyStudentIndex'>
@@ -52,7 +50,7 @@ function Student_Index() {
                               <h3>Nombre: {student.length > 0 && student[0].nombre1 +" "+(student[0].nombre2 ? `${student[0].nombre2}` : ' ')+" "+student[0].apellido1+" "+(student[0].apellido2 ? `${student[0].apellido2}` : ' ')}</h3>
                           </div>
                           <div id='info-student'>
-                              <h3>Curso: {student.length > 0 && student[0].curso_nombre}</h3>
+                              <h3>Curso: {student.length > 0 && student[0].curso}</h3>
                           </div>
                           <div id='info-student'>
                               <h3>Correo: {student.length > 0 && student[0].email}</h3>
