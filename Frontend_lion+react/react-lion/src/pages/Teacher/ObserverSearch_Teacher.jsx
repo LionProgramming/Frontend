@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import SidebarHome from "../../components/Teacher/SidebarObservations_Teacher.jsx";
-import ComponentSearch from "../../components/Teacher/ComponentSearch_Teacher.jsx";
 import Modal from "../../components/Teacher/Modal_Teacher.jsx";
 import "../../css/Teacher_ObserverSearch.css";
 import images from "../../images/perfil.png";
@@ -9,6 +8,7 @@ import axios from "axios";
 const Teacher_ObserverSearch = () => {
   const [observations, setObservations] = useState([]);
   const [selectedObservation, setSelectedObservation] = useState(null);
+  const [searchTerm, setSearchTerm] = useState(""); // Nuevo estado para el término de búsqueda
 
   // modal 
   const openModal = (observation) => {
@@ -32,6 +32,15 @@ const Teacher_ObserverSearch = () => {
     getObservations();
   }, []);
 
+  const handleSearch = () => {
+    const filteredObservations = observations.filter((observacion) => {
+      const documento = observacion.usuario_documento.toString();
+      return documento.includes(searchTerm);
+    });
+    setObservations(filteredObservations);
+  };
+  
+
   return (
     <div className="bodyAdminPanel">
       <section>
@@ -40,7 +49,23 @@ const Teacher_ObserverSearch = () => {
             <SidebarHome></SidebarHome>
             <div className="container-fluid d-flex flex-column" id="contenedor-Observer">
               <h2 className="text-center">Observaciones del estudiante</h2>
-              <div className=" col-8 col-md-0 col-xl-10   mt-4" id="tablaRegistros">
+
+              {/* espacio de busqueda*/}
+              <div className="col-8 col-md-0 col-xl-10 mt-4" id="tablaRegistros">
+                <div className="d-flex mb-3">
+                  <input
+                    type="text"
+                    placeholder="Buscar por documento"
+                    className="form-control mr-2"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
+                  <button className="btn btn-dark" onClick={handleSearch}>
+                    Buscar
+                  </button>
+                </div>
+
+                {/* Lista de observaciones */}
                 <div className="observaciones-container">
                   {observations.map((observacion, index) => (
                     <div className="table" key={observacion.idobservacion}>
