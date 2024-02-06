@@ -172,6 +172,7 @@ header {
     box-shadow: 0 0 6px rgba(0, 0, 0.5);
     cursor: pointer;
 }
+
 .imagen_trans {
     position: fixed;
     background: rgba(0, 0, 0, 0.5);
@@ -182,19 +183,21 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translate(101%);
-    transition-duration: 1.5s;
-    transition-duration: ease-in;
+    
+    transition-duration: 1.5s ;
+
 }
 .mirar {
     transform: scale(1);
 }
 .agregar_imagen {
-    overflow: cover;
+    object-fit: cover;
     width: 60%;
     transform: scale(0);
     animation-name: circle-swoop;
+    animation-timing-function: ease-in-out;
 }
+
 
 .mirar_imgene {
     transform: scale(1);
@@ -203,10 +206,10 @@ header {
 
 .cerrar {
     z-index: 5;
-    position: absolute;
+    position:relative;
     top: 15px;
     right: 15px;
-    width: 50px;
+    width: 60%;
     cursor: pointer;
 }
 
