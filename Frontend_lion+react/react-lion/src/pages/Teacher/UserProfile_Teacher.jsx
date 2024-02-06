@@ -1,5 +1,7 @@
 import SidebarHome from "../../components/Teacher/SidebarObservations_Teacher";
 import "../../css/Teacher_UserProfile.css";
+import img from '../../images/foto.png'
+
 
 
 import React, { useEffect, useState } from 'react';
@@ -37,10 +39,12 @@ const UserProfile = () => {
                 <div className="col-md-4">
                   <div className="user-photo text-center">
                     <img
-                      src={teacher[0]?.urlfoto}
-                      alt="Foto del usuario"
-                      className="img-fluid rounded-circle"
+                      src={teacher.length > 0 && teacher[0].urlfoto ? teacher[0].urlfoto : img}
+                      id='img-perfil'
+                      alt="Imagen perfil"
+                      className='image_index'
                     />
+
                     <button type="button" className="btn btn-link">
                       <i className="bi bi-pencil-square"></i>
                       Editar Foto
@@ -54,7 +58,7 @@ const UserProfile = () => {
                       <br />
                       <strong>Apellido :</strong> {teacher[0]?.apellido1} {teacher[0]?.apellido2}
                       <br />
-                      <strong>Fecha de nacimiento  :</strong> {teacher[0]?.fechanacimiento} 
+                      <strong>Fecha de nacimiento  :</strong> {teacher[0]?.fechanacimiento}
                       <br />
                       <strong>Email:</strong> {teacher[0]?.email}
                       <br />

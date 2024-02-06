@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SidebarHome from "../../components/Teacher/SidebarObservations_Teacher.jsx";
 import Modal from "../../components/Teacher/Modal_Teacher.jsx";
 import "../../css/Teacher_ObserverSearch.css";
-import images from "../../images/perfil.png";
+import img from "../../images/perfil.png";
 import axios from "axios";
 
 const Teacher_ObserverSearch = () => {
@@ -39,7 +39,7 @@ const Teacher_ObserverSearch = () => {
     });
     setObservations(filteredObservations);
   };
-  
+
 
   return (
     <div className="bodyAdminPanel">
@@ -70,7 +70,13 @@ const Teacher_ObserverSearch = () => {
                   {observations.map((observacion, index) => (
                     <div className="table" key={observacion.idobservacion}>
                       <div className="img">
-                        <img src={images} alt={`Imagen de observación ${observacion.idobservacion}`} />
+                        <img
+                          src={observacion.urlfoto ? observacion.urlfoto : img}
+                          id='img-perfil'
+                          alt="Imagen perfil"
+                          className='image_index'
+                        />
+
                       </div>
                       <div className="inf_ob">
                         <br />
