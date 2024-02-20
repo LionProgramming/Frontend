@@ -18,7 +18,9 @@ const Login = () => {
   })
   const handleChange=(e)=>{
     const{name,value}=e.target
+    console.log(`Input "${name}" valor:`, value);
     SetCredentials({... credentials,[name]:value})
+    
   }
    const handleSubmit=(e)=>{
     e.preventDefault()

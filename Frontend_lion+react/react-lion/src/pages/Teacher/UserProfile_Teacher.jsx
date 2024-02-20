@@ -1,13 +1,9 @@
 import SidebarHome from "../../components/Teacher/SidebarObservations_Teacher";
 import "../../css/Teacher_UserProfile.css";
 import img from '../../images/foto.png'
-
-
-
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-
-const teacherDocument = 1010123457;
+const teacherDocument = localStorage.getItem("documento");
 const UserProfile = () => {
   const [teacher, setTeacher] = useState([]);
 
@@ -64,7 +60,7 @@ const UserProfile = () => {
                       <br />
                       <strong>Telefono:</strong> {teacher[0]?.telefono_fijo}
                       <br />
-                      <strong>Celualr:</strong> {teacher[0]?.telefono_celular}
+                      <strong>Telefono celular:</strong> {teacher[0]?.telefono_celular}
                       <br />
                       <strong>Tipo de usuario:</strong> {teacher[0]?.rol}
                       <br />
