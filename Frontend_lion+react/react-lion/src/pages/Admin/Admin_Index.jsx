@@ -1,22 +1,24 @@
 import "../../css/Admin_Index.css";
-import  {useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 import Navbar from "../../components/Admin/Navbar.jsx";
 
 function AdminDashboard() {
-    const[usersData,setUsersData]=useState([]);
-    useEffect(() => {
-      fetchData();
-    }, [])
-    const fetchData=async()=>{
-      const usuario =await axios.get(`http://127.0.0.1:8000/contar_usuarios_por_rol/`);
-      setUsersData(usuario.data)
-      console.log(usuario.data);
-    }
+  const [usersData, setUsersData] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const fetchData = async () => {
+    const usuario = await axios.get(
+      `http://127.0.0.1:8000/contar_usuarios_por_rol/`
+    );
+    setUsersData(usuario.data);
+    console.log(usuario.data);
+  };
   return (
     <div className="body">
       <div>
-      <Navbar/>
+        <Navbar />
         <section>
           <div className="container-fluid">
             <div className="row flex-nowrap">
@@ -32,7 +34,10 @@ function AdminDashboard() {
                     id="menu"
                   >
                     <li className="nav-item">
-                      <a href="/Adashboard" className="nav-link align-middle px-0">
+                      <a
+                        href="/Adashboard"
+                        className="nav-link align-middle px-0"
+                      >
                         <i className="fs-4 bi bi-house" id="active"></i>{" "}
                         <span
                           className="ms-1 d-none d-sm-inline text-white"
@@ -153,9 +158,7 @@ function AdminDashboard() {
                         </a>
                       </li>
                       <li>
-                        <hr
-                          className="d-md-none dropdown-divider"
-                        />
+                        <hr className="d-md-none dropdown-divider" />
                       </li>
                       <li>
                         <a className="dropdown-item" href="/">
@@ -166,68 +169,60 @@ function AdminDashboard() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="container" id="container-cards">
-           
                 <div className="row ">
-               
-                <div className=" col-10 col-md-5 col-lg-4">
-                  <div className="card">
-                    <h3 className="text-center mt-2">Usuarios</h3>
-                    <i className="bi bi-people-fill icon-card fs-3 fs-md-4 fs-lg-5 text-center"></i>
-                    <hr />
-                    <div className="card-body">
-                    {usersData && (
-                     <h1 className="text-center">{usersData['1']+usersData['2']+usersData['3']}</h1>
-                     )}
+                  <div className=" col-10 col-md-5 col-lg-4">
+                    <div className="card">
+                      <h3 className="text-center mt-2">Usuarios</h3>
+                      <i className="bi bi-people-fill icon-card fs-3 fs-md-4 fs-lg-5 text-center"></i>
+                      <hr />
+                      <div className="card-body">
+                        {usersData && (
+                          <h1 className="text-center">
+                            {usersData["1"] + usersData["2"] + usersData["3"]}
+                          </h1>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className=" col-10 col-md-5 col-lg-4">
-                  <div className="card">
-                    <h3 className="text-center mt-2">Estudiantes</h3>
-                    <i className="bi bi-pencil-fill icon-card fs-3 fs-md-4 fs-lg-5 text-center"></i>
-                    <hr />
-                    <div className="card-body">
-                    {usersData && (
-                     <h1 className="text-center">{usersData['2']}</h1>
-                     )}
+                  <div className=" col-10 col-md-5 col-lg-4">
+                    <div className="card">
+                      <h3 className="text-center mt-2">Estudiantes</h3>
+                      <i className="bi bi-pencil-fill icon-card fs-3 fs-md-4 fs-lg-5 text-center"></i>
+                      <hr />
+                      <div className="card-body">
+                        {usersData && (
+                          <h1 className="text-center">{usersData["2"]}</h1>
+                        )}
+                      </div>
                     </div>
                   </div>
-                
-                </div>
-                <div className="col-10 col-md-5 col-lg-4">
-                  <div className="card">
-                    <h3 className="text-center mt-2">Profesores</h3>
-                    <i className="bi bi-spellcheck icon-card fs-3 fs-md-4 fs-lg-5 text-center"></i>
-                    <hr />
-                    <div className="card-body">
-                    <h1 className="text-center">{usersData['3']}</h1>
+                  <div className="col-10 col-md-5 col-lg-4">
+                    <div className="card">
+                      <h3 className="text-center mt-2">Profesores</h3>
+                      <i className="bi bi-spellcheck icon-card fs-3 fs-md-4 fs-lg-5 text-center"></i>
+                      <hr />
+                      <div className="card-body">
+                        <h1 className="text-center">{usersData["3"]}</h1>
+                      </div>
                     </div>
                   </div>
-                </div>
-              
                 </div>
                 <div className="row ">
-                <div className="col-10 col-md-5 col-lg-4">
-                  
-                </div>
-                <div className="col-10 col-md-5 col-lg-4">
-                  <div className="card h-70">
-                    <h3  className="text-center mt-2">Admins</h3>
-                    <i className="bi bi-person-bounding-box icon-card fs-3 fs-md-4 fs-lg-5 text-center"></i>
-                    <hr />
-                    <div className="card-body">
-                    <h1 className="text-center">{usersData['1']}</h1>
+                  <div className="col-10 col-md-5 col-lg-4"></div>
+                  <div className="col-10 col-md-5 col-lg-4">
+                    <div className="card h-70">
+                      <h3 className="text-center mt-2">Admins</h3>
+                      <i className="bi bi-person-bounding-box icon-card fs-3 fs-md-4 fs-lg-5 text-center"></i>
+                      <hr />
+                      <div className="card-body">
+                        <h1 className="text-center">{usersData["1"]}</h1>
+                      </div>
                     </div>
                   </div>
-                 
+                  <div className="col-10 col-md-5 col-lg-4"></div>
                 </div>
-                <div className="col-10 col-md-5 col-lg-4">
-                </div>
-                </div>
-                
-                
               </div>
             </div>
           </div>

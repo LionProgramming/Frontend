@@ -38,7 +38,12 @@ function UserRegistration() {
     const updatedValue = e.target.type === 'date' ? e.target.valueAsDate.toISOString().split('T')[0] : value;
     setUserData({ ...userData, [name]: updatedValue });
   };
-
+  //Funcion para limitar la fecha a maximo hace 6 años
+  const maxFecha = () => {
+    const hoy = new Date();
+    const fechamaxima = new Date(hoy.getFullYear() - 6, hoy.getMonth(), hoy.getDate());
+    return fechamaxima.toISOString().split('T')[0];
+  };
   //
   const handleSelectfile= async(event)=>{
     console.log(event.target.files[0])
@@ -99,7 +104,7 @@ function UserRegistration() {
         const response = await axios.post('http://127.0.0.1:8000/api/v1/users/',dataTosend);
         console.log(response)
         if (response.statusText==='Created'){
-          console.log("siuu")
+          console.log("Usuario creado exitosamente")
           setUserData({
             documento: '',
             fechanacimiento: '',
@@ -250,13 +255,7 @@ function UserRegistration() {
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      <img
-                        src="../../imagenes/Profile-photo.PNG"
-                        width="30"
-                        height="30"
-                        className="rounded-circle"
-                        alt="Profile"
-                      />
+                     
                       <span className="d-none d-sm-inline mx-1">
                         Administrador
                       </span>
@@ -331,7 +330,7 @@ function UserRegistration() {
                       <input type="text" className="form-control" id="apellido2" placeholder="" name="apellido2" value={userData.apellido2} onChange={handleInputChange}  />
 
                       <label className="form-label shadow-text">Fecha de Nacimiento</label>
-                      <input type="date" id="fechaNacimiento " className="form-control" name="fechanacimiento" onChange={handleInputChange} required></input>
+                      <input type="date" id="fechaNacimiento " className="form-control" name="fechanacimiento" onChange={handleInputChange} max={maxFecha()} required></input>
 
                       <label  className="form-label shadow-text">Correo Electrónico</label>
                       <input type="text" className="form-control" id="correo" name="email" value={userData.email} onChange={handleInputChange} required />

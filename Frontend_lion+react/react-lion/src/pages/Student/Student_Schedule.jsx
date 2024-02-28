@@ -5,9 +5,6 @@ import curso from '../../images/C_Prof.png'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useGlobalState } from '../../context/GlobalStateProvider.jsx';
-
-
-
 function Student_Index() {
   const { state } = useGlobalState();
 

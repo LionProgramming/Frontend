@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useGlobalState } from "../../context/GlobalStateProvider.jsx"; //importar esto
+import { useGlobalState } from "../../context/GlobalStateProvider.jsx"; //import de estado global
 import Navbar from "../../components/Admin/Navbar.jsx";
 import "../../css/Admin_AdminProfile.css";
 import axios from "axios";
@@ -246,5 +246,4 @@ function Admin_profile() {
     </div>
   );
 }
-
 export default Admin_profile;

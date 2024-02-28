@@ -41,7 +41,7 @@ const Login = () => {
         if(response.data.response===1){
           localStorage.setItem('documento', response.data.documento); //poner esto en als validaciones 
           dispatch({type:'SET_DOCUMENT', payload: response.data.documento})
-
+          console.log(credentials.documentoCredential)
           if(response.data.rol===1){
             nav("/Admin/Profile")
           }else if(response.data.rol===2){

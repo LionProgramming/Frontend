@@ -3,7 +3,7 @@ import "../../css/Teacher_UserProfile.css";
 import img from '../../images/foto.png'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-const teacherDocument = localStorage.getItem("documento");
+const teacherDocument = localStorage.getItem("documento")
 const UserProfile = () => {
   const [teacher, setTeacher] = useState([]);
 

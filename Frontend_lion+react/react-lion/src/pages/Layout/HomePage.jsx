@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import "../../css/HomePage.css";
 import Footer from "../../components/General/Footer.jsx";
 import img1 from "../../images/icono.svg";
@@ -8,12 +8,9 @@ import img4 from "../../images/tres.jpg";
 import img5 from "../../images/cuatro.jpg";
 import img6 from "../../images/cinco.jpg";
 import img7 from "../../images/seis.jpg";
-import img8 from "../../images/cerrar.svg";
-import img9 from "../../images/Instalaciones2.jpg";
 import img10 from "../../images/icono1.svg";
 import img11 from "../../images/icono3.svg";
 import img12 from "../../images/icono2.svg";
-
 
 function Home() {
   // funcion hamburguesa
@@ -44,11 +41,6 @@ function Home() {
     setLightboxVisible(false);
   };
   
-
-  
-
-
-
   return (
     // -------hamburguesa
     <div className={`bodyHome ${menuVisible ? 'menu-open' : ''}`}>
@@ -153,8 +145,6 @@ function Home() {
           </div>
         </section>
       </section>
-
-
       <Footer></Footer>
     </div>
   );
