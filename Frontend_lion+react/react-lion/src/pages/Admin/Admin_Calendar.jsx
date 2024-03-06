@@ -6,11 +6,16 @@ import {Modal,ModalBody,ModalHeader,ModalFooter} from 'reactstrap'
 function UserCalendar() {
   
     const [cursosData, setCursosData] = useState([]);
-    const [horariosData,setHorariosData]=useState([])
+    const [horariosData,setHorariosData]=useState([]);
+    const [newCalendar,setNewCalendar]=useState({
+      newUrl:'',
+      numero_curso:'',
+    })
     const [selectedOption, setSelectedOption] = useState('');
     const [modalHorario, setModalHorario]=useState(false)
+    const [loading,setLoading]=useState(false)
     const [selectedHorarioImage, setSelectedHorarioImage] = useState('');
-
+    const key=744737558366745
     useEffect(() => {
       fetchData();
       fetchCalendar()
@@ -29,21 +34,85 @@ function UserCalendar() {
       try {
         const calendars=await axios("http://127.0.0.1:8000/api/v1/horarios/")
         setHorariosData(calendars.data)
-        console.log(calendars.data)
 
       } catch (err){
         console.error(err)
       }
     }
+    const handleSelectfile= async(event)=>{
+      console.log(event.target.files[0])
+      const file=event.target.files[0]
+      if (file.type !== 'image/png' && file.type !=='image/jpeg'){
+       console.log("Error en tipo de archivo")
+       return;
+      }
+      const data= new FormData();
+      data.append("file",file)
+      data.append("api_key",key)
+      data.append("upload_preset","he2nakb7")
+      setLoading(true);
+      try{
+      const res = await axios.post(
+          `https://api.cloudinary.com/v1_1/dgqrkoxks/image/upload`,data,{
+              headers: { "Content-Type": "multipart/form-data" }
+          }
+      )
+      const cloudinaryResponse=res.data;
+      console.log(cloudinaryResponse.secure_url)
+      newCalendar.newUrl=cloudinaryResponse.secure_url
+      console.log(newCalendar.newUrl)
+    }catch(error){
+      console.error(error)
+    }finally{
+      setLoading(false)
+    }
+  }
 const handleSelectChange = event => {
         const selectedHorario = horariosData.find(option => option.idhorario === event.target.value);
         setSelectedOption(event.target.value);
         setSelectedHorarioImage(selectedHorario ? selectedHorario.urlhorario : '');
 };
+const handleInputChange = (e) => {
+  const { name, value } = e.target;
+  console.log(`Updating ${name} to ${value}`);
+  setNewCalendar({ ...newCalendar, [name]: value });
+};
+
+
+const newCalendarsend = (event)=> {
+  event.preventDefault();
+  
+  const dataTosend={
+    urlhorario:newCalendar.newUrl,
+    numero_curso:newCalendar.numero_curso
+  }
+  console.log(dataTosend);
+  const postData=async()=>{
+    try{
+      const response= await axios.post(`http://127.0.0.1:8000/api/v1/horarios/`,dataTosend)
+      console.log(response)
+    }
+  catch(error){
+    console.error('Error al enviar los datos:',error)
+  }
+ 
+  }
+  postData();
+}
 const handleSearchHorario = (event) => {
   event.preventDefault();
-  // Aquí puedes realizar alguna lógica adicional si es necesario
   console.log('Buscar horario:', selectedOption);
+  const searchCalendar= async()=>{
+    try {
+      const calendar=await axios(`http://127.0.0.1:8000/api/v1/horarios/${selectedOption}`)
+      setSelectedHorarioImage(calendar.data)
+      console.log(calendar.data.urlhorario)
+
+    } catch (err){
+      console.error(err)
+    }
+  }
+  searchCalendar();
 };
  
 
@@ -108,7 +177,6 @@ const handleSearchHorario = (event) => {
                 <div className="dropdown pb-4">
                   <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                     id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="../../imagenes/Profile-photo.PNG" width="30" height="30" className="rounded-circle" alt="Profile" />
                     <span className="d-none d-sm-inline mx-1">Administrador</span>
                   </a>
                   <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
@@ -135,7 +203,7 @@ const handleSearchHorario = (event) => {
                 <div>
                  
                   <form id="busqueda">
-                    <select name="select" value={selectedOption} onChange={handleSelectChange}>
+                    <select name="select"  onChange={handleSelectChange}>
                      <option selected disabled>Seleccione una opcion</option>
                      {horariosData.map(option =>(
                       <option key={option.idhorario} value={option.idhorario}>{option.nombre}</option>
@@ -143,12 +211,11 @@ const handleSearchHorario = (event) => {
                     </select>
                     
                     <button className="btn" id="search-button" onClick={handleSearchHorario} >Buscar Horario</button>
-                   
                   </form>
                    
                   <div className="img-calendar">
                     
-                  <img src={selectedHorarioImage} alt="" id="img_horario"/>
+                  <img src={selectedHorarioImage.urlhorario}  id="img_horario"/>
 
                   </div>
                 </div>
@@ -166,49 +233,41 @@ const handleSearchHorario = (event) => {
         <ModalHeader>Agregar horario</ModalHeader>
         </div>
         <ModalBody>
-          <form>
+          <form onSubmit={newCalendarsend}>
           <div className="row">
-            <div className="col-6 text-center">
+            <div className="col-12 text-center">
               <label>Seleccione un curso:</label>
-              <select className='form-control' name="nombre" value={selectedOption} onChange={handleSelectChange} defaultValue="">
+              <select className='form-control' name="numero_curso" value={newCalendar.numero_curso} onChange={handleInputChange} defaultValue="">
                       <option selected disabled>Seleccione una opcion</option>
                       {cursosData.map(option =>(
                         <option key={option.numero} value={option.numero}>{option.nombre}</option>
                       ))}
               </select>
             </div>
-            <div className="col-6 text-center" id="div-link-horario">
-              <label>Ingrese un link:</label>
-              <input type="text" className="form-control" id="input-link" />
-            </div>
+            
           </div>
           <div className="row">
-          <div className="container-input seleccionador">
+          <div className="container-input ">
                 <input
-                  type="file"
-                  name="file-1"
-                  id="file-1"
-                  className="inputfile inputfile-1"
-                  data-multiple-caption="{count} archivos seleccionados"
-                  multiple
+                  className="form-control col-5"type="file" accept="image/*" onChange={handleSelectfile} id="fileinput"
                 />
                 <label>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="iborrainputfile"
+                    className="col-12"
                     width="20"
                     height="17"
                     viewBox="0 0 20 17"
                   >
                     <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
                   </svg>
-                  <span className="iborrainputfile">Seleccionar archivo</span>
+             
                 </label>
               </div> 
           </div>
           <div className="row d-flex align-items-center justify-content-center">
             <div className="col-2 mt-2 ">
-            <button className="btn btn-primary">enviar</button>
+            <button className="btn btn-primary" type="submit">enviar</button>
             </div>
           </div>
           </form>

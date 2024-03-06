@@ -48,6 +48,10 @@ function UserRegistration() {
   const handleSelectfile= async(event)=>{
     console.log(event.target.files[0])
     const file=event.target.files[0]
+    if (file.type !== 'image/png' && file.type !=='image/jpeg'){
+     console.log("Error en tipo de archivo")
+     return;
+    }
     console.log(file[0])
     const data= new FormData();
     data.append("file",file)
