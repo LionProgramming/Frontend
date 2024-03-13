@@ -8,6 +8,7 @@ const[modalConsultar,setModalConsultar]=useState(true);
 
 const closeModal=()=>{
     setModalConsultar(false)
+    window.location.reload();
 }
 return(
     <Modal isOpen={modalConsultar}>

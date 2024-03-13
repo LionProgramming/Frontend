@@ -98,7 +98,7 @@ const closeModal=()=>{
                       </li>
                       <li className="w-100">
                         <a href="/UserAdministration" className="nav-link px-0 text-white" id="tabla"> <span
-                          className="d-none d-sm-inline" id="active">Gestiones adicionales</span> <i
+                          className="d-none d-sm-inline" id="active">Ver todos los usuarios</span> <i
                             className="fs-5 bi bi-plus-slash-minus" id="active"></i></a>
                       </li>
                     </ul>

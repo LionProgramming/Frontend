@@ -50,7 +50,7 @@ function CourseManagement() {
                       </li>
                       <li className="w-100">
                         <a href="/UserAdministration" className="nav-link px-0 text-white" id="tabla"> <span
-                          className="d-none d-sm-inline" id="text-hover">Gestiones adicionales</span> <i
+                          className="d-none d-sm-inline" id="text-hover">Ver todos los usuarios</span> <i
                             className="fs-5 bi bi-plus-slash-minus" id="icono2"></i></a>
                       </li>
                     </ul>

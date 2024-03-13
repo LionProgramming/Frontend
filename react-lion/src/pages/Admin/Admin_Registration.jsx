@@ -212,7 +212,7 @@ function UserRegistration() {
                               className="d-none d-sm-inline"
                               id="text-hover"
                             >
-                              Gestiones adicionales
+                              Ver todos los usuarios
                             </span>{" "}
                             <i
                               className="fs-5 bi bi-plus-slash-minus"

@@ -3,6 +3,7 @@ import axios from 'axios'
 import Navbar from "../../components/Admin/Navbar";
 import "../../css/Admin_Calendar.css";
 import {Modal,ModalBody,ModalHeader,ModalFooter} from 'reactstrap'
+import ModalSucces from "../../components/Admin/Modal";
 function UserCalendar() {
   
     const [cursosData, setCursosData] = useState([]);
@@ -13,7 +14,9 @@ function UserCalendar() {
     })
     const [selectedOption, setSelectedOption] = useState('');
     const [modalHorario, setModalHorario]=useState(false)
+    const [modalEditHorario, setModalEditHorario]=useState(false)
     const [loading,setLoading]=useState(false)
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [selectedHorarioImage, setSelectedHorarioImage] = useState('');
     const key=744737558366745
     useEffect(() => {
@@ -39,6 +42,7 @@ function UserCalendar() {
         console.error(err)
       }
     }
+
     const handleSelectfile= async(event)=>{
       console.log(event.target.files[0])
       const file=event.target.files[0]
@@ -91,6 +95,7 @@ const newCalendarsend = (event)=> {
     try{
       const response= await axios.post(`http://127.0.0.1:8000/api/v1/horarios/`,dataTosend)
       console.log(response)
+       setShowSuccessModal(true);
     }
   catch(error){
     console.error('Error al enviar los datos:',error)
@@ -98,6 +103,28 @@ const newCalendarsend = (event)=> {
  
   }
   postData();
+}
+const editCalendarsend= (event)=> {
+  event.preventDefault();
+  const dataTosend={
+    urlhorario:newCalendar.newUrl,
+    numero_curso:newCalendar.numero_curso
+  }
+  console.log(newCalendar.numero_curso)
+  const linkCalendar= newCalendar.numero_curso
+  console.log(linkCalendar)
+  const putData=async()=>{
+    try{
+      const response = await axios.put(`http://127.0.0.1:8000/api/v1/horarios/${linkCalendar}/`, dataTosend);
+      console.log(response)
+       setShowSuccessModal(true);
+    }
+  catch(error){
+    console.error('Error al enviar los datos:',error)
+  }
+ 
+  }
+  putData();
 }
 const handleSearchHorario = (event) => {
   event.preventDefault();
@@ -119,8 +146,14 @@ const handleSearchHorario = (event) => {
     const modalOpen=()=>{
       setModalHorario(true)
     }
+    const modalEditOpen=()=>{
+      setModalEditHorario(true)
+    }
     const modalClose=()=>{
       setModalHorario(false)
+    }
+    const modalEditClose=()=>{
+      setModalEditHorario(false)
     }
   return (
     <div className='body_Calendar'>
@@ -156,7 +189,7 @@ const handleSearchHorario = (event) => {
                       </li>
                       <li className="w-100">
                         <a href="/UserAdministration" className="nav-link px-0 text-white" id="tabla"> <span
-                          className="d-none d-sm-inline" id="text-hover">Gestiones adicionales</span> <i
+                          className="d-none d-sm-inline" id="text-hover">Ver todos los usuarios</span> <i
                             className="fs-5 bi bi-plus-slash-minus" id="icono2"></i></a>
                       </li>
                     </ul>
@@ -209,7 +242,6 @@ const handleSearchHorario = (event) => {
                       <option key={option.idhorario} value={option.idhorario}>{option.nombre}</option>
                      ))}
                     </select>
-                    
                     <button className="btn" id="search-button" onClick={handleSearchHorario} >Buscar Horario</button>
                   </form>
                    
@@ -220,7 +252,11 @@ const handleSearchHorario = (event) => {
                   </div>
                 </div>
               </nav>
-              <button className="btn btn-info" onClick={() =>modalOpen()} >+ Horario</button>
+              <div className="col">
+              <button className="btn btn-info m-2" onClick={() =>modalOpen()} >+ Horario</button>
+              <button className="btn btn-info m-2" onClick={() =>modalEditOpen()} ><i className="bi bi-pen"></i> Horario</button>
+              </div>
+              
               {/* */}
             </div>
           </div>
@@ -278,7 +314,60 @@ const handleSearchHorario = (event) => {
           </button>
         </ModalFooter>
       </Modal>
+
+
+      <Modal isOpen={modalEditHorario}>
+        <div className="text-center">
+        <ModalHeader>Editar horario</ModalHeader>
+        </div>
+        <ModalBody>
+          <form onSubmit={editCalendarsend}>
+          <div className="row">
+            <div className="col-12 text-center">
+              <label>Seleccione un curso:</label>
+              <select className='form-control' name="numero_curso" value={newCalendar.numero_curso} onChange={handleInputChange} defaultValue="">
+                      <option selected disabled>Seleccione una opcion</option>
+                      {horariosData.map(option =>(
+                        <option key={option.idhorario} value={option.idhorario}>{option.nombre}</option>
+                      ))}
+              </select>
+            </div>
+            
+          </div>
+          <div className="row">
+          <div className="container-input ">
+                <input
+                  className="form-control col-5"type="file" accept="image/*" onChange={handleSelectfile} id="fileinput"
+                />
+                <label>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="col-12"
+                    width="20"
+                    height="17"
+                    viewBox="0 0 20 17"
+                  >
+                    <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
+                  </svg>
+             
+                </label>
+              </div> 
+          </div>
+          <div className="row d-flex align-items-center justify-content-center">
+            <div className="col-2 mt-2 ">
+            <button className="btn btn-primary" type="submit">enviar</button>
+            </div>
+          </div>
+          </form>
+        </ModalBody>
+        <ModalFooter>
+          <button className="btn btn-sm" id="modal-icon-cancel" onClick={() =>modalEditClose()}>
+            <i className="bi bi-x-lg"></i>
+          </button>
+        </ModalFooter>
+      </Modal>
       </div>
+      {showSuccessModal && <ModalSucces onClose={() => setShowSuccessModal(false)} />}
     </div>
   );
 }
