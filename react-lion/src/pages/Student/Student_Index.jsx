@@ -19,7 +19,7 @@ function Student_Index() {
       try {
         const respuesta = await axios.get(`http://127.0.0.1:8000/api/v1/users/${studentDocument}`);
         
-        setStudent([respuesta.data]);
+        setStudent(respuesta.data);
         console.log(respuesta)
       } catch (error) {
         console.error('Error al obtener los datos del estudiante:', error);
@@ -44,19 +44,19 @@ function Student_Index() {
                       <h3 className='text-center'>Informacion personal</h3>
                     </div>
                       <article id='info-user'>
-                          <img src={student.length > 0 && student[0].urlfoto} id='img-perfil' alt="Imagen perfil" className='image_index'/>
+                          <img src={student.urlfoto} id='img-perfil' alt="Imagen perfil" className='image_index'/>
                         <div id='cont-info-user'>
                           <div id='info-student'>
-                              <h3>Nombre: {student.length > 0 && student[0].nombre1 +" "+(student[0].nombre2 ? `${student[0].nombre2}` : ' ')+" "+student[0].apellido1+" "+(student[0].apellido2 ? `${student[0].apellido2}` : ' ')}</h3>
+                              <h3>Nombre: {student.nombre1 +" "+(student.nombre2 ? `${student.nombre2}` : ' ')+" "+student.apellido1+" "+(student.apellido2 ? `${student.apellido2}` : ' ')}</h3>
                           </div>
                           <div id='info-student'>
-                              <h3>Curso: {student.length > 0 && student[0].curso}</h3>
+                              <h3>Curso: {student.nombre_curso}</h3>
                           </div>
                           <div id='info-student'>
-                              <h3>Correo: {student.length > 0 && student[0].email}</h3>
+                              <h3>Correo: {student.email}</h3>
                           </div>
                           <div id='info-student'>
-                              <h3>Telefono: {student.length > 0 && student[0].telefono_celular}</h3>
+                              <h3>Telefono: {student.telefono_celular}</h3>
                           </div>
                         </div>
                       </article>

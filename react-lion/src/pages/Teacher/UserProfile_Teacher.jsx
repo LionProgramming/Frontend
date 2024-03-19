@@ -11,7 +11,7 @@ const UserProfile = () => {
     const getTeacher = async () => {
       try {
         const response = await axios.get(`http://127.0.0.1:8000/api/v1/users/${teacherDocument}`);
-        setTeacher([response.data]);
+        setTeacher(response.data);
         console.log(response);
       } catch (error) {
         console.error('Error al obtener los datos del profesor:', error);
@@ -26,45 +26,59 @@ const UserProfile = () => {
       <div className="row">
         <SidebarHome />
 
-        <div className="col-md-9 p-3">
-          <div className="container">
+        <div className="col-md-8 m-4 ">
+          <div className="container container-teacher-info">
             <div className="user-info-section">
-              <h2>Información Personal</h2>
-
-              <div className="row" key={teacher[0]?.documento}>
-                <div className="col-md-4">
-                  <div className="user-photo text-center">
-                    <img
-                      src={teacher.length > 0 && teacher[0].urlfoto ? teacher[0].urlfoto : img}
+              <div className="row">
+                <div className="col-8">
+                <h2 className="h2-teacher-profile">Información Basica</h2>
+                </div>
+                <div className="col-4">
+                <img
+                      src={teacher.length > 0 && teacher.urlfoto ? teacher.urlfoto : img}
                       id='img-perfil'
                       alt="Imagen perfil"
                       className='image_index'
                     />
-
+                </div>
+              
+              </div>
+              
+                
+              <div className="row " key={teacher.documento}>
+                
+                <div className="col-md-7">
+                  <div className="user-details">
+                      <p>
+                      <strong>Nombre</strong> {teacher.nombre1} {teacher.nombre2}
+                      </p>
+                      <p>
+                      <strong>Apellido</strong> {teacher.apellido1} {teacher.apellido2}
+                      </p>
+                      <p>
+                      <strong>Fecha de nacimiento</strong> {teacher.fechanacimiento}
+                      </p>
+                      <p>
+                      <strong>Email</strong> {teacher.email}
+                      </p>
+                      <p>
+                      <strong>Telefono</strong> {teacher.telefono_fijo}
+                      </p>
+                      <p>
+                      <strong>Telefono celular</strong> {teacher.telefono_celular}
+                      </p>
+                      <p>
+                      <strong>Tipo de usuario</strong> {teacher.rol}
+                      
+                    </p>
+                  </div>
+                </div>
+                <div className="col-md-4 ">
+                  <div className="user-photo button-photo-edit ">
                     <button type="button" className="btn btn-link">
                       <i className="bi bi-pencil-square"></i>
                       Editar Foto
                     </button>
-                  </div>
-                </div>
-                <div className="col-md-8">
-                  <div className="user-details">
-                    <p>
-                      <strong>Nombre:</strong> {teacher[0]?.nombre1} {teacher[0]?.nombre2}
-                      <br />
-                      <strong>Apellido :</strong> {teacher[0]?.apellido1} {teacher[0]?.apellido2}
-                      <br />
-                      <strong>Fecha de nacimiento  :</strong> {teacher[0]?.fechanacimiento}
-                      <br />
-                      <strong>Email:</strong> {teacher[0]?.email}
-                      <br />
-                      <strong>Telefono:</strong> {teacher[0]?.telefono_fijo}
-                      <br />
-                      <strong>Telefono celular:</strong> {teacher[0]?.telefono_celular}
-                      <br />
-                      <strong>Tipo de usuario:</strong> {teacher[0]?.rol}
-                      <br />
-                    </p>
                   </div>
                 </div>
               </div>

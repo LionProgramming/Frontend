@@ -11,7 +11,7 @@ function SidebarObservation() {
         >
           {/*Boton de inicio*/}
           <li className="nav-item">
-            <a href="/" className="nav-link align-middle px-0">
+            <a href="/UserProfileT" className="nav-link align-middle px-0">
               <i className="fs-4 bi bi-house" id="icono2"></i>{" "}
               <span
                 className="ms-1 d-none d-sm-inline text-white"

@@ -6,6 +6,8 @@ import ModalSucces from "../../components/Admin/Modal";
 import { useState, useEffect } from "react";
 
 function UserRegistration() {
+  
+  
   /* const navigate = useNavigate();
   const {isAuth}=useAuth */
   /* use document.getElementById('image').style.display='none'; */
@@ -27,10 +29,13 @@ function UserRegistration() {
     urlfoto: "",
     estado: 1,
     tipo_idtipodocumento: "",
-    rol_idrol: ""
+    rol_idrol: "",
+    curso:""
 
   });
  
+  //Consulta grados disponibles
+  
   //Cambio del estado de todos los inputs
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -102,6 +107,7 @@ function UserRegistration() {
       estado: 1,
       tipo_idtipodocumento: userData.tipo_idtipodocumento,
       rol_idrol: userData.rol_idrol,
+      curso:userData.curso
     }
     const postData= async()=>{
       try{
@@ -124,7 +130,8 @@ function UserRegistration() {
             urlfoto: "",
             estado: 1,
             tipo_idtipodocumento: "",
-            rol_idrol: ""
+            rol_idrol: "",
+            curso:"",
   }
           )
           setShowSuccessModal(true);
@@ -323,7 +330,7 @@ function UserRegistration() {
                       <label className="form-label shadow-text">Confirmar Contraseña</label>
                       <input type="password" className="form-control" id="confirmarContraseña" placeholder="Confirmar Contraseña" name='confirmarContrasenia' value={userData.confirmarContrasenia} onChange={handleInputChange} required />
                       <p id="danger" >las contraseñas no coinciden</p>
-
+                      
                     </div>
                     <div className="col-sm-6 col-md-6">
 
@@ -357,7 +364,9 @@ function UserRegistration() {
                         <div className="col-sm-8 d-flex align-items-center justify-content-center" id="image">
                           <img src="" alt="imagen perfil" id="imageimg" />
                         </div>
+
                       </div>
+                      
                       <button type="submit" className="btn btn-primary" id="button-register">Registrar</button>
                     </div>
                   </div>

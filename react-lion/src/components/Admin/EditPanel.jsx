@@ -5,6 +5,7 @@ const EditPanel=({documento})=> {
     const [datosEditados,setDatosEditados]=useState({})
     const [cargados,setCargados]=useState(true)
     const[modalConsultar,setModalConsultar]=useState(false);
+    const [infoCalendars, setInfoCalendars] = useState([]);
 
     const closeModal=()=>{
         setModalConsultar(false);
@@ -22,9 +23,22 @@ const EditPanel=({documento})=> {
                 console.error(error)
             }
         };
-
+        
         fetchData();
+        fetchDataCalendar();
     },[documento])
+    const fetchDataCalendar = async () => {
+        try {
+          const resultado = await axios("http://127.0.0.1:8000/api/v1/grados/");
+          console.log(resultado.data)
+          setInfoCalendars(resultado.data)
+          
+        } catch (err) {
+          console.log("Algo esta mal");
+        }
+       
+      }
+
     const handleChange=(e)=>{
         const {name,value}=e.target
         setDatosEditados({ ...datosEditados,[name]:value})
@@ -35,6 +49,7 @@ const EditPanel=({documento})=> {
         try{
             await axios.put(`http://127.0.0.1:8000/api/v1/users/${documento}/`,datosEditados)
             console.log('Datos editados con exito')
+            console.log(datosEditados)
         }catch(error){
             console.error(error)
         }
@@ -105,7 +120,11 @@ const EditPanel=({documento})=> {
                     </div>
                 <div className="col-5 text-center">
                     <label className='text-center'>Curso</label>
-                    <input type="number" className='form-control' value={datosEditados.curso} onChange={handleChange}/>
+                    <select className='form-control' value={datosEditados.curso} name='curso'onChange={handleChange}>
+                    {infoCalendars.map(option =>(
+                        <option key={option.numero} value={option.numero}>{option.nombre}</option>
+                      ))}
+                    </select>
                 </div>
                 </div>
 

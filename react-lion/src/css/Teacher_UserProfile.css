@@ -44,4 +44,22 @@
   }
 }
 
+.container-teacher-info{
+  margin-left: 5%;
+  margin-top: 5%;
 
+}
+.user-details p{
+  padding: 2%;
+  margin: 0;
+  border-radius: 5px;
+}
+
+.h2-teacher-profile{
+  text-shadow: none;
+  color: black;
+}
+
+.button-photo-edit{
+  margin-left: 45%;
+}

@@ -8,6 +8,7 @@ import { useGlobalState } from '../../context/GlobalStateProvider.jsx';
 const Login = () => {
   const nav = useNavigate();
   const {dispatch}=useGlobalState();
+  const [error,Seterror]=useState('');
   const [credentials,SetCredentials]=useState({
     documentoCredential:'',
     contraseniaCredential:''
@@ -38,6 +39,7 @@ const Login = () => {
     const verify =async()=>{
       try{
         const response=await axios.post(`http://127.0.0.1:8000/login/`,formcheck)
+        console.log(response.data)
         if(response.data.response===1){
           localStorage.setItem('documento', response.data.documento); //poner esto en als validaciones 
           dispatch({type:'SET_DOCUMENT', payload: response.data.documento})
@@ -51,9 +53,16 @@ const Login = () => {
             nav("/UserProfileT")
           }
         }
+
       }catch(error){
         console.error(error)
+        if (error.response && error.response.status ===401){
+          Seterror('Usuario o contraseña incorrectos');
+        }else{
+          Seterror('Error en el servidor, por favor intentalo de nuevo mas tarde');
+        }
       }
+
       
     }
     verify();
@@ -74,8 +83,10 @@ const Login = () => {
         <input className='form-control' type="password" placeholder="contraseña" id="contraseña"  name="contraseniaCredential" value={credentials.contraseniaCredential} onChange={handleChange} />
         <br />
         <label className='text-center' id="validacion1">Porfavor ingrese los campos requeridos</label>
+        {error && <p className='text-danger'>{error}</p>}
         <button className="btn btn-primary mt-2 " type='submit'>ingresar</button>
         </form>
+       
       </div>
         
 

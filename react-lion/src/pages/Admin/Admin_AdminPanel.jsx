@@ -10,6 +10,7 @@ const UserAdminPanel = () => {
   const [userData, setUserData] = useState([]);
   const [modalData, setModalData] = useState(null);
   const[modalConsultar,setModalConsultar]=useState(false);
+ 
   const [documentoAEditar, setDocumentoAEditar]=useState(null)
  /*  const [searchTerm,setSearchTerm]=useState('')
   const [filteredData,setFilteredData]=useState([...userData])
@@ -32,8 +33,10 @@ const UserAdminPanel = () => {
   } */
   useEffect(() => {
     fetchData();
+   
   }, [])
   
+ 
   const fetchData = async () => {
     try {
       //Consulta para ver todos los usuarios
