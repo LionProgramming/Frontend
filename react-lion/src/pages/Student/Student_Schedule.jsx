@@ -58,7 +58,7 @@ function Student_Index() {
                       <h3>Mi Curso</h3>
                     </div>
                       <article id='info-curso'>
-                          <img src={schedule[0]?.urlhorario} id='img-curso' alt="Imagen perfil" className='image_index'/>
+                          <img src={schedule[0]?.urlhorario} id='img-curso' alt="Imagen perfil"/>
                       </article>
                   </div>
                 </div>

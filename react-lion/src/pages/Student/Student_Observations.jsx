@@ -85,7 +85,6 @@ function Student_Observations() {
                                                         <div id='info-student-ob'>
                                                             <div id='tabla-info-ob'>
                                                                 <p id='celda-ob'>Motivo: {observation.informe}</p>
-                                                                <p id='celda-ob'>Fecha: </p>
                                                             </div>
                                                             <button id='info-obs' onClick={() => ModalObservationSearch(observation.idobservacion)}>Mostrar</button>
                                                         </div>
@@ -94,7 +93,6 @@ function Student_Observations() {
                                                             setState={setModalVisible}>
 
                                                             <p>Motivo: {observationSearch.informe}</p>
-                                                            <p>Fecha: </p>
                                                             <p>Firma:</p>
                                                             <img src={firma} alt='Firma' />
                                                         </ModalObservation>

@@ -3,7 +3,6 @@ import axios from 'axios';
 import '../../css/Admin_AdminPanel.css'
 import EditPanel from '../../components/Admin/EditPanel.jsx'
 import Navbar from '../../components/Admin/Navbar';
-import img from '../../images/foto.PNG'
 import {Modal,ModalBody,ModalHeader,ModalFooter} from 'reactstrap'
 
 const UserAdminPanel = () => {
@@ -122,7 +121,6 @@ const closeModal=()=>{
                 <div className="dropdown pb-4">
                   <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                     id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img  src={img} width="30" height="30" className="rounded-circle" alt="Profile" />
                     <span className="d-none d-sm-inline mx-1">Administrador</span>
                   </a>
                   <ul className="dropdown-menu dropdown-menu-dark text-small shadow">

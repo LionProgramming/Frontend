@@ -1,7 +1,6 @@
 import EstudentSidebarHome from '../../components/Student/IndexSideBar_Student.jsx'
 import NavBarStudent_Index from '../../components/Student/NavBar_Student.jsx';
 import '../../css/Student_Index.css'
-import img from '../../images/foto.png'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useGlobalState } from '../../context/GlobalStateProvider.jsx';

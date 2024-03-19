@@ -1,6 +1,6 @@
 import SidebarHome from "../../components/Teacher/SidebarObservations_Teacher";
 import "../../css/Teacher_UserProfile.css";
-import img from '../../images/foto.png'
+
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 const teacherDocument = localStorage.getItem("documento")
@@ -35,7 +35,7 @@ const UserProfile = () => {
                 </div>
                 <div className="col-4">
                 <img
-                      src={teacher.length > 0 && teacher.urlfoto ? teacher.urlfoto : img}
+                      src={teacher.urlfoto}
                       id='img-perfil'
                       alt="Imagen perfil"
                       className='image_index'
