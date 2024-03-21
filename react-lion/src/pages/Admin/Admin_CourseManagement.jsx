@@ -1,24 +1,33 @@
 import Navbar from '../../components/Admin/Navbar.jsx';
 import '../../css/Admin_CourseManagement.css';
+import EditTeacher from '../../components/Admin/EditMainteacher.jsx';
 import {useEffect,useState} from 'react';
 import axios from 'axios'
 
 function CourseManagement() {
   const [cursosData, setCursosData] = useState([]);
+  const [cursoAEditar, setcursoAEditar]=useState(null)
+ 
   useEffect(() => {
     fetchData();
   }, [])
+
+
+  const abrirModalEdicion= (numero)=>{
+    setcursoAEditar(numero);
+  }
+
   const fetchData = async () => {
     try {
       const resultado = await axios("http://127.0.0.1:8000/api/v1/grados/");
       setCursosData(resultado.data);
-      console.log(resultado.data)
       
     } catch (err) {
       console.log("Algo esta mal");
     }
    
   }
+ 
   return (
     <div className='bodyCourseManagement'>
       <section>
@@ -71,7 +80,6 @@ function CourseManagement() {
                 <div className="dropdown pb-4">
                   <a href="#" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                     id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="../../imagenes/Profile-photo.PNG" width="30" height="30" className="rounded-circle" alt="Profile" />
                     <span className="d-none d-sm-inline mx-1">Administrador</span>
                   </a>
                   <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
@@ -109,7 +117,7 @@ function CourseManagement() {
                             <td>{curso.director_nombre}</td>
                             
                             <td>
-                               <button className="btn  btn-sm" id="icon">
+                               <button className="btn  btn-sm" id="icon" onClick={()=>abrirModalEdicion(curso.numero)}>
                                  <i className="bi bi-pencil-fill"></i>
                                 </button>
                                 <button className="btn  btn-sm" id="icon">
@@ -133,6 +141,7 @@ function CourseManagement() {
         </div>
 
       </section>
+      {cursoAEditar && (<EditTeacher numero={cursoAEditar}/>)}
     </div>
 
   );
